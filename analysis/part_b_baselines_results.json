@@ -1,0 +1,231 @@
+{
+  "analysis": "F18 Part B baselines hierarchy for PL_peak_nm_final",
+  "target": "PL_peak_nm_final",
+  "n_rows": 129,
+  "n_papers": 50,
+  "cv": "paper-level GroupKFold (5-fold)",
+  "bootstrap_n": 1000,
+  "bootstrap_strategy": "paper-level resample",
+  "baselines": {
+    "1_shuffled_negative_control": {
+      "label": "Shuffled-target negative control (full RF)",
+      "features": [
+        "T_growth_C",
+        "time_min",
+        "outer_is_ZnS",
+        "shell_layer_count",
+        "route",
+        "shell_innermost",
+        "shell_composition_tier"
+      ],
+      "mae_mean": 64.32874977650127,
+      "mae_std": 6.06574411669244,
+      "mae_per_fold": [
+        71.28312011599509,
+        56.36036660561661,
+        65.01161471167721,
+        70.47707924714175,
+        58.511568202075686
+      ],
+      "r2_mean": -0.26716675073226026,
+      "r2_std": 0.1466465786836602,
+      "r2_per_fold": [
+        -0.5544872934705447,
+        -0.16839220453175452,
+        -0.21787744970304446,
+        -0.23685087633978585,
+        -0.15822592961617166
+      ],
+      "bootstrap_n": 1000,
+      "bootstrap_95ci": [
+        55.72274976152687,
+        75.16623575196637
+      ]
+    },
+    "2_global_mean": {
+      "label": "Global mean predictor (constant = training mean)",
+      "features": [],
+      "mae_mean": 61.659203211351766,
+      "mae_std": 9.972864812331515,
+      "mae_per_fold": [
+        56.497535474234525,
+        50.49159820761766,
+        58.54660194174756,
+        62.79962658700522,
+        79.96065384615386
+      ],
+      "r2_mean": -0.19601173289580895,
+      "r2_std": 0.1321840575261889,
+      "r2_per_fold": [
+        -0.3658349832816583,
+        -0.17064527227525073,
+        -0.11490376578847372,
+        -0.007342588167831732,
+        -0.3213320549658303
+      ],
+      "bootstrap_n": 1000,
+      "bootstrap_95ci": [
+        47.9101633556255,
+        76.20721670117321
+      ]
+    },
+    "3_paper_grouped_dummy": {
+      "label": "Paper-grouped dummy (paper-mean if seen, else global mean)",
+      "features": [
+        "paper_id"
+      ],
+      "mae_mean": 61.659203211351766,
+      "mae_std": 9.972864812331515,
+      "mae_per_fold": [
+        56.497535474234525,
+        50.49159820761766,
+        58.54660194174756,
+        62.79962658700522,
+        79.96065384615386
+      ],
+      "r2_mean": -0.19601173289580895,
+      "r2_std": 0.1321840575261889,
+      "r2_per_fold": [
+        -0.3658349832816583,
+        -0.17064527227525073,
+        -0.11490376578847372,
+        -0.007342588167831732,
+        -0.3213320549658303
+      ],
+      "bootstrap_n": 1000,
+      "bootstrap_95ci": [
+        47.9101633556255,
+        76.20721670117321
+      ]
+    },
+    "4_T_only_linear": {
+      "label": "T_growth_C only (single-feature linear regression)",
+      "features": [
+        "T_growth_C"
+      ],
+      "mae_mean": 60.89592304466147,
+      "mae_std": 10.520729326834758,
+      "mae_per_fold": [
+        59.02337813587014,
+        42.693442239040806,
+        67.55453749174711,
+        61.11356614776469,
+        74.09469120888458
+      ],
+      "r2_mean": -0.19299935620330422,
+      "r2_std": 0.18651852071231587,
+      "r2_per_fold": [
+        -0.4004109278284065,
+        0.09605605042838061,
+        -0.3908669345689342,
+        -0.10779830893577258,
+        -0.16197666011178846
+      ],
+      "bootstrap_n": 1000,
+      "bootstrap_95ci": [
+        45.493529406298826,
+        74.74454935578916
+      ]
+    },
+    "5_shell_innermost_only_linear": {
+      "label": "shell_innermost only (categorical linear regression)",
+      "features": [
+        "shell_innermost"
+      ],
+      "mae_mean": 51.12782362707349,
+      "mae_std": 11.01859612592781,
+      "mae_per_fold": [
+        46.97082917110742,
+        36.695137105445,
+        69.07396275794858,
+        46.009315282139106,
+        56.88987381872735
+      ],
+      "r2_mean": 0.020320558932700995,
+      "r2_std": 0.29087715506799333,
+      "r2_per_fold": [
+        -0.21778829610240114,
+        0.14847572390729424,
+        -0.4147073055966559,
+        0.3708380406559535,
+        0.21478463179931429
+      ],
+      "bootstrap_n": 1000,
+      "bootstrap_95ci": [
+        38.61421257441028,
+        66.85906643595871
+      ]
+    },
+    "6_T_plus_logtime_linear": {
+      "label": "T_growth_C + log10(time_min) (2-feature linear regression)",
+      "features": [
+        "T_growth_C",
+        "log10_time_min"
+      ],
+      "mae_mean": 55.94662086503636,
+      "mae_std": 11.475336172053533,
+      "mae_per_fold": [
+        45.59708461699487,
+        38.92201728922036,
+        64.46875499533168,
+        63.01244952595792,
+        67.73279789767696
+      ],
+      "r2_mean": -0.0655887378726974,
+      "r2_std": 0.19293104893995025,
+      "r2_per_fold": [
+        -0.03571189427012866,
+        0.24051163398906794,
+        -0.318884837315486,
+        -0.21634795818924135,
+        0.0024893664223011314
+      ],
+      "bootstrap_n": 1000,
+      "bootstrap_95ci": [
+        43.082897596268275,
+        74.67913691807752
+      ]
+    },
+    "7_full_rf_production": {
+      "label": "Full random forest (Part B production model)",
+      "features": [
+        "T_growth_C",
+        "time_min",
+        "outer_is_ZnS",
+        "shell_layer_count",
+        "route",
+        "shell_innermost",
+        "shell_composition_tier"
+      ],
+      "mae_mean": 49.79036344610092,
+      "mae_std": 7.4852883548930365,
+      "mae_per_fold": [
+        43.19058103595122,
+        41.07472259204473,
+        59.27279775086022,
+        57.88854418498169,
+        47.52517166666672
+      ],
+      "r2_mean": 0.06096455449638929,
+      "r2_std": 0.2015289325408241,
+      "r2_per_fold": [
+        -0.045853866125215026,
+        0.06905508778911229,
+        -0.1256048011700568,
+        -0.037310607221723746,
+        0.4445369592098297
+      ],
+      "bootstrap_n": 1000,
+      "bootstrap_95ci": [
+        37.2962837856016,
+        65.98127961495202
+      ]
+    }
+  },
+  "summary": {
+    "improvement_over_T_only": 11.105559598560554,
+    "improvement_over_T_plus_logtime": 6.156257418935439,
+    "full_vs_shuffled_gap": 14.53838633040035,
+    "interpretation": "Full RF improves on T_growth_C-only by improvement_over_T_only nm and on T + log(time) by improvement_over_T_plus_logtime nm. The shuffled-target negative control demonstrates the RF's signal is not numerical artifact (a substantial full_vs_shuffled_gap indicates meaningful target dependence)."
+  }
+}

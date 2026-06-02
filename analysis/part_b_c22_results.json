@@ -1,0 +1,1019 @@
+{
+  "milestone": "STOP C.2-2",
+  "targets": [
+    "PL_peak_nm_final",
+    "QY_percent_final",
+    "FWHM_nm_final",
+    "shell_layer_count"
+  ],
+  "baseline_caution_off": {
+    "QY_percent_final": {
+      "target": "QY_percent_final",
+      "n_rows": 119,
+      "n_papers": 50,
+      "use_caution_count": false,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS",
+          "shell_layer_count"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost",
+          "shell_composition_tier"
+        ]
+      },
+      "rf": {
+        "mae_mean": 18.340729913870344,
+        "mae_std": 2.857122985084206,
+        "mae_per_fold": [
+          14.108354067460317,
+          17.559217747414625,
+          18.107402229136593,
+          23.02236036833537,
+          18.90631515700483
+        ],
+        "r2_mean": 0.007720681475042146,
+        "r2_std": 0.24056146949123597,
+        "r2_per_fold": [
+          0.4647649971203388,
+          0.021132829442713774,
+          -0.17016458552237457,
+          -0.19259079064732298,
+          -0.0845390430181443
+        ],
+        "bootstrap_paper_level_95ci": [
+          14.202019090175394,
+          23.458779905350617
+        ]
+      },
+      "gbm": {
+        "mae_mean": 18.704440586066603,
+        "mae_std": 4.523687582803658,
+        "mae_per_fold": [
+          12.201273855990186,
+          16.128751737679483,
+          21.83274321503606,
+          25.278507040125987,
+          18.08092708150132
+        ],
+        "r2_mean": -0.1067440773505118,
+        "r2_std": 0.34734170792560776,
+        "r2_per_fold": [
+          0.31879611046538325,
+          0.0757711084921433,
+          -0.6256143592376695,
+          -0.39178589656743545,
+          0.08911265009501934
+        ]
+      },
+      "shap_top10": {
+        "num__T_growth_C": 9.540117030807776,
+        "cat__shell_innermost_ZnS": 5.424495077986476,
+        "cat__route_hot_injection": 3.445990016078206,
+        "num__time_min": 2.5482340713822356,
+        "num__shell_layer_count": 2.5476867205798777,
+        "cat__shell_composition_tier_single_shell": 2.2166744740288777,
+        "cat__route_aminophosphine_one_pot_HF": 0.9842835994602446,
+        "cat__shell_innermost_ZnSe": 0.6472531603209778,
+        "cat__route_heating_up": 0.5523951574017227,
+        "cat__shell_composition_tier_double_shell": 0.39797534171135074
+      },
+      "rf_importance_top10": {
+        "num__T_growth_C": 0.35031679244104835,
+        "num__time_min": 0.1664801741904944,
+        "cat__shell_innermost_ZnS": 0.07539504681016256,
+        "cat__shell_composition_tier_single_shell": 0.06389420871171374,
+        "cat__route_hot_injection": 0.05490379222326655,
+        "num__shell_layer_count": 0.05265147067834932,
+        "cat__shell_innermost_ZnSe": 0.04757130686349083,
+        "cat__route_heating_up": 0.024561083041624972,
+        "cat__shell_composition_tier_double_shell": 0.022921256700040544,
+        "cat__route_aminophosphine": 0.01972582831452115
+      }
+    },
+    "FWHM_nm_final": {
+      "target": "FWHM_nm_final",
+      "n_rows": 125,
+      "n_papers": 50,
+      "use_caution_count": false,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS",
+          "shell_layer_count"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost",
+          "shell_composition_tier"
+        ]
+      },
+      "rf": {
+        "mae_mean": 8.395553729104227,
+        "mae_std": 0.6897098877663286,
+        "mae_per_fold": [
+          8.830606345598847,
+          9.251718102453099,
+          8.501765934343434,
+          7.212832301587301,
+          8.180845961538461
+        ],
+        "r2_mean": -0.03890284990734296,
+        "r2_std": 0.18075034890020897,
+        "r2_per_fold": [
+          0.0025631999707786957,
+          0.11043652467087528,
+          -0.38784593202415185,
+          -0.010166550834116661,
+          0.09049850867989973
+        ],
+        "bootstrap_paper_level_95ci": [
+          7.074439218934727,
+          12.171500291464804
+        ]
+      },
+      "gbm": {
+        "mae_mean": 9.897755232631004,
+        "mae_std": 1.062413783084089,
+        "mae_per_fold": [
+          10.219635512035206,
+          9.82708198335408,
+          11.596517193581235,
+          9.53433916210664,
+          8.311202312077864
+        ],
+        "r2_mean": -0.4165820842402743,
+        "r2_std": 0.5332096781226978,
+        "r2_per_fold": [
+          -0.12533077089043765,
+          0.016584658609804404,
+          -1.3957891066576051,
+          -0.570076323025771,
+          -0.008298879237362167
+        ]
+      },
+      "shap_top10": {
+        "num__time_min": 3.945941395371423,
+        "num__T_growth_C": 2.369969961404866,
+        "cat__shell_innermost_ZnSe": 1.9669316561888748,
+        "cat__shell_innermost_ZnS": 1.286758277001571,
+        "cat__route_heating_up": 0.5236936436840739,
+        "cat__route_hot_injection": 0.5206083109884606,
+        "cat__shell_innermost_GaP": 0.30576494465071813,
+        "cat__route_aminophosphine": 0.29145237717614253,
+        "cat__shell_innermost_ZnSeS": 0.27402534903152487,
+        "cat__route_modified_SILAR": 0.18879401934877973
+      },
+      "rf_importance_top10": {
+        "num__T_growth_C": 0.30880728315987604,
+        "num__time_min": 0.2418277194414542,
+        "cat__shell_innermost_ZnSe": 0.0791231112406899,
+        "cat__shell_innermost_ZnS": 0.05917946374043347,
+        "cat__route_heating_up": 0.043560112188650975,
+        "num__shell_layer_count": 0.04204444141448185,
+        "cat__route_hot_injection": 0.03425184548766115,
+        "cat__route_aminophosphine": 0.03227726712500694,
+        "cat__shell_composition_tier_double_shell": 0.027364537206839828,
+        "cat__shell_composition_tier_single_shell": 0.020243013143514763
+      }
+    },
+    "shell_layer_count": {
+      "target": "shell_layer_count",
+      "n_rows": 132,
+      "n_papers": 52,
+      "use_caution_count": false,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost"
+        ]
+      },
+      "rf": {
+        "mae_mean": 0.24130384276217615,
+        "mae_std": 0.043613898048376114,
+        "mae_per_fold": [
+          0.22309700176366842,
+          0.26483201058201056,
+          0.16586034798534802,
+          0.2609455128205128,
+          0.2917843406593408
+        ],
+        "r2_mean": 0.4997209227055599,
+        "r2_std": 0.231828253269443,
+        "r2_per_fold": [
+          0.6952034005220145,
+          0.43565686619306243,
+          0.7926080469619665,
+          0.44663358779275597,
+          0.12850271205800023
+        ],
+        "bootstrap_paper_level_95ci": [
+          0.1741120933474553,
+          0.3701095324361628
+        ]
+      },
+      "gbm": {
+        "mae_mean": 0.21930679269882408,
+        "mae_std": 0.09930834596268444,
+        "mae_per_fold": [
+          0.1204740399323079,
+          0.2870501664894198,
+          0.08678533708293402,
+          0.25634910364132313,
+          0.3458753163481356
+        ],
+        "r2_mean": 0.3608554901688307,
+        "r2_std": 0.5047366393879511,
+        "r2_per_fold": [
+          0.9027024934721528,
+          0.15313463221802226,
+          0.9516261752694978,
+          0.18153440497337758,
+          -0.38472025508889707
+        ]
+      },
+      "shap_top10": {
+        "cat__shell_innermost_ZnS": 0.26276137682655876,
+        "num__outer_is_ZnS": 0.15293638079080357,
+        "num__time_min": 0.07912174081628792,
+        "cat__route_heating_up": 0.06903289184765403,
+        "num__T_growth_C": 0.04107039113546892,
+        "cat__shell_innermost_GaP": 0.0284715048367664,
+        "cat__shell_innermost_InGaP": 0.020919303519763684,
+        "cat__route_aminophosphine_one_pot_GHAS": 0.013294002738523724,
+        "cat__route_hot_injection": 0.010974992404740603,
+        "cat__shell_innermost_ZnSeS": 0.006767552992079995
+      },
+      "rf_importance_top10": {
+        "cat__shell_innermost_ZnS": 0.22071734134232254,
+        "num__time_min": 0.1600317203985389,
+        "num__outer_is_ZnS": 0.1342253370935469,
+        "num__T_growth_C": 0.1130401606459245,
+        "cat__route_heating_up": 0.06926411314652936,
+        "cat__shell_innermost_ZnSe": 0.05829668890233381,
+        "cat__shell_innermost_GaP": 0.03792703961028788,
+        "cat__shell_innermost_(Al)ZnS": 0.030192206309555922,
+        "cat__route_hot_injection": 0.02742320034926875,
+        "cat__shell_innermost_InGaP": 0.02535732229261431
+      }
+    },
+    "PL_peak_nm_final": {
+      "target": "PL_peak_nm_final",
+      "n_rows": 129,
+      "n_papers": 50,
+      "use_caution_count": false,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS",
+          "shell_layer_count"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost",
+          "shell_composition_tier"
+        ]
+      },
+      "rf": {
+        "mae_mean": 49.79036344610092,
+        "mae_std": 7.4852883548930365,
+        "mae_per_fold": [
+          43.19058103595122,
+          41.07472259204473,
+          59.27279775086022,
+          57.88854418498169,
+          47.52517166666672
+        ],
+        "r2_mean": 0.06096455449638929,
+        "r2_std": 0.2015289325408241,
+        "r2_per_fold": [
+          -0.045853866125215026,
+          0.06905508778911229,
+          -0.1256048011700568,
+          -0.037310607221723746,
+          0.4445369592098297
+        ],
+        "bootstrap_paper_level_95ci": [
+          37.2962837856016,
+          65.98127961495202
+        ]
+      },
+      "gbm": {
+        "mae_mean": 53.591657135468566,
+        "mae_std": 8.728249552969668,
+        "mae_per_fold": [
+          48.15425372215936,
+          43.12173588290253,
+          65.93938282244594,
+          61.81060999684651,
+          48.9323032529885
+        ],
+        "r2_mean": -0.12584131209348862,
+        "r2_std": 0.2871006573451852,
+        "r2_per_fold": [
+          -0.08847082558623942,
+          -0.14527440144018677,
+          -0.46423978144625333,
+          -0.31525242509060436,
+          0.38403087309584083
+        ]
+      },
+      "shap_top10": {
+        "cat__shell_innermost_ZnSe": 31.392860498257825,
+        "num__T_growth_C": 24.131737371545018,
+        "num__time_min": 20.284047914560865,
+        "cat__route_heating_up": 5.418834472847867,
+        "cat__route_aminophosphine_one_pot_HF": 5.1397932682269944,
+        "cat__shell_innermost_ZnS": 3.095537320824919,
+        "cat__route_aminophosphine": 2.9814680670431675,
+        "cat__shell_composition_tier_double_shell": 2.7251352751897278,
+        "cat__shell_innermost_ZnSeS": 1.9542457268872724,
+        "cat__route_hot_injection": 1.3111669353593525
+      },
+      "rf_importance_top10": {
+        "num__T_growth_C": 0.2888117211834336,
+        "num__time_min": 0.19712092547351087,
+        "cat__shell_innermost_ZnSe": 0.1670449573360716,
+        "cat__shell_innermost_ZnS": 0.0654699680926002,
+        "cat__route_aminophosphine_one_pot_HF": 0.0355873725836591,
+        "cat__route_hot_injection": 0.03355551916058589,
+        "cat__route_heating_up": 0.02971002336379019,
+        "cat__shell_innermost_ZnSeS": 0.023326709321226775,
+        "cat__route_aminophosphine": 0.02322770995336858,
+        "cat__shell_composition_tier_double_shell": 0.019659974202576605
+      }
+    }
+  },
+  "sensitivity_caution_on": {
+    "PL_peak_nm_final": {
+      "target": "PL_peak_nm_final",
+      "n_rows": 129,
+      "n_papers": 50,
+      "use_caution_count": true,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS",
+          "shell_layer_count",
+          "caution_count"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost",
+          "shell_composition_tier"
+        ]
+      },
+      "rf": {
+        "mae_mean": 49.76564355339106,
+        "mae_std": 9.058454197772027,
+        "mae_per_fold": [
+          43.42200520313019,
+          38.97801686507936,
+          63.82246733127985,
+          56.36956606587856,
+          46.23616230158732
+        ],
+        "r2_mean": 0.07941844976041172,
+        "r2_std": 0.23428572438278414,
+        "r2_per_fold": [
+          0.04099084912999251,
+          0.09423042464731679,
+          -0.25947949003243664,
+          0.04597419391584223,
+          0.47537627114134373
+        ],
+        "bootstrap_paper_level_95ci": [
+          36.16595871026239,
+          65.12982191349738
+        ]
+      },
+      "gbm": {
+        "mae_mean": 52.31828753301211,
+        "mae_std": 12.008041386832453,
+        "mae_per_fold": [
+          43.92451048590844,
+          41.85748865781705,
+          71.95211891423202,
+          60.74031484884053,
+          43.11700475826254
+        ],
+        "r2_mean": -0.12303111668363118,
+        "r2_std": 0.38491115995503733,
+        "r2_per_fold": [
+          0.08419738711736213,
+          -0.24045235435152512,
+          -0.63997389857568,
+          -0.3129478016795795,
+          0.49402108407126666
+        ]
+      },
+      "shap_top10": {},
+      "rf_importance_top10": {}
+    },
+    "QY_percent_final": {
+      "target": "QY_percent_final",
+      "n_rows": 119,
+      "n_papers": 50,
+      "use_caution_count": true,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS",
+          "shell_layer_count",
+          "caution_count"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost",
+          "shell_composition_tier"
+        ]
+      },
+      "rf": {
+        "mae_mean": 19.253984235734073,
+        "mae_std": 2.0622549461484394,
+        "mae_per_fold": [
+          20.20457142857143,
+          16.81319554692993,
+          18.78379422198172,
+          22.71014099546286,
+          17.758218985724426
+        ],
+        "r2_mean": -0.057851366152114704,
+        "r2_std": 0.1139789664532428,
+        "r2_per_fold": [
+          0.0001580271424128643,
+          0.042523649960810816,
+          -0.2514007596711445,
+          -0.12223269115394642,
+          0.041694942961293724
+        ],
+        "bootstrap_paper_level_95ci": [
+          14.672137295797818,
+          23.500793907004972
+        ]
+      },
+      "gbm": {
+        "mae_mean": 18.648296787554862,
+        "mae_std": 3.3694330431457575,
+        "mae_per_fold": [
+          14.390727451504413,
+          16.33356341743089,
+          21.743519505284837,
+          23.357952871716833,
+          17.415720691837333
+        ],
+        "r2_mean": -0.07264443053582267,
+        "r2_std": 0.3646141985757635,
+        "r2_per_fold": [
+          0.3845899081690637,
+          0.08804554581945989,
+          -0.6691163194743186,
+          -0.27549591839954046,
+          0.10875463120622209
+        ]
+      },
+      "shap_top10": {},
+      "rf_importance_top10": {}
+    },
+    "FWHM_nm_final": {
+      "target": "FWHM_nm_final",
+      "n_rows": 125,
+      "n_papers": 50,
+      "use_caution_count": true,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS",
+          "shell_layer_count",
+          "caution_count"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost",
+          "shell_composition_tier"
+        ]
+      },
+      "rf": {
+        "mae_mean": 8.430206786824286,
+        "mae_std": 0.610855050155125,
+        "mae_per_fold": [
+          8.834019296536793,
+          9.266960079365075,
+          8.025584473304475,
+          7.517574112554112,
+          8.506895972360976
+        ],
+        "r2_mean": -0.06546696396867621,
+        "r2_std": 0.1434570662124439,
+        "r2_per_fold": [
+          -0.03591118556684436,
+          0.07915272738175261,
+          -0.2780169300302284,
+          -0.17893992275626536,
+          0.08638049112820445
+        ],
+        "bootstrap_paper_level_95ci": [
+          6.995442218509279,
+          12.103002344562148
+        ]
+      },
+      "gbm": {
+        "mae_mean": 9.660006715299001,
+        "mae_std": 0.743502024895986,
+        "mae_per_fold": [
+          9.509395884529392,
+          10.71669336837716,
+          10.178981923198249,
+          9.359782979369838,
+          8.535179421020366
+        ],
+        "r2_mean": -0.2995582044198296,
+        "r2_std": 0.4348537711068819,
+        "r2_per_fold": [
+          0.008817825157937165,
+          -0.11776001208617815,
+          -1.064191092855293,
+          -0.47459111590027736,
+          0.1499333735846633
+        ]
+      },
+      "shap_top10": {},
+      "rf_importance_top10": {}
+    },
+    "shell_layer_count": {
+      "target": "shell_layer_count",
+      "n_rows": 132,
+      "n_papers": 52,
+      "use_caution_count": true,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS",
+          "caution_count"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost"
+        ]
+      },
+      "rf": {
+        "mae_mean": 0.24787472635389302,
+        "mae_std": 0.04446136092493839,
+        "mae_per_fold": [
+          0.22280864197530856,
+          0.26488007054673723,
+          0.17670032051282047,
+          0.2679772727272727,
+          0.3070073260073261
+        ],
+        "r2_mean": 0.4836308866993241,
+        "r2_std": 0.2255870897788871,
+        "r2_per_fold": [
+          0.6531042106481482,
+          0.45052281178992204,
+          0.7781093811488372,
+          0.4183748797095286,
+          0.11804315020018419
+        ],
+        "bootstrap_paper_level_95ci": [
+          0.17835394699546486,
+          0.37511639406787234
+        ]
+      },
+      "gbm": {
+        "mae_mean": 0.2166009983672769,
+        "mae_std": 0.10587355144323903,
+        "mae_per_fold": [
+          0.12787272575768535,
+          0.2925898165118155,
+          0.06916367502767035,
+          0.23410754787012183,
+          0.3592712266690915
+        ],
+        "r2_mean": 0.42264844064338813,
+        "r2_std": 0.4711757055762354,
+        "r2_per_fold": [
+          0.8770753436912601,
+          0.34386589041809423,
+          0.9546405053203757,
+          0.28695342904183874,
+          -0.3492929652546286
+        ]
+      },
+      "shap_top10": {},
+      "rf_importance_top10": {}
+    }
+  },
+  "sensitivity_caution_zero_subset": {
+    "PL_peak_nm_final": {
+      "target": "PL_peak_nm_final",
+      "n_rows": 100,
+      "n_papers": 35,
+      "use_caution_count": false,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS",
+          "shell_layer_count"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost",
+          "shell_composition_tier"
+        ]
+      },
+      "rf": {
+        "mae_mean": 46.17097200577201,
+        "mae_std": 7.956220727693943,
+        "mae_per_fold": [
+          44.75700496031749,
+          32.238275297619076,
+          55.93579414682539,
+          46.78730415764788,
+          51.1364814664502
+        ],
+        "r2_mean": 0.27175176046972094,
+        "r2_std": 0.2886954464687741,
+        "r2_per_fold": [
+          0.22707448267382202,
+          0.6656540716880728,
+          -0.011602828087639683,
+          0.5363992437802498,
+          -0.05876616770590015
+        ],
+        "bootstrap_paper_level_95ci": [
+          36.45141470398771,
+          68.30523342116464
+        ]
+      },
+      "gbm": {
+        "mae_mean": 45.18901009341753,
+        "mae_std": 11.781936008635848,
+        "mae_per_fold": [
+          45.76128973897521,
+          26.733406375385538,
+          59.978761285888524,
+          38.68559681381436,
+          54.785996253023995
+        ],
+        "r2_mean": 0.2691756826433429,
+        "r2_std": 0.38134167269131214,
+        "r2_per_fold": [
+          0.30390211506766884,
+          0.6728799394226964,
+          -0.10717009084112705,
+          0.6960420011818288,
+          -0.21977555161435247
+        ]
+      },
+      "shap_top10": {},
+      "rf_importance_top10": {}
+    },
+    "QY_percent_final": {
+      "target": "QY_percent_final",
+      "n_rows": 90,
+      "n_papers": 35,
+      "use_caution_count": false,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS",
+          "shell_layer_count"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost",
+          "shell_composition_tier"
+        ]
+      },
+      "rf": {
+        "mae_mean": 19.054305027256696,
+        "mae_std": 3.6275110459800026,
+        "mae_per_fold": [
+          18.07232231040563,
+          17.085369374298537,
+          23.603777402998244,
+          22.66965133377426,
+          13.840404714806807
+        ],
+        "r2_mean": -0.16464468798564746,
+        "r2_std": 0.4050232179695747,
+        "r2_per_fold": [
+          -0.48136361177302867,
+          0.3190763491315912,
+          -0.043913867933777384,
+          -0.7721656950676898,
+          0.15514338571466735
+        ],
+        "bootstrap_paper_level_95ci": [
+          14.461152625110138,
+          25.55029194232657
+        ]
+      },
+      "gbm": {
+        "mae_mean": 19.884552972669844,
+        "mae_std": 5.056287697270665,
+        "mae_per_fold": [
+          18.26809261176894,
+          19.693122249805885,
+          28.87483308765031,
+          19.339843638722797,
+          13.246873275401292
+        ],
+        "r2_mean": -0.33399666568171876,
+        "r2_std": 0.409140965955352,
+        "r2_per_fold": [
+          -0.8796143881186522,
+          0.03572018411693734,
+          -0.6053010918899622,
+          -0.44876512961899406,
+          0.22797709710207725
+        ]
+      },
+      "shap_top10": {},
+      "rf_importance_top10": {}
+    },
+    "FWHM_nm_final": {
+      "target": "FWHM_nm_final",
+      "n_rows": 96,
+      "n_papers": 35,
+      "use_caution_count": false,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS",
+          "shell_layer_count"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost",
+          "shell_composition_tier"
+        ]
+      },
+      "rf": {
+        "mae_mean": 9.12385677811954,
+        "mae_std": 1.68700197836558,
+        "mae_per_fold": [
+          6.097046645021647,
+          8.63615716374269,
+          10.417709719374189,
+          9.646505795739346,
+          10.821864566719828
+        ],
+        "r2_mean": -0.19097521048986055,
+        "r2_std": 0.20126518326332427,
+        "r2_per_fold": [
+          -0.5226146848320183,
+          0.0685257971532498,
+          -0.16950624358471078,
+          -0.05731631643356727,
+          -0.27396460475225615
+        ],
+        "bootstrap_paper_level_95ci": [
+          6.443486653679792,
+          13.111133277351502
+        ]
+      },
+      "gbm": {
+        "mae_mean": 9.662495557581849,
+        "mae_std": 0.9538372043457926,
+        "mae_per_fold": [
+          9.797487986462524,
+          8.878215618774886,
+          9.089493394145492,
+          9.081922814130701,
+          11.465357974395648
+        ],
+        "r2_mean": -0.6067753427956089,
+        "r2_std": 1.0628167865889644,
+        "r2_per_fold": [
+          -2.698195159026451,
+          -0.06868105505248523,
+          0.08178422598147184,
+          0.08665450714248213,
+          -0.43543923302306164
+        ]
+      },
+      "shap_top10": {},
+      "rf_importance_top10": {}
+    },
+    "shell_layer_count": {
+      "target": "shell_layer_count",
+      "n_rows": 101,
+      "n_papers": 36,
+      "use_caution_count": false,
+      "features": {
+        "numeric": [
+          "T_growth_C",
+          "time_min",
+          "outer_is_ZnS"
+        ],
+        "categorical": [
+          "route",
+          "shell_innermost"
+        ]
+      },
+      "rf": {
+        "mae_mean": 0.2610211111111111,
+        "mae_std": 0.07692186305806292,
+        "mae_per_fold": [
+          0.249095238095238,
+          0.21597619047619063,
+          0.18146150793650784,
+          0.2525934523809523,
+          0.4059791666666667
+        ],
+        "r2_mean": 0.18335375705334495,
+        "r2_std": 0.20890864309025342,
+        "r2_per_fold": [
+          0.3852653173076923,
+          0.2713132099619504,
+          0.2684260574574484,
+          -0.2188042078385024,
+          0.21056840837813595
+        ],
+        "bootstrap_paper_level_95ci": [
+          0.16505745646520734,
+          0.41913931446158015
+        ]
+      },
+      "gbm": {
+        "mae_mean": 0.25560323346996716,
+        "mae_std": 0.06429044341226386,
+        "mae_per_fold": [
+          0.20012332410581404,
+          0.28381032181487587,
+          0.21216702473515853,
+          0.212198438671433,
+          0.3697170580225544
+        ],
+        "r2_mean": -0.0804285039911841,
+        "r2_std": 0.35229661110077176,
+        "r2_per_fold": [
+          0.38873104241691603,
+          -0.38819980747957383,
+          -0.5430801002071088,
+          -0.08195521887614743,
+          0.22236156418999353
+        ]
+      },
+      "shap_top10": {},
+      "rf_importance_top10": {}
+    }
+  },
+  "sensitivity_published_only": {
+    "skipped": true,
+    "reason": "DD InP subset is published-literature by construction (filter corpus == 'InP (L-series)'); no nayon row present in DD-only Part B. data_origin filter applies only to the integrated combined dataset."
+  },
+  "cross_target_shap_top5": [
+    {
+      "target": "PL_peak_nm_final",
+      "rank": 1,
+      "feature": "shell_innermost_ZnSe",
+      "mean_abs_shap": 31.392860498257825
+    },
+    {
+      "target": "PL_peak_nm_final",
+      "rank": 2,
+      "feature": "T_growth_C",
+      "mean_abs_shap": 24.131737371545018
+    },
+    {
+      "target": "PL_peak_nm_final",
+      "rank": 3,
+      "feature": "time_min",
+      "mean_abs_shap": 20.284047914560865
+    },
+    {
+      "target": "PL_peak_nm_final",
+      "rank": 4,
+      "feature": "route_heating_up",
+      "mean_abs_shap": 5.418834472847867
+    },
+    {
+      "target": "PL_peak_nm_final",
+      "rank": 5,
+      "feature": "route_aminophosphine_one_pot_HF",
+      "mean_abs_shap": 5.1397932682269944
+    },
+    {
+      "target": "QY_percent_final",
+      "rank": 1,
+      "feature": "T_growth_C",
+      "mean_abs_shap": 9.540117030807776
+    },
+    {
+      "target": "QY_percent_final",
+      "rank": 2,
+      "feature": "shell_innermost_ZnS",
+      "mean_abs_shap": 5.424495077986476
+    },
+    {
+      "target": "QY_percent_final",
+      "rank": 3,
+      "feature": "route_hot_injection",
+      "mean_abs_shap": 3.445990016078206
+    },
+    {
+      "target": "QY_percent_final",
+      "rank": 4,
+      "feature": "time_min",
+      "mean_abs_shap": 2.5482340713822356
+    },
+    {
+      "target": "QY_percent_final",
+      "rank": 5,
+      "feature": "shell_layer_count",
+      "mean_abs_shap": 2.5476867205798777
+    },
+    {
+      "target": "FWHM_nm_final",
+      "rank": 1,
+      "feature": "time_min",
+      "mean_abs_shap": 3.945941395371423
+    },
+    {
+      "target": "FWHM_nm_final",
+      "rank": 2,
+      "feature": "T_growth_C",
+      "mean_abs_shap": 2.369969961404866
+    },
+    {
+      "target": "FWHM_nm_final",
+      "rank": 3,
+      "feature": "shell_innermost_ZnSe",
+      "mean_abs_shap": 1.9669316561888748
+    },
+    {
+      "target": "FWHM_nm_final",
+      "rank": 4,
+      "feature": "shell_innermost_ZnS",
+      "mean_abs_shap": 1.286758277001571
+    },
+    {
+      "target": "FWHM_nm_final",
+      "rank": 5,
+      "feature": "route_heating_up",
+      "mean_abs_shap": 0.5236936436840739
+    },
+    {
+      "target": "shell_layer_count",
+      "rank": 1,
+      "feature": "shell_innermost_ZnS",
+      "mean_abs_shap": 0.26276137682655876
+    },
+    {
+      "target": "shell_layer_count",
+      "rank": 2,
+      "feature": "outer_is_ZnS",
+      "mean_abs_shap": 0.15293638079080357
+    },
+    {
+      "target": "shell_layer_count",
+      "rank": 3,
+      "feature": "time_min",
+      "mean_abs_shap": 0.07912174081628792
+    },
+    {
+      "target": "shell_layer_count",
+      "rank": 4,
+      "feature": "route_heating_up",
+      "mean_abs_shap": 0.06903289184765403
+    },
+    {
+      "target": "shell_layer_count",
+      "rank": 5,
+      "feature": "T_growth_C",
+      "mean_abs_shap": 0.04107039113546892
+    }
+  ],
+  "feature_appearance_across_targets": {
+    "shell_innermost_ZnSe": 2,
+    "T_growth_C": 4,
+    "time_min": 4,
+    "route_heating_up": 3,
+    "route_aminophosphine_one_pot_HF": 1,
+    "shell_innermost_ZnS": 3,
+    "route_hot_injection": 1,
+    "shell_layer_count": 1,
+    "outer_is_ZnS": 1
+  },
+  "notes": "All RF + GBM with paper-level GroupKFold (5-fold). Bootstrap n=1000 paper-level resample. caution_count default OFF (\uc0ac\uc6a9\uc790 \uacb0\uc815 6). Cossairt-side comparison not available for QY/FWHM/shell_layer_count (absent in Cossairt 2022) \u2014 these are DD-only predictive extensions."
+}

@@ -1,0 +1,121 @@
+{
+  "version": "1.0",
+  "created": "2026-05-21",
+  "description": "Common schema for the integrated InP dataset. Stacks DD InP subset (132 rows from data/from_dd/inp_subset.csv) and Cossairt raw dataset (220 entries from data/from_cossairt/dataset_InP_raw.csv) on cross-comparable columns. Source-specific columns are preserved as separate fields filled with empty string for non-applicable rows.",
+  "row_counts": {
+    "dd_rows": 132,
+    "cossairt_rows": 220,
+    "total": 352,
+    "dd_overlap_rows": 29,
+    "cossairt_overlap_rows": 25
+  },
+  "filter_rules": {
+    "dd_filter": "df[df[\"corpus\"] == \"InP (L-series)\"] (authoritative InP-subset filter)",
+    "cossairt_filter": "all 220 entries from dataset_InP_raw.csv (GitHub Cossairt-Lab/Indium-Phosphide master, SHA-256 verified MIT)"
+  },
+  "overlap_definition": "10 papers in DD ∩ Cossairt, derived from the user's prior paper-level matching (matched_to_L_series == 'yes' in cossairt_reference_master_paper_level.csv).",
+  "overlap_paper_ids_dd": [
+    "L002",
+    "L006",
+    "L009",
+    "L023",
+    "L029",
+    "L031",
+    "L033",
+    "L034",
+    "L038",
+    "L044"
+  ],
+  "comparable_columns": {
+    "emission_nm": {
+      "dd_source": "PL_peak_nm_final (nm)",
+      "cossairt_source": "emission_nm (nm)",
+      "unit": "nm",
+      "notes": "primary cross-validation target (Part A)"
+    },
+    "T_growth_C": {
+      "dd_source": "T_growth_C (°C)",
+      "cossairt_source": "temp_c (°C)",
+      "unit": "°C",
+      "notes": "primary input for cross-source feature comparison"
+    },
+    "time_min": {
+      "dd_source": "time_min (min)",
+      "cossairt_source": "time_min (min)",
+      "unit": "min",
+      "notes": "growth-time definition consistency to verify in Phase C.1"
+    }
+  },
+  "dd_only_columns": [
+    "FWHM_nm (FWHM_nm_final, nm)",
+    "QY_percent (QY_percent_final, %)",
+    "PL_peak_nm_core (nm, 3 rows non-blank, all L037)",
+    "route (string vocabulary)",
+    "system_tag (string, 22 distinct in InP subset)",
+    "shell_present_flag (constant 1 in InP subset)",
+    "data_quality_tier (constant literature_structured in InP subset)",
+    "measurement_state (constant final_purified in InP subset)",
+    "caution_count (DD audit-load metric, do not use as ML target)"
+  ],
+  "cossairt_only_columns": [
+    "abs_nm (absorption peak, nm)",
+    "diameter_nm (QD diameter, nm; DD does not report size)",
+    "in_source / in_amount_mmol",
+    "p_source / p_amount_mmol",
+    "ligand_source / ligand_amount_mmol",
+    "first_sol / second_sol",
+    "acid / acid_amount_mmol",
+    "total_volume_ml",
+    "cossairt_user (Hao / Florence / Nayon / ...)"
+  ],
+  "unit_normalization_rules": {
+    "T_growth_C": "kept as °C (no conversion); Cossairt temp_c and DD T_growth_C are both °C per audit",
+    "time_min": "kept as min (no conversion); both sources report minutes",
+    "emission_nm": "kept as nm (no conversion); both sources report PL/emission peak in nm",
+    "QY_percent": "DD reports QY in % (0-100); Cossairt does not provide QY",
+    "FWHM_nm": "DD reports FWHM in nm; Cossairt does not provide FWHM"
+  },
+  "missing_value_convention": "empty string \"\" for blank; never NaN/None/NULL in CSV",
+  "sources": {
+    "dd_subset_path": "data/from_dd/inp_subset.csv",
+    "dd_subset_sha256": "9c1d56d9897dbef05acadad01b4b7b4c83e7bebcf34d59a5c8a839e5bab324a5",
+    "cossairt_raw_path": "data/from_cossairt/dataset_InP_raw.csv",
+    "cossairt_raw_sha256": "33539b8dbd60d434a6d9c27d52b9e51e84c83416405c47ecb6059675dbeedc09",
+    "cossairt_paper_level_path": "data/from_cossairt/cossairt_reference_master_paper_level.csv",
+    "cossairt_dd_matched_path": "data/from_cossairt/cossairt_ref_values_dd_matched.csv"
+  },
+  "build_script": "scripts/build_inp_combined.py",
+  "output_columns": [
+    "source",
+    "row_id",
+    "paper_id_dd",
+    "doi",
+    "overlap_flag",
+    "emission_nm",
+    "T_growth_C",
+    "time_min",
+    "FWHM_nm",
+    "QY_percent",
+    "PL_peak_nm_core",
+    "route",
+    "system_tag",
+    "shell_present_flag",
+    "data_quality_tier",
+    "measurement_state",
+    "caution_count",
+    "abs_nm",
+    "diameter_nm",
+    "in_source",
+    "in_amount_mmol",
+    "p_source",
+    "p_amount_mmol",
+    "ligand_source",
+    "ligand_amount_mmol",
+    "first_sol",
+    "second_sol",
+    "acid",
+    "acid_amount_mmol",
+    "total_volume_ml",
+    "cossairt_user"
+  ]
+}

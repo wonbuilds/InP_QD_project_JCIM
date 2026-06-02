@@ -1,0 +1,287 @@
+{
+  "analysis": "F39 systematic feature pair audit on DD InP subset",
+  "n_rows": 132,
+  "numeric_features": [
+    "T_growth_C",
+    "time_min",
+    "outer_is_ZnS",
+    "shell_layer_count",
+    "caution_count"
+  ],
+  "categorical_features": [
+    "route",
+    "shell_innermost",
+    "shell_composition_tier",
+    "shell_outermost",
+    "data_quality_tier"
+  ],
+  "cramers_v": [
+    {
+      "feat1": "route",
+      "feat2": "shell_innermost",
+      "V": 0.4842704325840466,
+      "min_dim": 7
+    },
+    {
+      "feat1": "route",
+      "feat2": "shell_composition_tier",
+      "V": 0.49414400956651555,
+      "min_dim": 2
+    },
+    {
+      "feat1": "route",
+      "feat2": "shell_outermost",
+      "V": 0.6115459060240986,
+      "min_dim": 3
+    },
+    {
+      "feat1": "route",
+      "feat2": "data_quality_tier",
+      "V": 0.0,
+      "min_dim": 0
+    },
+    {
+      "feat1": "shell_innermost",
+      "feat2": "shell_composition_tier",
+      "V": 0.5745896356929512,
+      "min_dim": 2
+    },
+    {
+      "feat1": "shell_innermost",
+      "feat2": "shell_outermost",
+      "V": 0.7236170698265755,
+      "min_dim": 3
+    },
+    {
+      "feat1": "shell_innermost",
+      "feat2": "data_quality_tier",
+      "V": 0.0,
+      "min_dim": 0
+    },
+    {
+      "feat1": "shell_composition_tier",
+      "feat2": "shell_outermost",
+      "V": 0.39429004623636565,
+      "min_dim": 2
+    },
+    {
+      "feat1": "shell_composition_tier",
+      "feat2": "data_quality_tier",
+      "V": 0.0,
+      "min_dim": 0
+    },
+    {
+      "feat1": "shell_outermost",
+      "feat2": "data_quality_tier",
+      "V": 0.0,
+      "min_dim": 0
+    }
+  ],
+  "pearson_r": [
+    {
+      "feat1": "T_growth_C",
+      "feat2": "time_min",
+      "r": -0.2355969730947776,
+      "n": 120
+    },
+    {
+      "feat1": "T_growth_C",
+      "feat2": "outer_is_ZnS",
+      "r": 0.1288183765514836,
+      "n": 132
+    },
+    {
+      "feat1": "T_growth_C",
+      "feat2": "shell_layer_count",
+      "r": 0.19063644014616776,
+      "n": 132
+    },
+    {
+      "feat1": "T_growth_C",
+      "feat2": "caution_count",
+      "r": 0.2619153790153793,
+      "n": 132
+    },
+    {
+      "feat1": "time_min",
+      "feat2": "outer_is_ZnS",
+      "r": -0.19434624701375836,
+      "n": 120
+    },
+    {
+      "feat1": "time_min",
+      "feat2": "shell_layer_count",
+      "r": -0.22896340889744798,
+      "n": 120
+    },
+    {
+      "feat1": "time_min",
+      "feat2": "caution_count",
+      "r": -0.10185600292694937,
+      "n": 120
+    },
+    {
+      "feat1": "outer_is_ZnS",
+      "feat2": "shell_layer_count",
+      "r": 0.34971522168064084,
+      "n": 132
+    },
+    {
+      "feat1": "outer_is_ZnS",
+      "feat2": "caution_count",
+      "r": 0.06987859036537782,
+      "n": 132
+    },
+    {
+      "feat1": "shell_layer_count",
+      "feat2": "caution_count",
+      "r": 0.03242644682894193,
+      "n": 132
+    }
+  ],
+  "eta_squared": [
+    {
+      "numeric": "T_growth_C",
+      "categorical": "route",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "T_growth_C",
+      "categorical": "shell_innermost",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "T_growth_C",
+      "categorical": "shell_composition_tier",
+      "eta_sq": 0.03742434378364516
+    },
+    {
+      "numeric": "T_growth_C",
+      "categorical": "shell_outermost",
+      "eta_sq": 0.040972224566567975
+    },
+    {
+      "numeric": "T_growth_C",
+      "categorical": "data_quality_tier",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "time_min",
+      "categorical": "route",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "time_min",
+      "categorical": "shell_innermost",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "time_min",
+      "categorical": "shell_composition_tier",
+      "eta_sq": 0.05895401078762762
+    },
+    {
+      "numeric": "time_min",
+      "categorical": "shell_outermost",
+      "eta_sq": 0.10795482819374075
+    },
+    {
+      "numeric": "time_min",
+      "categorical": "data_quality_tier",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "outer_is_ZnS",
+      "categorical": "route",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "outer_is_ZnS",
+      "categorical": "shell_innermost",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "outer_is_ZnS",
+      "categorical": "shell_composition_tier",
+      "eta_sq": 0.1906185573631512
+    },
+    {
+      "numeric": "outer_is_ZnS",
+      "categorical": "shell_outermost",
+      "eta_sq": 1.0
+    },
+    {
+      "numeric": "outer_is_ZnS",
+      "categorical": "data_quality_tier",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "shell_layer_count",
+      "categorical": "route",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "shell_layer_count",
+      "categorical": "shell_innermost",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "shell_layer_count",
+      "categorical": "shell_composition_tier",
+      "eta_sq": 1.0
+    },
+    {
+      "numeric": "shell_layer_count",
+      "categorical": "shell_outermost",
+      "eta_sq": 0.227257004496714
+    },
+    {
+      "numeric": "shell_layer_count",
+      "categorical": "data_quality_tier",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "caution_count",
+      "categorical": "route",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "caution_count",
+      "categorical": "shell_innermost",
+      "eta_sq": NaN
+    },
+    {
+      "numeric": "caution_count",
+      "categorical": "shell_composition_tier",
+      "eta_sq": 0.04220465091720038
+    },
+    {
+      "numeric": "caution_count",
+      "categorical": "shell_outermost",
+      "eta_sq": 0.011093288385095634
+    },
+    {
+      "numeric": "caution_count",
+      "categorical": "data_quality_tier",
+      "eta_sq": NaN
+    }
+  ],
+  "suspicious_pairs": [
+    {
+      "pair": "outer_is_ZnS \u00d7 shell_outermost",
+      "metric": "eta\u00b2",
+      "value": 1.0,
+      "threshold": 0.9,
+      "interpretation": "Categorical groups capture > 90% of numeric variance."
+    },
+    {
+      "pair": "shell_layer_count \u00d7 shell_composition_tier",
+      "metric": "eta\u00b2",
+      "value": 1.0,
+      "threshold": 0.9,
+      "interpretation": "Categorical groups capture > 90% of numeric variance."
+    }
+  ],
+  "suspicion_threshold": 0.9,
+  "notes": "Cram\u00e9r's V uses no bias correction (chi2_contingency correction=False) to match the standard textbook formula. Pearson r computed with pairwise-complete observations. eta\u00b2 = SS_between / SS_total from one-way ANOVA; reflects the fraction of numeric variance explained by categorical-group membership. The suspicion threshold of 0.9 is chosen to flag near-deterministic dependencies; values 0.7-0.9 indicate strong but not exclusive associations and are not flagged as suspicious (sub-deterministic associations are expected in chemistry: e.g., route \u00d7 shell_innermost reflects real synthetic co-occurrence patterns, not a transform leak)."
+}

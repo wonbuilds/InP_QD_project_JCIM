@@ -1,0 +1,129 @@
+{
+  "analysis": "F37 retrospective time-forward validation (DD-side)",
+  "target": "PL_peak_nm_final",
+  "corpus": "DD-curated InP subset (132 rows / 52 papers, year 2016-2025)",
+  "year_source": "dd_paper_years.csv (L-series; 52/52 covered)",
+  "cossairt_side_note": "Cossairt-side time-forward not reported: 50/73 papers have year='NR' in cossairt_reference_master_paper_level.csv; DOI-based year extraction adds 13 (23/73 total), insufficient for a balanced 60/40 train/test split.",
+  "cutoffs_evaluated": [
+    {
+      "y_cutoff": 2020,
+      "n_train_papers": 15,
+      "n_train_rows": 38,
+      "n_test_papers": 35,
+      "n_test_rows": 91,
+      "train_year_range": [
+        2016,
+        2019
+      ],
+      "test_year_range": [
+        2020,
+        2025
+      ],
+      "mae": 51.29541590750516,
+      "r2": 0.2693361971563044,
+      "bootstrap_95ci": [
+        40.28691014406635,
+        64.97499908630463
+      ],
+      "bootstrap_n": 1000
+    },
+    {
+      "y_cutoff": 2021,
+      "n_train_papers": 20,
+      "n_train_rows": 48,
+      "n_test_papers": 30,
+      "n_test_rows": 81,
+      "train_year_range": [
+        2016,
+        2020
+      ],
+      "test_year_range": [
+        2021,
+        2025
+      ],
+      "mae": 49.9471765516719,
+      "r2": 0.21461970399674812,
+      "bootstrap_95ci": [
+        37.25675105850141,
+        66.67307328258846
+      ],
+      "bootstrap_n": 1000
+    },
+    {
+      "y_cutoff": 2022,
+      "n_train_papers": 24,
+      "n_train_rows": 70,
+      "n_test_papers": 26,
+      "n_test_rows": 59,
+      "train_year_range": [
+        2016,
+        2021
+      ],
+      "test_year_range": [
+        2022,
+        2025
+      ],
+      "mae": 57.061545362829285,
+      "r2": 0.24068849770351708,
+      "bootstrap_95ci": [
+        41.04543754185161,
+        75.42945624673757
+      ],
+      "bootstrap_n": 1000
+    },
+    {
+      "y_cutoff": 2023,
+      "n_train_papers": 28,
+      "n_train_rows": 80,
+      "n_test_papers": 22,
+      "n_test_rows": 49,
+      "train_year_range": [
+        2016,
+        2022
+      ],
+      "test_year_range": [
+        2023,
+        2025
+      ],
+      "mae": 57.41328490811912,
+      "r2": 0.3523471460966924,
+      "bootstrap_95ci": [
+        42.50610337138118,
+        72.92525393775205
+      ],
+      "bootstrap_n": 1000
+    }
+  ],
+  "selected_cutoff": {
+    "y_cutoff": 2023,
+    "n_train_papers": 28,
+    "n_train_rows": 80,
+    "n_test_papers": 22,
+    "n_test_rows": 49,
+    "train_year_range": [
+      2016,
+      2022
+    ],
+    "test_year_range": [
+      2023,
+      2025
+    ],
+    "mae": 57.41328490811912,
+    "r2": 0.3523471460966924,
+    "bootstrap_95ci": [
+      42.50610337138118,
+      72.92525393775205
+    ],
+    "bootstrap_n": 1000
+  },
+  "reference_groupkfold": {
+    "mae": 49.79,
+    "bootstrap_95ci": [
+      37.3,
+      65.98
+    ],
+    "source": "part_b_pl_peak_results.json"
+  },
+  "interpretation": "Time-forward MAE at Y_cutoff=2023: 57.41 nm (95% CI 42.51-72.93); reference GroupKFold MAE: 49.79 nm (95% CI 37.3-65.98). The time-forward bootstrap CI overlaps the GroupKFold CI, indicating the model generalizes to chronologically future papers without statistically detectable additional degradation. This supports prospective-style predictive coverage for candidate prioritization.",
+  "notes": "RF model trained on pre-cutoff papers, evaluated on post-cutoff papers under no-imputation regime. Bootstrap n=1000 via paper-level resample of test set. Model: RandomForestRegressor(n_estimators=200, max_features='sqrt', random_state=42), identical to production Part B configuration."
+}

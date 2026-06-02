@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Expected SHA-256 manifest for one-command reproduction via scripts/reproduce_all.py. Used by --strict mode to verify deterministic outputs.",
+  "deposited_at": "2026-05-22",
+  "data": {
+    "data/from_dd/inp_subset.csv": "9c1d56d9897dbef05acadad01b4b7b4c83e7bebcf34d59a5c8a839e5bab324a5",
+    "data/from_dd/dd_paper_years.csv": "103a10f5bc0d7fa793a5c9e012cfdf2e848b04decd238d3a65b3b34ef9d2f97a",
+    "data/from_cossairt/dataset_InP_raw.csv": "33539b8dbd60d434a6d9c27d52b9e51e84c83416405c47ecb6059675dbeedc09",
+    "data/from_cossairt/hao_dataset.csv": "cc982b13d67c0179ce2096207c6699ae186806ec93def16b86d52b403478e282",
+    "data/from_cossairt/flo_dataset.csv": "241e19751fc9c7ba687922c3987bb5478140777188879a082ee46f929efecf8e",
+    "data/integrated/inp_combined.csv": "b3113d969c5f9bde5ae7b10b632578f34602d9f7679b19a72690a6bf7056bc6a"
+  },
+  "part_a_results": {
+    "analysis/part_a1_results.json": "b401c097f7b23966402f3db26054b2bd9bd49846e73742ed866bb0339a7aaed5",
+    "analysis/part_a2_results.json": "d87136137e5c5a4db064de48adc95d8e9f0c72652f4e6dd21b97ef920cf7ebf7",
+    "analysis/part_a3_results.json": "0c807bdc40042fadd358e5a022347b80bd0ef0812d6712dfa47aaf1b46b1a870",
+    "analysis/part_a4_results.json": "fadfe686013d98204c02d731a65241e0b68dc855a662f8054cc319221e4c46de"
+  },
+  "part_b_results": {
+    "analysis/part_b_pl_peak_results.json": "ca40a59d4f7a11087e421d005f5e7561f102e198730abe7ae71c099c61d167ae",
+    "analysis/part_b_c22_results.json": "67d1ae3a1a94419502d186a112453e2cf9921ff12290978d86b0d81fa1ba7566"
+  },
+  "part_c_results": {
+    "analysis/part_c_method1_results.json": "9960db7f055e501b7baa7961749b24f554cc50eca8f6dc0eef8d8b3d8b264515",
+    "analysis/part_c_c32_results.json": "f94137bbd3ab1a8b07c779c71154ce545ae24b8690c5d3d1136a7f1549439974",
+    "recipes/inp_qd_candidate_recipes_v1.json": "7ef132c312744f0cdc3f7b4a7ae28d9f860ff0eff03da21c8c893983b48444ce"
+  },
+  "phase3_extensions": {
+    "_note": "Filled by Phase 3 commits (F17, F18, F19) after their respective scripts run.",
+    "analysis/cossairt_ablation_results.json": "0fb6b11b765635a6d0148bb7293b6a79422970e15d0c90df0f5f35da6aeb7d64",
+    "analysis/part_b_baselines_results.json": "534930755aaa0dd161d72ade675b73a94701c86eb531a425d385add9c4c3b50d",
+    "analysis/part_b_shap_stability_results.json": "6c5cbb702a05a4349e1766998dce1493eb7eb4b328e95cffed54fc41903e10ac",
+    "analysis/time_forward_results.json": "fb4497f3c8160ab70ceade218088c7f66e8d8ccb641f80c8e3f6fcd401230ae6",
+    "analysis/feature_pair_audit_results.json": "d364c0abe89cf224782cbb9feb475cf59c0fa200c6409b8fb5413e7339e9882b"
+  }
+}

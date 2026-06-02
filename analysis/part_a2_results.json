@@ -1,0 +1,61 @@
+{
+  "targets": [
+    "emission_nm",
+    "T_growth_C",
+    "time_min"
+  ],
+  "n_dd": 132,
+  "n_cos": 219,
+  "cossairt_filter": "data_origin == 'published_literature' (nayon excluded)",
+  "bh_correction": "Benjamini\u2013Hochberg across 6 tests (3 columns \u00d7 2: KS + MW)",
+  "per_column": [
+    {
+      "column": "emission_nm",
+      "n_dd": 129,
+      "n_cos": 85,
+      "dd_median": 562.0,
+      "cos_median": 572.0,
+      "dd_mean": 561.7852713178295,
+      "cos_mean": 572.2117647058824,
+      "ks_stat": 0.1384404924760602,
+      "ks_p": 0.24918799296093613,
+      "wasserstein": 16.99163702690378,
+      "mw_stat": 5181.0,
+      "mw_p": 0.4970368557256515,
+      "ks_p_bh": 0.37378198944140417,
+      "mw_p_bh": 0.5964442268707818
+    },
+    {
+      "column": "T_growth_C",
+      "n_dd": 132,
+      "n_cos": 219,
+      "dd_median": 200.0,
+      "cos_median": 220.0,
+      "dd_mean": 222.04545454545453,
+      "cos_mean": 220.93607305936072,
+      "ks_stat": 0.15711913657119136,
+      "ks_p": 0.02986882343681138,
+      "wasserstein": 11.853466168534666,
+      "mw_stat": 14695.0,
+      "mw_p": 0.7928162656014262,
+      "ks_p_bh": 0.10530641454267042,
+      "mw_p_bh": 0.7928162656014262
+    },
+    {
+      "column": "time_min",
+      "n_dd": 120,
+      "n_cos": 219,
+      "dd_median": 20.0,
+      "cos_median": 30.0,
+      "dd_mean": 88.35,
+      "cos_mean": 349.2447488584475,
+      "ks_stat": 0.11906392694063928,
+      "ks_p": 0.20109039904195014,
+      "wasserstein": 261.10547945205514,
+      "mw_stat": 11335.5,
+      "mw_p": 0.03510213818089014,
+      "ks_p_bh": 0.37378198944140417,
+      "mw_p_bh": 0.10530641454267042
+    }
+  ]
+}

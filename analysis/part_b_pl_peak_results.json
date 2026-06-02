@@ -1,0 +1,90 @@
+{
+  "target": "PL_peak_nm_final",
+  "n_rows": 129,
+  "n_papers": 50,
+  "features": {
+    "numeric": [
+      "T_growth_C",
+      "time_min",
+      "outer_is_ZnS",
+      "shell_layer_count"
+    ],
+    "categorical": [
+      "route",
+      "shell_innermost",
+      "shell_composition_tier"
+    ]
+  },
+  "cv": "paper-level GroupKFold (5-fold)",
+  "rf": {
+    "model": "RandomForestRegressor(n_estimators=200, max_features='sqrt', random_state=42)",
+    "mae_mean": 49.79036344610092,
+    "mae_std": 7.4852883548930365,
+    "mae_per_fold": [
+      43.19058103595122,
+      41.07472259204473,
+      59.27279775086022,
+      57.88854418498169,
+      47.52517166666672
+    ],
+    "r2_mean": 0.06096455449638929,
+    "r2_std": 0.2015289325408241,
+    "r2_per_fold": [
+      -0.045853866125215026,
+      0.06905508778911229,
+      -0.1256048011700568,
+      -0.037310607221723746,
+      0.4445369592098297
+    ],
+    "bootstrap_paper_level_95ci": [
+      37.2962837856016,
+      65.98127961495202
+    ]
+  },
+  "gbm": {
+    "model": "GradientBoostingRegressor(n_estimators=300, max_depth=4, learning_rate=0.05, random_state=42)",
+    "mae_mean": 53.591657135468566,
+    "mae_std": 8.728249552969668,
+    "mae_per_fold": [
+      48.15425372215936,
+      43.12173588290253,
+      65.93938282244594,
+      61.81060999684651,
+      48.9323032529885
+    ],
+    "r2_mean": -0.12584131209348862,
+    "r2_std": 0.2871006573451852,
+    "r2_per_fold": [
+      -0.08847082558623942,
+      -0.14527440144018677,
+      -0.46423978144625333,
+      -0.31525242509060436,
+      0.38403087309584083
+    ]
+  },
+  "shap_top10": {
+    "cat__shell_innermost_ZnSe": 31.392860498257825,
+    "num__T_growth_C": 24.131737371545018,
+    "num__time_min": 20.284047914560865,
+    "cat__route_heating_up": 5.418834472847867,
+    "cat__route_aminophosphine_one_pot_HF": 5.1397932682269944,
+    "cat__shell_innermost_ZnS": 3.095537320824919,
+    "cat__route_aminophosphine": 2.9814680670431675,
+    "cat__shell_composition_tier_double_shell": 2.7251352751897278,
+    "cat__shell_innermost_ZnSeS": 1.9542457268872724,
+    "cat__route_hot_injection": 1.3111669353593525
+  },
+  "rf_importance_top10": {
+    "num__T_growth_C": 0.2888117211834336,
+    "num__time_min": 0.19712092547351087,
+    "cat__shell_innermost_ZnSe": 0.1670449573360716,
+    "cat__shell_innermost_ZnS": 0.0654699680926002,
+    "cat__route_aminophosphine_one_pot_HF": 0.0355873725836591,
+    "cat__route_hot_injection": 0.03355551916058589,
+    "cat__route_heating_up": 0.02971002336379019,
+    "cat__shell_innermost_ZnSeS": 0.023326709321226775,
+    "cat__route_aminophosphine": 0.02322770995336858,
+    "cat__shell_composition_tier_double_shell": 0.019659974202576605
+  },
+  "notes": "caution_count OFF (default, \uc0ac\uc6a9\uc790 \uacb0\uc815 6). Sensitivity with caution_count ON to be reported at STOP C.2-2."
+}

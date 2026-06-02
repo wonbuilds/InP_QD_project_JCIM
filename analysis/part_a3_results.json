@@ -1,0 +1,165 @@
+{
+  "cossairt_hyperparameters_source": "notebook_85/hao/3.1. model hao emission.ipynb (verified SHA-256 match with GitHub Cossairt-Lab/Indium-Phosphide master)",
+  "hyperparameters": {
+    "model": "ExtraTreesRegressor",
+    "n_estimators": 3,
+    "max_features": 13,
+    "random_state": 51,
+    "split": {
+      "test_size": 0.15,
+      "random_state": 45,
+      "shuffle": true
+    }
+  },
+  "cossairt": {
+    "n": 85,
+    "split_mae_nm": 33.64102564102564,
+    "split_r2": 0.06809545630244751,
+    "split_mae_bootstrap_95ci": [
+      22.896794871794878,
+      45.25769230769231
+    ],
+    "kfold5_mae_mean": 27.278431372549022,
+    "kfold5_mae_std": 6.347836244767839,
+    "kfold5_mae_per_fold": [
+      28.352941176470587,
+      28.23529411764707,
+      20.3921568627451,
+      38.07843137254901,
+      21.33333333333334
+    ],
+    "cossairt_reported_best_imputed_nm": 11.46
+  },
+  "dd": {
+    "n": 129,
+    "n_papers": 50,
+    "groupkfold5_mae_mean": 59.69674358974358,
+    "groupkfold5_mae_std": 9.398010581628185,
+    "groupkfold5_mae_per_fold": [
+      71.48397435897435,
+      50.527991452991465,
+      67.02670940170941,
+      62.31837606837606,
+      47.12666666666666
+    ],
+    "nongrouped_kfold5_mae_mean": 35.809649572649576,
+    "nongrouped_kfold5_mae_std": 10.221206861372739
+  },
+  "shared_feature_comparison": [
+    {
+      "cossairt_feature": "num__temp_c",
+      "dd_feature": "num__T_growth_C",
+      "cossairt_rank": 2,
+      "dd_rank": 1,
+      "cossairt_importance": 0.12013473405558536,
+      "dd_importance": 0.22044354460879634
+    },
+    {
+      "cossairt_feature": "num__time_min",
+      "dd_feature": "num__time_min",
+      "cossairt_rank": 3,
+      "dd_rank": 3,
+      "cossairt_importance": 0.1011951285849295,
+      "dd_importance": 0.10442947346228185
+    }
+  ],
+  "spearman_rho": {
+    "rho": null,
+    "p": null,
+    "n_features_intersected": 1
+  },
+  "pca": {
+    "cossairt_explained_variance": [
+      0.2583501734737396,
+      0.18208853342708473
+    ],
+    "dd_explained_variance": [
+      0.3723992416399525,
+      0.24376666352991358
+    ]
+  },
+  "top10_cossairt": [
+    {
+      "feature": "cat__other_1_None",
+      "importance": 0.13261380584740018
+    },
+    {
+      "feature": "num__temp_c",
+      "importance": 0.12013473405558536
+    },
+    {
+      "feature": "num__time_min",
+      "importance": 0.1011951285849295
+    },
+    {
+      "feature": "cat__in_source_indium oxalate",
+      "importance": 0.06865238481001061
+    },
+    {
+      "feature": "cat__other_1_zinc chloride",
+      "importance": 0.06830348673922816
+    },
+    {
+      "feature": "cat__second_sol_trioctylphosphine oxide",
+      "importance": 0.055082227374933256
+    },
+    {
+      "feature": "cat__second_sol_None",
+      "importance": 0.04609199983662698
+    },
+    {
+      "feature": "num__other_1_amount_mmol",
+      "importance": 0.04405109888223682
+    },
+    {
+      "feature": "cat__other_1_zinc oleate",
+      "importance": 0.040784922967339265
+    },
+    {
+      "feature": "cat__other_1_zinc undecylenate",
+      "importance": 0.029429227829180695
+    }
+  ],
+  "top10_dd": [
+    {
+      "feature": "num__T_growth_C",
+      "importance": 0.22044354460879634
+    },
+    {
+      "feature": "cat__system_tag_InP/ZnSe/ZnS",
+      "importance": 0.20254394659828318
+    },
+    {
+      "feature": "num__time_min",
+      "importance": 0.10442947346228185
+    },
+    {
+      "feature": "cat__system_tag_InP/ZnS/ZnS",
+      "importance": 0.10150776812021496
+    },
+    {
+      "feature": "cat__route_aminophosphine",
+      "importance": 0.03601072066134526
+    },
+    {
+      "feature": "cat__system_tag_InP/ZnSe",
+      "importance": 0.03028213883534988
+    },
+    {
+      "feature": "cat__system_tag_InP/ZnSe/ZnSeS",
+      "importance": 0.0297935990625297
+    },
+    {
+      "feature": "cat__route_heating_up",
+      "importance": 0.029559825478870625
+    },
+    {
+      "feature": "cat__system_tag_In(Ga)P/ZnSeS/ZnS",
+      "importance": 0.028779350790855644
+    },
+    {
+      "feature": "cat__system_tag_In(Zn)P/ZnS",
+      "importance": 0.025229648520633162
+    }
+  ]
+}

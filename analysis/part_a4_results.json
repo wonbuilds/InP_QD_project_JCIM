@@ -1,0 +1,77 @@
+{
+  "shared_features": [
+    "T_temp",
+    "time_min"
+  ],
+  "cossairt": {
+    "n": 85,
+    "within_kfold5_mae_mean": 37.077236227824464,
+    "within_kfold5_mae_std": 5.655943785481771,
+    "within_kfold5_mae_per_fold": [
+      42.1529411764706,
+      38.85620915032681,
+      31.143137254901966,
+      29.711017740429497,
+      43.52287581699346
+    ],
+    "within_kfold5_r2_mean": 0.17776979588898612,
+    "within_kfold5_r2_std": 0.5597927441736915,
+    "within_kfold5_r2_per_fold": [
+      0.4360803450963766,
+      0.04702866202664935,
+      0.6810410037340225,
+      0.5802492487641959,
+      -0.8555502801763137
+    ]
+  },
+  "dd": {
+    "n": 129,
+    "n_papers": 50,
+    "within_groupkfold5_mae_mean": 61.86005921855921,
+    "within_groupkfold5_mae_std": 11.88724128419655,
+    "within_groupkfold5_mae_per_fold": [
+      51.577090964590965,
+      46.92860195360194,
+      78.97008547008545,
+      60.800946275946266,
+      71.02357142857143
+    ],
+    "within_groupkfold5_r2_mean": -0.3947410347040053,
+    "within_groupkfold5_r2_std": 0.27216908600990913,
+    "within_groupkfold5_r2_per_fold": [
+      -0.25991509924245504,
+      -0.4779938641993542,
+      -0.866352472489698,
+      -0.316322670570206,
+      -0.053121067018313095
+    ]
+  },
+  "forward": {
+    "direction": "Cossairt -> DD",
+    "mae_nm": 61.46479635781963,
+    "r2": -0.14195505961673338,
+    "bootstrap_95ci": [
+      53.77882859603792,
+      68.60810446659283
+    ],
+    "gap_vs_within_source": -0.39526286073957806
+  },
+  "backward": {
+    "direction": "DD -> Cossairt",
+    "mae_nm": 51.89294117647057,
+    "r2": -0.2421450195368673,
+    "bootstrap_95ci": [
+      43.40609803921568,
+      60.88702614379084
+    ],
+    "gap_vs_within_source": 14.815704948646108
+  },
+  "asymmetry_fwd_minus_bwd_gap": -15.210967809385686,
+  "hyperparameters": {
+    "model": "ExtraTreesRegressor",
+    "n_estimators": 3,
+    "max_features": 13,
+    "random_state": 51
+  },
+  "regime": "no-imputation audit-grade; shared minimal features (T + time only)"
+}

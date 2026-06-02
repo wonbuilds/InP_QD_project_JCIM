@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.1",
+  "version": "v1",
+  "milestone": "STOP C.3-2",
+  "generated_date": "2026-05-21",
+  "timestamp_local": "2026-05-21",
+  "paper_target_journal": "Journal of Chemical Information and Modeling",
+  "source_dataset": {
+    "name": "DD-curated InP subset (InP L-series)",
+    "n_rows": 132,
+    "n_papers": 52,
+    "provenance": "Filtered from DD 247-record dataset (corpus == 'InP (L-series)'); curation methodology described in the companion methodology paper (Yoo, ChemRxiv preprint 2026, DOI 10.26434/chemrxiv.15003995/v1).",
+    "zenodo_doi": "10.5281/zenodo.20137306",
+    "training_subset_for_PL_peak": {
+      "n_rows": 129,
+      "n_papers": 50,
+      "csv_path": "data/from_dd/inp_subset.csv",
+      "sha256": "9c1d56d9897dbef05acadad01b4b7b4c83e7bebcf34d59a5c8a839e5bab324a5"
+    }
+  },
+  "model": {
+    "type": "RandomForestRegressor",
+    "hyperparameters": {
+      "n_estimators": 200,
+      "max_features": "sqrt",
+      "random_state": 42,
+      "n_jobs": 1
+    },
+    "training_paper_level_GroupKFold_MAE_nm": 49.79,
+    "training_paper_level_GroupKFold_MAE_std_nm": 7.49,
+    "bootstrap_95ci_nm": [
+      37.3,
+      65.98
+    ],
+    "bootstrap_resamples": 1000,
+    "feature_order": [
+      "T_growth_C",
+      "time_min",
+      "outer_is_ZnS",
+      "shell_layer_count",
+      "route",
+      "shell_innermost",
+      "shell_composition_tier"
+    ],
+    "model_repr_hash": "1cd57b8acc518dba",
+    "uncertainty_metric": "Standard deviation of predictions across the 200 trees (ensemble std)."
+  },
+  "extrapolation_threshold": {
+    "metric": "Mahalanobis distance from training centroid",
+    "subspace": [
+      "T_growth_C",
+      "log10 time_min"
+    ],
+    "percentile": 95,
+    "cutoff_d": 2.53568299919429,
+    "interpretation": "Candidates with Mahalanobis \u2264 cutoff are flagged in_distribution; those above the cutoff are flagged extrapolation. The cutoff is conservative: a candidate at the boundary still lies within the convex hull of the training observations."
+  },
+  "selection_criteria": {
+    "min_per_shell": {
+      "ZnSe": 3,
+      "ZnS": 3
+    },
+    "min_extrapolation": 2,
+    "method_quota": {
+      "M1": 3,
+      "M2": 3,
+      "M3": 2
+    },
+    "red_shift_priority_nm": 620
+  },
+  "stratification_counts": {
+    "M1": 3,
+    "M2": 4,
+    "M3": 3,
+    "ZnSe": 7,
+    "ZnS": 3,
+    "extrap": 2
+  },
+  "top10": [
+    {
+      "rank": 1,
+      "candidate_id": "M1-0475",
+      "method": "M1",
+      "T_growth_C": 234.84682867694963,
+      "time_min": 44.30863746110815,
+      "shell_innermost": "ZnSe",
+      "shell_layer_count": 2,
+      "shell_composition_tier": "double_shell",
+      "outer_is_ZnS": 1,
+      "route": "hot_injection",
+      "predicted_PL_peak_nm": 684.9236904761906,
+      "predicted_PL_peak_nm_std": 59.303455221706905,
+      "mahalanobis_distance": 0.747694551472263,
+      "extrap_flag": "in_distribution",
+      "chemistry_rationale": "ZnSe innermost double-shell at training-centroid (T, time); model's confident maximum, predicted near red edge of ZnSe-stratum."
+    },
+    {
+      "rank": 2,
+      "candidate_id": "M1-0822",
+      "method": "M1",
+      "T_growth_C": 233.05593477649734,
+      "time_min": 49.38307251260549,
+      "shell_innermost": "ZnSe",
+      "shell_layer_count": 2,
+      "shell_composition_tier": "double_shell",
+      "outer_is_ZnS": 1,
+      "route": "hot_injection",
+      "predicted_PL_peak_nm": 683.6086904761905,
+      "predicted_PL_peak_nm_std": 59.91422937988419,
+      "mahalanobis_distance": 0.8002905351123543,
+      "extrap_flag": "in_distribution",
+      "chemistry_rationale": "ZnSe innermost double-shell variant near rank-1; degenerate optimum within RF's local plateau."
+    },
+    {
+      "rank": 3,
+      "candidate_id": "M2-0178",
+      "method": "M2",
+      "T_growth_C": 230.1983910448821,
+      "time_min": 61.385637948439125,
+      "shell_innermost": "ZnSe",
+      "shell_layer_count": 2,
+      "shell_composition_tier": "double_shell",
+      "outer_is_ZnS": 1,
+      "route": "hot_injection",
+      "predicted_PL_peak_nm": 680.9311904761905,
+      "predicted_PL_peak_nm_std": 63.56626024246783,
+      "mahalanobis_distance": 0.919393171962545,
+      "extrap_flag": "in_distribution",
+      "chemistry_rationale": "Bayesian-optimization-confirmed ZnSe optimum at (T=230, time=61); independent convergence with M1."
+    },
+    {
+      "rank": 4,
+      "candidate_id": "M3-001",
+      "method": "M3",
+      "T_growth_C": 300.0,
+      "time_min": 30.0,
+      "shell_innermost": "ZnSe",
+      "shell_layer_count": 2,
+      "shell_composition_tier": "double_shell",
+      "outer_is_ZnS": 1,
+      "route": "hot_injection",
+      "predicted_PL_peak_nm": 653.5320158730159,
+      "predicted_PL_peak_nm_std": 49.888053093280334,
+      "mahalanobis_distance": 1.6038077074500587,
+      "extrap_flag": "in_distribution",
+      "chemistry_rationale": "High-T grid point (T=300, 30 min) ZnSe double-shell; in-distribution boundary of Mahalanobis ellipse."
+    },
+    {
+      "rank": 5,
+      "candidate_id": "M3-000",
+      "method": "M3",
+      "T_growth_C": 300.0,
+      "time_min": 30.0,
+      "shell_innermost": "ZnSe",
+      "shell_layer_count": 1,
+      "shell_composition_tier": "single_shell",
+      "outer_is_ZnS": 1,
+      "route": "hot_injection",
+      "predicted_PL_peak_nm": 643.6876408730158,
+      "predicted_PL_peak_nm_std": 53.53307476649684,
+      "mahalanobis_distance": 1.6038077074500587,
+      "extrap_flag": "in_distribution",
+      "chemistry_rationale": "High-T grid point (T=300, 30 min) ZnSe single-shell; explores single-shell architecture at higher temperature."
+    },
+    {
+      "rank": 6,
+      "candidate_id": "M3-037",
+      "method": "M3",
+      "T_growth_C": 360.0,
+      "time_min": 30.0,
+      "shell_innermost": "ZnSe",
+      "shell_layer_count": 2,
+      "shell_composition_tier": "double_shell",
+      "outer_is_ZnS": 1,
+      "route": "hot_injection",
+      "predicted_PL_peak_nm": 643.5283313492065,
+      "predicted_PL_peak_nm_std": 52.856783575359955,
+      "mahalanobis_distance": 2.707624164055869,
+      "extrap_flag": "extrapolation",
+      "chemistry_rationale": "High-T extrapolation candidate (T=360, 30 min) ZnSe double-shell; tests model's high-T predictive scope; requires wet-lab validation."
+    },
+    {
+      "rank": 7,
+      "candidate_id": "M2-0016",
+      "method": "M2",
+      "T_growth_C": 257.6351295010004,
+      "time_min": 594.0504924188846,
+      "shell_innermost": "ZnSe",
+      "shell_layer_count": 2,
+      "shell_composition_tier": "double_shell",
+      "outer_is_ZnS": 1,
+      "route": "hot_injection",
+      "predicted_PL_peak_nm": 643.2903095238096,
+      "predicted_PL_peak_nm_std": 55.92767766041216,
+      "mahalanobis_distance": 2.653269515627658,
+      "extrap_flag": "extrapolation",
+      "chemistry_rationale": "BO-discovered second mode at long-time corner (T=258, time=594 min); long-time regime sparse in corpus; extrapolation-flagged."
+    },
+    {
+      "rank": 8,
+      "candidate_id": "M2-0351",
+      "method": "M2",
+      "T_growth_C": 226.50323239747462,
+      "time_min": 60.761508039774164,
+      "shell_innermost": "ZnS",
+      "shell_layer_count": 1,
+      "shell_composition_tier": "single_shell",
+      "outer_is_ZnS": 1,
+      "route": "hot_injection",
+      "predicted_PL_peak_nm": 616.4663333333333,
+      "predicted_PL_peak_nm_std": 50.992914321501594,
+      "mahalanobis_distance": 0.8858068866145932,
+      "extrap_flag": "in_distribution",
+      "chemistry_rationale": "BO ZnS-innermost optimum at (T=227, time=61); converged ZnS-stratum maximum."
+    },
+    {
+      "rank": 9,
+      "candidate_id": "M2-0352",
+      "method": "M2",
+      "T_growth_C": 226.97525256551285,
+      "time_min": 67.576386897581,
+      "shell_innermost": "ZnS",
+      "shell_layer_count": 1,
+      "shell_composition_tier": "single_shell",
+      "outer_is_ZnS": 1,
+      "route": "hot_injection",
+      "predicted_PL_peak_nm": 616.4663333333333,
+      "predicted_PL_peak_nm_std": 50.992914321501594,
+      "mahalanobis_distance": 0.9602703640518613,
+      "extrap_flag": "in_distribution",
+      "chemistry_rationale": "BO ZnS optimum variant; second-step iterate near M2-0351."
+    },
+    {
+      "rank": 10,
+      "candidate_id": "M1-0189",
+      "method": "M1",
+      "T_growth_C": 227.24289286611565,
+      "time_min": 95.70530177494015,
+      "shell_innermost": "ZnS",
+      "shell_layer_count": 1,
+      "shell_composition_tier": "single_shell",
+      "outer_is_ZnS": 1,
+      "route": "hot_injection",
+      "predicted_PL_peak_nm": 615.8163333333334,
+      "predicted_PL_peak_nm_std": 51.229981888864046,
+      "mahalanobis_distance": 1.195664369746686,
+      "extrap_flag": "in_distribution",
+      "chemistry_rationale": "Random-sampling ZnS-innermost candidate at training-dense region; in-distribution control comparable to ZnSe rank-1."
+    }
+  ]
+}

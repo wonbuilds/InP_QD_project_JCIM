@@ -1,0 +1,136 @@
+{
+  "analysis": "F17 Cossairt-side emission 2x2 ablation",
+  "target": "emission_nm",
+  "model": "ExtraTreesRegressor(n_estimators=3, max_features=13, random_state=51) with Cossairt's official hyperparameters",
+  "regimes": {
+    "R1": {
+      "n_rows": 219,
+      "n_papers": 72,
+      "mae_mean": 20.3760159736904,
+      "mae_std": 0.9682106068250749,
+      "mae_per_fold": [
+        21.765151515151533,
+        19.97449494949495,
+        19.68712121212121,
+        19.207575757575764,
+        21.245736434108533
+      ],
+      "r2_mean": 0.616769902180603,
+      "r2_std": 0.08957476609584504,
+      "r2_per_fold": [
+        0.4795688627145749,
+        0.6373921870593708,
+        0.5659931989705983,
+        0.7467433734607122,
+        0.6541518886977588
+      ],
+      "bootstrap_n": 1000,
+      "bootstrap_95ci": [
+        19.419696969696975,
+        32.148131313131316
+      ],
+      "label": "KNN imputation + random KFold",
+      "split": "random",
+      "imputation": "knn"
+    },
+    "R2": {
+      "n_rows": 85,
+      "n_papers": 40,
+      "mae_mean": 27.278431372549022,
+      "mae_std": 6.347836244767839,
+      "mae_per_fold": [
+        28.352941176470587,
+        28.23529411764707,
+        20.3921568627451,
+        38.07843137254901,
+        21.33333333333334
+      ],
+      "r2_mean": 0.5805517085311074,
+      "r2_std": 0.27530914830274916,
+      "r2_per_fold": [
+        0.7554991730317825,
+        0.6741294901286221,
+        0.8823707903916277,
+        0.08817055010467867,
+        0.5025885389988265
+      ],
+      "bootstrap_n": 1000,
+      "bootstrap_95ci": [
+        19.09679487179486,
+        48.619230769230754
+      ],
+      "label": "No imputation + random KFold",
+      "split": "random",
+      "imputation": "none"
+    },
+    "R3": {
+      "n_rows": 219,
+      "n_papers": 72,
+      "mae_mean": 31.082522903453146,
+      "mae_std": 4.477423852988093,
+      "mae_per_fold": [
+        27.652272727272724,
+        31.16212121212121,
+        27.32045454545455,
+        39.58939393939395,
+        29.688372093023276
+      ],
+      "r2_mean": -0.08718773786796793,
+      "r2_std": 0.11715884371911198,
+      "r2_per_fold": [
+        -0.28717468278155134,
+        -0.13352925136932936,
+        0.05573010277833179,
+        -0.05440691299092393,
+        -0.016557944976366867
+      ],
+      "bootstrap_n": 1000,
+      "bootstrap_95ci": [
+        22.86704291224688,
+        41.8072738095238
+      ],
+      "label": "KNN imputation + paper-level GroupKFold (doi)",
+      "split": "groupkfold_doi",
+      "imputation": "knn"
+    },
+    "R4": {
+      "n_rows": 85,
+      "n_papers": 40,
+      "mae_mean": 41.74901960784314,
+      "mae_std": 7.882659246804372,
+      "mae_per_fold": [
+        46.156862745098046,
+        34.01960784313725,
+        54.88235294117649,
+        34.50980392156862,
+        39.17647058823528
+      ],
+      "r2_mean": -0.12207131535414717,
+      "r2_std": 0.4355932909781188,
+      "r2_per_fold": [
+        -0.9746628587879262,
+        0.06973880996542547,
+        0.05916200624633117,
+        0.2540394600207686,
+        -0.018633994215334848
+      ],
+      "bootstrap_n": 1000,
+      "bootstrap_95ci": [
+        27.9375730994152,
+        61.46869918699186
+      ],
+      "label": "No imputation + paper-level GroupKFold (doi)",
+      "split": "groupkfold_doi",
+      "imputation": "none"
+    }
+  },
+  "decomposition": {
+    "gap_R4_minus_R1": 21.373003634152738,
+    "imputation_effect_R2_minus_R1": 6.902415398858622,
+    "leakage_effect_R3_minus_R1": 10.706506929762746,
+    "simple_sum": 17.608922328621368,
+    "interaction_residual": 3.76408130553137,
+    "interpretation": "gap_total = imputation_effect + leakage_effect + interaction. If interaction_residual is small (within bootstrap noise), the two effects are approximately additive and the main-text claim 'gap is largely explained by stricter evaluation' holds."
+  },
+  "notes": "Regimes R1-R4 cover the Cartesian product of imputation (KNN vs none) and split (random KFold vs paper-level GroupKFold). R1 matches Cossairt's original protocol; R4 matches the audit-grade strict regime adopted in the main text. R2 and R3 isolate the imputation and leakage effects respectively. Bootstrap n=1000."
+}

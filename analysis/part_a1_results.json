@@ -1,0 +1,225 @@
+{
+  "paper_pairs": [
+    {
+      "paper": "L002",
+      "doi": "10.1038/s41586-019-1771-5",
+      "dd_n": 6,
+      "cos_n": 3,
+      "dd_em": 629.5,
+      "cos_em": null,
+      "dd_T": 300.0,
+      "cos_T": 260.0,
+      "dd_t": 10.0,
+      "cos_t": 20.0,
+      "em_diff": null,
+      "T_diff": 40.0
+    },
+    {
+      "paper": "L006",
+      "doi": "10.1021/acs.chemmater.7b02204",
+      "dd_n": 6,
+      "cos_n": 3,
+      "dd_em": 535.0,
+      "cos_em": null,
+      "dd_T": 305.0,
+      "cos_T": 305.0,
+      "dd_t": 2.0,
+      "cos_t": 15.0,
+      "em_diff": null,
+      "T_diff": 0.0
+    },
+    {
+      "paper": "L009",
+      "doi": "10.1021/acsanm.8b02063",
+      "dd_n": 2,
+      "cos_n": 1,
+      "dd_em": 516.5,
+      "cos_em": 477.0,
+      "dd_T": 150.0,
+      "cos_T": 240.0,
+      "dd_t": null,
+      "cos_t": 60.0,
+      "em_diff": 39.5,
+      "T_diff": -90.0
+    },
+    {
+      "paper": "L023",
+      "doi": "10.1021/acs.chemmater.7b00254",
+      "dd_n": 5,
+      "cos_n": 5,
+      "dd_em": 555.0,
+      "cos_em": 555.0,
+      "dd_T": 180.0,
+      "cos_T": 180.0,
+      "dd_t": 30.0,
+      "cos_t": 30.0,
+      "em_diff": 0.0,
+      "T_diff": 0.0
+    },
+    {
+      "paper": "L029",
+      "doi": "10.1021/acsanm.0c00008",
+      "dd_n": 2,
+      "cos_n": 1,
+      "dd_em": 528.5,
+      "cos_em": null,
+      "dd_T": 180.0,
+      "cos_T": 180.0,
+      "dd_t": 2.0,
+      "cos_t": 2.0,
+      "em_diff": null,
+      "T_diff": 0.0
+    },
+    {
+      "paper": "L033",
+      "doi": "10.1039/c6nr04713k",
+      "dd_n": 2,
+      "cos_n": 6,
+      "dd_em": 577.5,
+      "cos_em": null,
+      "dd_T": 185.0,
+      "cos_T": 180.0,
+      "dd_t": 15.0,
+      "cos_t": 3.0,
+      "em_diff": null,
+      "T_diff": 5.0
+    },
+    {
+      "paper": "L034",
+      "doi": "10.1021/acs.nanolett.7b02634",
+      "dd_n": 1,
+      "cos_n": 1,
+      "dd_em": 629.0,
+      "cos_em": null,
+      "dd_T": 180.0,
+      "cos_T": 180.0,
+      "dd_t": 20.0,
+      "cos_t": 20.0,
+      "em_diff": null,
+      "T_diff": 0.0
+    },
+    {
+      "paper": "L038",
+      "doi": "10.1021/acs.jpclett.9b02386",
+      "dd_n": 2,
+      "cos_n": 2,
+      "dd_em": 527.5,
+      "cos_em": 625.0,
+      "dd_T": 200.0,
+      "cos_T": 200.0,
+      "dd_t": 60.0,
+      "cos_t": 60.0,
+      "em_diff": -97.5,
+      "T_diff": 0.0
+    },
+    {
+      "paper": "L044",
+      "doi": "10.1021/acs.chemmater.0c00551",
+      "dd_n": 3,
+      "cos_n": 1,
+      "dd_em": 470.0,
+      "cos_em": null,
+      "dd_T": 180.0,
+      "cos_T": 180.0,
+      "dd_t": 3.0,
+      "cos_t": 3.0,
+      "em_diff": null,
+      "T_diff": 0.0
+    }
+  ],
+  "emission_paper_level": {
+    "N": 3,
+    "bias_nm": -19.333333333333332,
+    "sd_nm": 70.51654652160252,
+    "loa_low_nm": -157.54576451567428,
+    "loa_high_nm": 118.87909784900761,
+    "bootstrap_ci": {
+      "n": 3,
+      "mean": -19.333333333333332,
+      "ci_low": -97.5,
+      "ci_high": 39.5,
+      "n_iter": 1000
+    }
+  },
+  "T_growth_paper_level": {
+    "N": 9,
+    "bias_C": -5.0,
+    "sd_C": 34.46012188022556,
+    "loa_low_C": -72.54183888524209,
+    "loa_high_C": 62.541838885242086,
+    "bootstrap_ci": {
+      "n": 9,
+      "mean": -5.0,
+      "ci_low": -30.0,
+      "ci_high": 13.333333333333334,
+      "n_iter": 1000
+    }
+  },
+  "emission_sample_level_sensitivity": {
+    "N": 6,
+    "papers": [
+      "L023",
+      "L038"
+    ],
+    "excluded": [
+      "L009 sample mismatch"
+    ],
+    "bias_nm": -33.333333333333336,
+    "sd_nm": 81.6496580927726,
+    "loa_low_nm": -193.36666319516763,
+    "loa_high_nm": 126.69999652850095,
+    "bootstrap_ci_sensitivity": {
+      "n": 6,
+      "mean": -33.333333333333336,
+      "ci_low": -100.0,
+      "ci_high": 0.0,
+      "n_iter": 1000
+    },
+    "pairs": [
+      {
+        "paper": "L023",
+        "dd_em": 482.0,
+        "cos_em": 482.0,
+        "em_diff": 0.0
+      },
+      {
+        "paper": "L023",
+        "dd_em": 529.0,
+        "cos_em": 529.0,
+        "em_diff": 0.0
+      },
+      {
+        "paper": "L023",
+        "dd_em": 555.0,
+        "cos_em": 555.0,
+        "em_diff": 0.0
+      },
+      {
+        "paper": "L023",
+        "dd_em": 595.0,
+        "cos_em": 595.0,
+        "em_diff": 0.0
+      },
+      {
+        "paper": "L023",
+        "dd_em": 635.0,
+        "cos_em": 635.0,
+        "em_diff": 0.0
+      },
+      {
+        "paper": "L038",
+        "dd_em": 425.0,
+        "cos_em": 625.0,
+        "em_diff": -200.0
+      }
+    ]
+  },
+  "metadata": {
+    "random_seed": 42,
+    "bootstrap_iterations": 1000,
+    "L031_excluded": true,
+    "L031_doi": "10.1021/acsnano.8b06692",
+    "L002_note": "DD STAGE-FIX (T 260\u2192300, t 40\u219210) \u2014 caveat",
+    "L009_note": "Sample mismatch (DD 150/blank vs Cos 240/60) \u2014 paper-level outlier"
+  }
+}

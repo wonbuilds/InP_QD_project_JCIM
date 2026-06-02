@@ -1,0 +1,353 @@
+source,row_id,paper_id_dd,doi,overlap_flag,emission_nm,T_growth_C,time_min,FWHM_nm,QY_percent,PL_peak_nm_core,route,system_tag,shell_present_flag,data_quality_tier,measurement_state,caution_count,abs_nm,diameter_nm,in_source,in_amount_mmol,p_source,p_amount_mmol,ligand_source,ligand_amount_mmol,first_sol,second_sol,acid,acid_amount_mmol,total_volume_ml,cossairt_user
+dd,NR-L001-01,L001,,0,510,220,30,65,38.7,,heating_up,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L001-02,L001,,0,547,220,30,77,78.5,,heating_up,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L001-03,L001,,0,558,240,30,91,72.2,,heating_up,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L001-04,L001,,0,611,220,30,76,29,,heating_up,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L002-01,L002,10.1038/s41586-019-1771-5,1,631,300,10,35,98,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L002-02,L002,10.1038/s41586-019-1771-5,1,629,300,10,39,100,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L002-03,L002,10.1038/s41586-019-1771-5,1,627,300,10,35,92,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L002-04,L002,10.1038/s41586-019-1771-5,1,628,300,10,37,100,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L002-05,L002,10.1038/s41586-019-1771-5,1,630,300,10,35,75,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L002-06,L002,10.1038/s41586-019-1771-5,1,631,300,10,35,100,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L003-01,L003,,0,569,240,5,43,82,,hot_injection,InP-In(Zn)P/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L003-02,L003,,0,588,270,5,44,87.7,,hot_injection,InP-In(Zn)P/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L003-03,L003,,0,601,270,5,43,94.3,,hot_injection,InP-In(Zn)P/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L003-04,L003,,0,616,270,5,50,83.1,,hot_injection,InP-In(Zn)P/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L003-05,L003,,0,630,270,5,56,94.3,,hot_injection,InP-In(Zn)P/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L005-01,L005,,0,607,290,3,48,73,,hot_injection_layer_by_layer,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L005-02,L005,,0,606,290,3,55,51,,hot_injection_layer_by_layer,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L005-03,L005,,0,607,290,3,51,60,,hot_injection_layer_by_layer,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L005-04,L005,,0,607,290,3,49,65,,hot_injection_layer_by_layer,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L006-01,L006,10.1021/acs.chemmater.7b02204,1,535,305,2,43,50,,heating_up_then_SILAR_shell,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L006-02,L006,10.1021/acs.chemmater.7b02204,1,535,305,2,38,71,,one_pot_InZn_then_SILAR_shell,In(Zn)P/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L006-03,L006,10.1021/acs.chemmater.7b02204,1,488,305,2,35,44,,one_pot_InZn_then_ZnS_shell,In(Zn)P/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L006-04,L006,10.1021/acs.chemmater.7b02204,1,516,305,2,36,67,,one_pot_InZn_then_SILAR_shell,In(Zn)P/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L006-05,L006,10.1021/acs.chemmater.7b02204,1,552,305,2,40,60,,one_pot_InZn_then_SILAR_shell,In(Zn)P/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L006-06,L006,10.1021/acs.chemmater.7b02204,1,621,305,2,44,,,SILAR_core_growth_then_SILAR_shell,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L007-01,L007,,0,569,178,840,64,,,modified_SILAR,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L007-02,L007,,0,575,178,840,54,,,modified_SILAR,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L007-03,L007,,0,582,178,840,57,,,modified_SILAR,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L007-04,L007,,0,581,178,840,58,,,modified_SILAR,InP/ZnSe,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L007-05,L007,,0,597,178,840,54,,,modified_SILAR,InP/ZnSe,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L007-06,L007,,0,599,178,840,54,,,modified_SILAR,InP/ZnSe,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L007-07,L007,,0,585,178,840,52,,,modified_SILAR,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L007-08,L007,,0,593,178,840,55,,,modified_SILAR,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L007-09,L007,,0,595,178,840,55,,,modified_SILAR,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L007-10,L007,,0,596,178,840,51,,,modified_SILAR,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L009-01,L009,10.1021/acsanm.8b02063,1,528,150,,36,95.4,,hot_injection_MSC_mediated,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L009-02,L009,10.1021/acsanm.8b02063,1,505,150,,50,46,,hot_injection_MSC_mediated,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L010-01,L010,,0,480,160,10,50.2,34,,one_pot_gram_scale,InP/(Al)ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L010-02,L010,,0,509,180,10,56.3,62,,one_pot_gram_scale,InP/(Al)ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L010-03,L010,,0,560,170,20,61.6,86,,one_pot_gram_scale,InP/(Al)ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L010-04,L010,,0,600,175,30,57.2,96,,one_pot_gram_scale,InP/(Al)ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L010-05,L010,,0,629,200,30,59,72,,one_pot_gram_scale,InP/(Al)ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L011-01,L011,,0,670,180,20,50,60,,aminophosphine_one_pot_HF,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L011-02,L011,,0,666,180,20,52,66,,aminophosphine_one_pot_HF,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L011-03,L011,,0,654,180,17,47,68,,aminophosphine_one_pot_HF,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L011-04,L011,,0,642,180,12,45,71,,aminophosphine_one_pot_HF,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L011-05,L011,,0,632,180,8,44,74,,aminophosphine_one_pot_HF,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L011-06,L011,,0,626,180,5,49,69,,aminophosphine_one_pot_HF,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L012-01,L012,,0,618,270,,42,,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L013-01,L013,,0,621,185,60,44,86,,aminophosphine_InBr3,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L014-01,L014,,0,535,240,10,32,100,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L015-01,L015,,0,522,200,6,36,86,,aminophosphine_one_pot_GHAS,InP/ZnSe/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L016-01,L016,,0,521,170,20,,85,,aminophosphine,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L017-01,L017,,0,540,180,5,46,31,,aminophosphine,InP/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L018-01,L018,,0,528,180,4,37,90,,aminophosphine,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L019-01,L019,,0,530,300,10,41,85,,heating_up,InP/GaP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L019-02,L019,,0,480,300,10,50,40,,heating_up,InP/GaP/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L019-03,L019,,0,620,300,10,65,60,,heating_up,InP/GaP/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L020-01,L020,,0,485,300,60,52,45,,heating_up,InP/GaP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L020-02,L020,,0,497,300,10,59,,,heating_up,InP/GaP/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L021-01,L021,,0,465,170,30,42,43,,heating_up,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L021-02,L021,,0,533,180,30,36,97,,heating_up,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L021-03,L021,,0,620,310,30,60,95,,heating_up,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L022-01,L022,,0,410,170,30,65,37,,heating_up,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L022-02,L022,,0,430,170,30,50,45,,heating_up,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L023-01,L023,10.1021/acs.chemmater.7b00254,1,482,180,30,58,8,,hot_injection,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L023-02,L023,10.1021/acs.chemmater.7b00254,1,529,150,30,60,60,,hot_injection,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L023-03,L023,10.1021/acs.chemmater.7b00254,1,555,180,30,69,63,,hot_injection,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L023-04,L023,10.1021/acs.chemmater.7b00254,1,595,180,30,77,40,,hot_injection,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L023-05,L023,10.1021/acs.chemmater.7b00254,1,635,210,20,76,18,,hot_injection,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L024-01,L024,,0,565,270,120,52,75,,hot_injection,InZnP/InGaP/GaP/ZnSeS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L025-01,L025,,0,525,250,2,35,95,,hot_injection,InP/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L025-02,L025,,0,525,180,1,36,85,,hot_injection,InP/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L026-01,L026,,0,646,200,30,67,36,,hot_injection,InP/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L026-02,L026,,0,647,200,30,74,46,,hot_injection,H-InP/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L026-03,L026,,0,640,200,30,67,60,,hot_injection,Ga-InP/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L028-01,L028,,0,607,180,30,45.5,95,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L028-02,L028,,0,562,180,30,48,82,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L028-03,L028,,0,552,180,30,53,87,,hot_injection,InP/ZnSeS/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L028-04,L028,,0,517.5,180,20,45,100,,hot_injection,InP/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L028-05,L028,,0,483,180,12,46,82,,hot_injection,InP/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L028-06,L028,,0,491,180,30,55.5,92,,hot_injection,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L029-01,L029,10.1021/acsanm.0c00008,1,527,180,2,37,87,,hot_injection,InP/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L029-02,L029,10.1021/acsanm.0c00008,1,530,180,2,50,82,,hot_injection,InP/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L032-01,L032,,0,,270,120,,60,,hot_injection,In(Zn)P/ZnSe,1,literature_structured,final_purified,2,,,,,,,,,,,,,,
+dd,NR-L033-01,L033,10.1039/c6nr04713k,1,530,185,15,46,45,,hot_injection,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L033-02,L033,10.1039/c6nr04713k,1,625,185,15,66,33,,hot_injection,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L034-01,L034,10.1021/acs.nanolett.7b02634,1,629,180,20,47,65,,hot_injection,InP/ZnSe,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L035-01,L035,,0,554,180,20,47,50,,hot_injection,InP/ZnSe,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L036-01,L036,,0,468,200,20,47,45,,hot_injection,InP/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L036-02,L036,,0,468,200,20,47,40,,hot_injection,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L037-01,L037,,0,683.5,250,20,53,45,650.1,hot_injection,InP/ZnSe,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L037-02,L037,,0,680.3,250,20,58.8,90,650.1,hot_injection,InP/ZnSe/ZnSeS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L037-03,L037,,0,680,250,20,66,95,650.1,hot_injection,InP/ZnSe/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L038-01,L038,10.1021/acs.jpclett.9b02386,1,425,200,,72,25,,hot_injection,InP/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L038-02,L038,10.1021/acs.jpclett.9b02386,1,630,200,60,61,36,,hot_injection,InP/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L039-01,L039,,0,500,140,60,44,60,,hot_injection,InP/ZnSeS/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L039-02,L039,,0,478,140,60,46,72,,hot_injection,InP/ZnSeS/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L039-03,L039,,0,457,140,60,52,84,,hot_injection,InP/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L040-01,L040,,0,627,200,20,59,32,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L040-02,L040,,0,585,200,20,62,50,,hot_injection,In(Ga)P/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L040-03,L040,,0,539,200,20,50,31,,hot_injection,In(Ga)P/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L041-01,L041,,0,470,300,,40,67,,hot_injection,In(Ga)P/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L042-01,L042,,0,485,200,2,48,81,,hot_injection,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L042-02,L042,,0,479,200,2,,85,,hot_injection,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L042-03,L042,,0,466,200,2,47,73,,hot_injection,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L042-04,L042,,0,451,200,2,,52,,hot_injection,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L042-05,L042,,0,421,200,2,,28,,hot_injection,InP/ZnS/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L043-01,L043,,0,630,300,,57,89,,hot_injection,InP/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L043-02,L043,,0,590,300,,57,89,,hot_injection,In(Ga)P/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L043-03,L043,,0,,300,,60,75,,hot_injection,In(Ga)P/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L044-01,L044,10.1021/acs.chemmater.0c00551,1,475,180,3,47,68,,hot_injection,In(Ga)P/ZnSeS/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L044-02,L044,10.1021/acs.chemmater.0c00551,1,470,180,3,46,75,,hot_injection,In(Ga)P/ZnSeS/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L044-03,L044,10.1021/acs.chemmater.0c00551,1,465,180,3,46,80,,hot_injection,In(Ga)P/ZnSeS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L045-01,L045,,0,474,140,2,47,93,,hot_injection,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L045-02,L045,,0,474,140,2,,92,,hot_injection,InP/ZnS/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L046-01,L046,,0,721,230,30,,38.3,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L046-02,L046,,0,725,230,30,45,42.5,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L047-01,L047,,0,466,200,20,41,34,,hot_injection,In(Zn)P/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L047-02,L047,,0,478,200,20,49,31,,hot_injection,In(Zn)P/ZnS,1,literature_structured,final_purified,0,,,,,,,,,,,,,,
+dd,NR-L048-01,L048,,0,,200,,45,81,,hot_injection,InP/GaP/ZnS/ZnS,1,literature_structured,final_purified,3,,,,,,,,,,,,,,
+dd,NR-L049-01,L049,,0,606,305,40,37.2,99.9,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L049-02,L049,,0,630,305,40,42.6,90,,hot_injection,InP/ZnSe/ZnSeS/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L050-01,L050,,0,513,200,20,62,80,,hot_injection,InP/ZnMnS/ZnS,1,literature_structured,final_purified,2,,,,,,,,,,,,,,
+dd,NR-L050-02,L050,,0,470,200,20,47,38,,hot_injection,InP/ZnMnS/ZnS,1,literature_structured,final_purified,1,,,,,,,,,,,,,,
+dd,NR-L051-01,L051,,0,620,290,,36,90,,hot_injection,InP/ZnSe/ZnS,1,literature_structured,final_purified,3,,,,,,,,,,,,,,
+dd,NR-L052-01,L052,,0,576,410,60,50,46,,cation_exchange,In(Ga)P/ZnS,1,literature_structured,final_purified,3,,,,,,,,,,,,,,
+dd,NR-L053-01,L053,,0,527,300,,58,70,,heating_up,InP/GaP/ZnS/ZnS,1,literature_structured,final_purified,3,,,,,,,,,,,,,,
+dd,NR-L054-01,L054,,0,720,220,30,53,8,,aminophosphine,InP/ZnS,1,literature_structured,final_purified,4,,,,,,,,,,,,,,
+dd,NR-L055-01,L055,,0,531,305,2,36,88,,heating_up,In(Zn)P/ZnSe/ZnS,1,literature_structured,final_purified,3,,,,,,,,,,,,,,
+dd,NR-L056-01,L056,,0,550,305,2,50,50,,heating_up,In(Zn)P/Zn(Mg)Se/ZnS,1,literature_structured,final_purified,5,,,,,,,,,,,,,,
+dd,NR-L057-01,L057,,0,607,200,,90,30.9,,aminophosphine,InP/ZnS,1,literature_structured,final_purified,3,,,,,,,,,,,,,,
+cossairt,cos_raw_row_001,,10.1080/15980316.2012.683537,0,481,300,30,,,,,,,,,,436,2.3,indium myristate,0.1,tris(trimethylsilyl) phosphine,0.1,dodecanethiol,0.05,octadecene,None,None,0,8.012,Hao
+cossairt,cos_raw_row_002,,10.1016/j.jcis.2010.12.013,0,None,180,1440,,,,,,,,,,512,2.3,indium chloride,1.81,tris(dimethylamino)phosphine,2.75,dodecylamine,27,toluene,None,None,0,11.198,Hao
+cossairt,cos_raw_row_003,,10.1021/j100070a004,0,None,270,4320,,,,,,,,,,520,2.52,chloroindium oxalate,0.88,tris(trimethylsilyl)phosphine,1.4,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,11.573,Hao
+cossairt,cos_raw_row_004,,10.1021/jp9704731,0,600,250,4320,,,,,,,,,,517,2.6,indium oxalate,2.33,tris(trimethylsilyl)phosphine,3,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,11.962,Hao
+cossairt,cos_raw_row_005,,10.1021/j100019a063,0,None,270,4320,,,,,,,,,,530,2.6,chloroindium oxalate,0.88,tris(trimethylsilyl)phosphine,0.52,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,11.573,Hao
+cossairt,cos_raw_row_006,,10.1021/j100070a004,0,None,270,4320,,,,,,,,,,610,2.61,chloroindium oxalate,1.05,tris(trimethylsilyl)phosphine,1.4,None,0,trioctylphosphine oxide,None,None,0,0.223,Hao
+cossairt,cos_raw_row_007,,10.1021/j100070a004,0,None,270,8640,,,,,,,,,,590,2.66,chloroindium oxalate,0.88,tris(trimethylsilyl)phosphine,1.4,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,11.573,Hao
+cossairt,cos_raw_row_008,,10.1021/ja104673y,0,591,270,180,,,,,,,,,,532,2.7,indium acetate,0.7,tris(trimethylsilyl)phosphine,0.35,None,0,octadecene,None,palmitic acid,2.1,40,Hao
+cossairt,cos_raw_row_009,,10.1021/ja309863n,0,612,210,20,,,,,,,,,,551,2.7,indium myristate,0.3,tris(trimethylsilyl)phosphine,0.15,None,0,octadecene,trioctylphosphine,None,0,5,Hao
+cossairt,cos_raw_row_010,,10.1021/jp9704731,0,646,260,4320,,,,,,,,,,577,3,indium oxalate,2.33,tris(trimethylsilyl)phosphine,3,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,11.962,Hao
+cossairt,cos_raw_row_011,,10.1016/j.jcis.2010.12.013,0,590,180,1440,,,,,,,,,,499,3.2,indium chloride,1.81,tris(dimethylamino)phosphine,2.75,dodecylamine,27,toluene,None,None,0,11.198,Hao
+cossairt,cos_raw_row_012,,10.1002/anie.200800281,0,618,250,240,,,,,,,,,,562,3.5,indium acetate,0.5,phosphorus trichloride,0.5,dioctyl ether,3,octadecene,None,stearic acid,1.5,34.901,Hao
+cossairt,cos_raw_row_013,,10.1021/jp9704731,0,677,270,4320,,,,,,,,,,590,3.5,indium oxalate,2.33,tris(trimethylsilyl)phosphine,3,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,11.962,Hao
+cossairt,cos_raw_row_014,,10.1021/j100019a063,0,None,270,4320,,,,,,,,,,595,3.5,chloroindium oxalate,1.76,tris(trimethylsilyl)phosphine,1.04,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,2.629,Hao
+cossairt,cos_raw_row_015,,10.1021/ja309863n,0,641,210,20,,,,,,,,,,578,3.6,indium myristate,0.3,tris(trimethylgermyl)phosphine,0.15,None,0,octadecene,trioctylphosphine,None,0,5,Hao
+cossairt,cos_raw_row_016,,10.1002/cphc.200900159,0,588,180,10,,,,,,,,,,580,3.7,indium acetate,0.4,tris(trimethylsilyl)phosphine,0.2,octylamine,1.52,octadecene,None,myristic acid,1.7,6.752,Hao
+cossairt,cos_raw_row_017,,10.1109/cleo.2006.4628249,0,630,270,180,,,,,,,,,,585,4,indium acetate,1,tris(trimethylsilyl)phosphine,0.499,None,0,octadecene,None,myristic acid,3,75,Hao
+cossairt,cos_raw_row_018,,10.1021/jp9704731,0,729,280,4320,,,,,,,,,,626,4.2,indium oxalate,2.33,tris(trimethylsilyl)phosphine,3,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,11.962,Hao
+cossairt,cos_raw_row_019,,10.1021/j100019a063,0,None,300,4320,,,,,,,,,,650,4.6,chloroindium oxalate,1.76,tris(trimethylsilyl)phosphine,1.04,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,2.629,Hao
+cossairt,cos_raw_row_020,,10.1021/jp9704731,0,765,290,4320,,,,,,,,,,689,4.8,indium oxalate,2.33,tris(trimethylsilyl)phosphine,3,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,11.962,Hao
+cossairt,cos_raw_row_021,,10.1016/j.matchemphys.2005.07.041,0,None,130,2880,,,,,,,,,,587,5,indium chloride,10,sodium phosphide,10,None,0,4-ethylpyridine,trioctylphosphine,None,0,70,Hao
+cossairt,cos_raw_row_022,,10.1021/jp9704731,0,775,300,4320,,,,,,,,,,729,6,indium oxalate,2.33,tris(trimethylsilyl)phosphine,3,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,11.962,Hao
+cossairt,cos_raw_row_023,,10.1557/jmr.2006.0068,0,590,270,240,,,,,,,,,,532,8.3,indium trifluoroacetate,0.11,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,myristic acid,0.3,7,Hao
+cossairt,cos_raw_row_024,,10.1016/s0167-577x(03)00371-9,0,550,160,120,,,,,,,,,,465,None,indium chloride,10,sodium phosphide,11.3,None,0,dimethylformamide,None,None,0,90,Hao
+cossairt,cos_raw_row_025,,10.1021/ja309863n,0,572,210,10,,,,,,,,,,511,None,indium myristate,0.3,tris(trimethylsilyl)phosphine,0.15,None,0,octadecene,trioctylphosphine,None,0,5,Hao
+cossairt,cos_raw_row_026,,10.1021/ja309863n,0,581,210,14,,,,,,,,,,532,None,indium myristate,0.3,tris(trimethylsilyl)phosphine,0.15,None,0,octadecene,trioctylphosphine,None,0,5,Hao
+cossairt,cos_raw_row_027,,10.1021/ja309863n,0,582,210,10,,,,,,,,,,529,None,indium myristate,0.3,tris(trimethylgermyl)phosphine,0.15,None,0,octadecene,trioctylphosphine,None,0,5,Hao
+cossairt,cos_raw_row_028,,10.1021/ja309863n,0,601,210,14,,,,,,,,,,552,None,indium myristate,0.3,tris(trimethylgermyl)phosphine,0.15,None,0,octadecene,trioctylphosphine,None,0,5,Hao
+cossairt,cos_raw_row_029,,10.1021/cm050110a,0,607,260,1,,,,,,,,,,456,None,indium stearate,0.25,tris(trimethylsilyl)phosphine,0.125,None,0,octadecene,None,None,0,44,Hao
+cossairt,cos_raw_row_030,,10.1016/j.jcis.2010.06.037,0,612,280,4320,,,,,,,,,,599,None,chloroindium oxalate,4.2,tris(trimethylsilyl)phosphine,2.07,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,17.112,Hao
+cossairt,cos_raw_row_031,,10.1088/0957-4484/23/48/485609/meta,0,None,130,30,,,,,,,,,,408,None,indium chloride,0.2,tris(trimethylsilyl)phosphine,0.2,octylamine,1.2,octadecene,None,myristic acid,0.7,6.699,Hao
+cossairt,cos_raw_row_032,,10.1002/anie.200800281,0,None,210,60,,,,,,,,,,473,None,indium acetate,0.5,phosphorus trichloride,0.5,dioctyl ether,3,octadecene,None,stearic acid,1.5,34.901,Hao
+cossairt,cos_raw_row_033,,10.1002/anie.200800281,0,None,230,60,,,,,,,,,,524,None,indium acetate,0.5,phosphorus trichloride,0.5,dioctyl ether,3,octadecene,None,stearic acid,1.5,34.901,Hao
+cossairt,cos_raw_row_034,,10.1002/anie.200800281,0,None,250,60,,,,,,,,,,538,None,indium acetate,0.5,phosphorus trichloride,0.5,dioctyl ether,3,octadecene,None,stearic acid,1.5,34.901,Hao
+cossairt,cos_raw_row_035,,10.1002/anie.200800281,0,None,270,60,,,,,,,,,,576,None,indium acetate,0.5,phosphorus trichloride,0.5,dioctyl ether,3,octadecene,None,stearic acid,1.5,34.901,Hao
+cossairt,cos_raw_row_036,,10.1002/anie.200800281,0,None,290,60,,,,,,,,,,578,None,indium acetate,0.5,phosphorus trichloride,0.5,dioctyl ether,3,octadecene,None,stearic acid,1.5,34.901,Hao
+cossairt,cos_raw_row_037,,10.1021/nl025687v,0,None,270,5,,,,,,,,,,571,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,lauric acid,0.3,7.6,Hao
+cossairt,cos_raw_row_038,,10.1021/nl025687v,0,None,270,5,,,,,,,,,,500,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,myristic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_039,,10.1021/nl025687v,0,None,270,5,,,,,,,,,,510,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,myristic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_040,,10.1021/nl025687v,0,None,270,5,,,,,,,,,,500,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,palmitic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_041,,10.1021/nl025687v,0,None,270,5,,,,,,,,,,496,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,stearic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_042,,10.1557/jmr.2006.0068,0,None,270,6,,,,,,,,,,570,None,indium trifluoroacetate,0.11,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,myristic acid,0.3,7,Hao
+cossairt,cos_raw_row_043,,10.1021/nl025687v,0,None,270,15,,,,,,,,,,574,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,lauric acid,0.3,7.6,Hao
+cossairt,cos_raw_row_044,,10.1021/nl025687v,0,None,270,15,,,,,,,,,,540,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,myristic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_045,,10.1021/nl025687v,0,None,270,15,,,,,,,,,,531,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,myristic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_046,,10.1021/nl025687v,0,None,270,15,,,,,,,,,,580,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,myristic acid,0.45,7.6,Hao
+cossairt,cos_raw_row_047,,10.1021/nl025687v,0,None,270,15,,,,,,,,,,539,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,palmitic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_048,,10.1021/nl025687v,0,None,270,15,,,,,,,,,,509,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,stearic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_049,,10.1021/nl025687v,0,None,270,30,,,,,,,,,,574,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,lauric acid,0.3,7.6,Hao
+cossairt,cos_raw_row_050,,10.1021/cm7035579,0,None,290,30,,,,,,,,,,631,None,indium acetate,0.1,phosphine gas,0.3,None,0,octadecene,None,myristic acid,0.3,8.62,Hao
+cossairt,cos_raw_row_051,,10.1021/nl025687v,0,None,270,30,,,,,,,,,,548,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,myristic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_052,,10.1021/nl025687v,0,None,270,30,,,,,,,,,,538,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,myristic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_053,,10.1021/nl025687v,0,None,270,30,,,,,,,,,,580,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,myristic acid,0.45,7.6,Hao
+cossairt,cos_raw_row_054,,10.1021/nl025687v,0,None,270,30,,,,,,,,,,549,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,palmitic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_055,,10.1021/nl025687v,0,None,270,30,,,,,,,,,,518,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,stearic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_056,,10.1557/jmr.2006.0068,0,None,270,60,,,,,,,,,,562,None,indium trifluoroacetate,0.11,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,myristic acid,0.3,7,Hao
+cossairt,cos_raw_row_057,,10.1021/nl025687v,0,None,270,120,,,,,,,,,,592,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,myristic acid,0.45,7.6,Hao
+cossairt,cos_raw_row_058,,10.1557/jmr.2006.0068,0,None,270,120,,,,,,,,,,549,None,indium trifluoroacetate,0.11,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,myristic acid,0.3,7,Hao
+cossairt,cos_raw_row_059,,10.1021/nl025687v,0,None,270,180,,,,,,,,,,575,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,lauric acid,0.3,7.6,Hao
+cossairt,cos_raw_row_060,,10.1021/nl025687v,0,None,270,180,,,,,,,,,,550,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,myristic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_061,,10.1021/nl025687v,0,None,270,180,,,,,,,,,,550,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,myristic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_062,,10.1021/nl025687v,0,None,270,180,,,,,,,,,,551,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,palmitic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_063,,10.1021/nl025687v,0,None,270,180,,,,,,,,,,538,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.05,None,0,octadecene,None,stearic acid,0.3,7.6,Hao
+cossairt,cos_raw_row_064,,10.1021/ja076363h,0,None,178,0.2,,,,,,,,,,498,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.6,octadecene,None,myristic acid,7.7,7.095,Hao
+cossairt,cos_raw_row_065,,10.1021/ja076363h,0,None,178,0.2,,,,,,,,,,476,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.6,octadecene,None,myristic acid,7.25,7.095,Hao
+cossairt,cos_raw_row_066,,10.1021/ja076363h,0,None,178,0.2,,,,,,,,,,491,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.61,octadecene,None,myristic acid,8.2,7.097,Hao
+cossairt,cos_raw_row_067,,10.1002/cphc.200900159,0,None,180,1,,,,,,,,,,492,None,indium acetate,0.4,tris(trimethylsilyl)phosphine,0.2,octylamine,1.52,octadecene,None,myristic acid,1.7,6.752,Hao
+cossairt,cos_raw_row_068,,10.1002/cphc.200900159,0,None,150,1,,,,,,,,,,397,None,indium acetate,0.4,tris(trimethylsilyl)phosphine,0.2,octylamine,1.52,octadecene,None,myristic acid,1.7,6.752,Hao
+cossairt,cos_raw_row_069,,10.1021/ja076363h,0,None,178,1,,,,,,,,,,530,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.6,octadecene,None,myristic acid,7.7,7.095,Hao
+cossairt,cos_raw_row_070,,10.1021/ja076363h,0,None,178,1,,,,,,,,,,497,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.6,octadecene,None,myristic acid,7.25,7.095,Hao
+cossairt,cos_raw_row_071,,10.1021/ja076363h,0,None,178,1,,,,,,,,,,522,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.61,octadecene,None,myristic acid,8.2,7.097,Hao
+cossairt,cos_raw_row_072,,10.1088/0957-4484/23/48/485609/meta,0,None,130,1,,,,,,,,,,419,None,indium acetate,0.2,tris(trimethylsilyl)phosphine,0.2,octylamine,1.2,octadecene,None,myristic acid,0.7,6.699,Hao
+cossairt,cos_raw_row_073,,10.1088/0957-4484/23/48/485609/meta,0,None,150,1,,,,,,,,,,431,None,indium acetate,0.2,tris(trimethylsilyl)phosphine,0.2,octylamine,1.2,octadecene,None,myristic acid,0.7,6.699,Hao
+cossairt,cos_raw_row_074,,10.1088/0957-4484/23/48/485609/meta,0,None,170,1,,,,,,,,,,446,None,indium acetate,0.2,tris(trimethylsilyl)phosphine,0.2,octylamine,1.2,octadecene,None,myristic acid,0.7,6.699,Hao
+cossairt,cos_raw_row_075,,10.1002/cphc.200900159,0,None,150,10,,,,,,,,,,462,None,indium acetate,0.4,tris(trimethylsilyl)phosphine,0.2,octylamine,1.52,octadecene,None,myristic acid,1.7,6.752,Hao
+cossairt,cos_raw_row_076,,10.1021/ja076363h,0,None,178,10,,,,,,,,,,509,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.6,octadecene,None,myristic acid,7.25,7.095,Hao
+cossairt,cos_raw_row_077,,10.1021/ja076363h,0,None,178,10,,,,,,,,,,613,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.61,octadecene,None,myristic acid,8.2,7.097,Hao
+cossairt,cos_raw_row_078,,10.1021/ja076363h,0,None,178,20,,,,,,,,,,590,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.6,octadecene,None,myristic acid,7.7,7.095,Hao
+cossairt,cos_raw_row_079,,10.1002/cphc.200900159,0,None,150,30,,,,,,,,,,500,None,indium acetate,0.4,tris(trimethylsilyl)phosphine,0.2,octylamine,1.52,octadecene,None,myristic acid,1.7,6.752,Hao
+cossairt,cos_raw_row_080,,10.1021/ja076363h,0,None,178,30,,,,,,,,,,518,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.6,octadecene,None,myristic acid,7.25,7.095,Hao
+cossairt,cos_raw_row_081,,10.1088/0957-4484/23/48/485609/meta,0,None,170,30,,,,,,,,,,468,None,indium acetate,0.2,tris(trimethylsilyl)phosphine,0.2,octylamine,1.2,octadecene,None,myristic acid,0.7,6.699,Hao
+cossairt,cos_raw_row_082,,10.1088/0957-4484/23/48/485609/meta,0,None,150,30,,,,,,,,,,432,None,indium acetate,0.2,tris(trimethylsilyl)phosphine,0.2,octylamine,1.2,octadecene,None,myristic acid,0.7,6.699,Hao
+cossairt,cos_raw_row_083,,10.1088/0957-4484/23/48/485609/meta,0,None,130,30,,,,,,,,,,412,None,indium acetate,0.2,tris(trimethylsilyl)phosphine,0.2,octylamine,1.2,octadecene,None,myristic acid,0.7,6.699,Hao
+cossairt,cos_raw_row_084,,10.1088/0957-4484/23/48/485609/meta,0,None,130,30,,,,,,,,,,502,None,indium chloride,0.2,tris(trimethylsilyl)phosphine,0.2,octylamine,1.2,octadecene,None,myristic acid,0.7,6.699,Hao
+cossairt,cos_raw_row_085,,10.1021/ja076363h,0,None,178,60,,,,,,,,,,625,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.6,octadecene,None,myristic acid,7.7,7.095,Hao
+cossairt,cos_raw_row_086,,10.1021/ja076363h,0,None,178,60,,,,,,,,,,520,None,indium acetate,2,tris(trimethylsilyl)phosphine,0.3,octylamine,3.6,octadecene,None,myristic acid,7.25,7.095,Hao
+cossairt,cos_raw_row_087,,10.1002/cphc.200900159,0,None,180,120,,,,,,,,,,626,None,indium acetate,0.4,tris(trimethylsilyl)phosphine,0.2,octylamine,1.52,octadecene,None,myristic acid,1.7,6.752,Hao
+cossairt,cos_raw_row_088,,10.1002/cphc.200900159,0,None,150,120,,,,,,,,,,574,None,indium acetate,0.4,tris(trimethylsilyl)phosphine,0.2,octylamine,1.52,octadecene,None,myristic acid,1.7,6.752,Hao
+cossairt,cos_raw_row_089,,10.1039/c6nr04713k,1,None,180,15,,,,,,,,,,481,1.75,indium chloride,0.3,tris(dimethylamino)phosphine,0.08,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_090,,10.1021/acs.chemmater.7b02204,1,None,305,2,,,,,,,,,,472,1.8,indium acetate,0.15,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,trioctylphosphine,palmitic acid,0.45,11,Hao
+cossairt,cos_raw_row_091,,10.1021/acs.chemmater.7b04069,0,None,150,1260,,,,,,,,,,523,2,"indium tris(N,N-diisopropylacetamidinato)",0.9,tris(trimethylsilyl)phosphine,0.15,hexadecylamine,0.3,mesitylene,None,palmitic acid,0.3,5.077,Hao
+cossairt,cos_raw_row_092,,10.1016/j.jallcom.2013.08.003,0,None,200,15,,,,,,,,,,601,2.5,indium acetate,0.1,phosphine gas,3,None,0,octadecene,None,myristic acid,0.3,2,Hao
+cossairt,cos_raw_row_093,,10.1039/c6nr04713k,1,None,180,15,,,,,,,,,,547,2.6,indium chloride,0.3,tris(dimethylamino)phosphine,0.08,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_094,,10.1021/5b02138,0,None,180,30,,,,,,,,,,509,2.8,indium iodide,0.45,tris(diethylamino)phosphine,1.62,oleylamine,15,None,None,None,0,4.936,Hao
+cossairt,cos_raw_row_095,,10.1021/5b02138,0,None,180,30,,,,,,,,,,562,3,indium bromide,0.45,tris(diethylamino)phosphine,1.62,oleylamine,15,None,None,None,0,4.936,Hao
+cossairt,cos_raw_row_096,,10.1021/acs.nanolett.7b02634,1,None,180,20,,,,,,,,,,None,3.2,indium chloride,0.23,tris(diethylamino)phosphine,0.8,oleylamine,7.5,None,None,None,0,2.468,Hao
+cossairt,cos_raw_row_097,,10.1021/5b02138,0,None,180,30,,,,,,,,,,570,3.2,indium chloride,0.45,tris(diethylamino)phosphine,1.62,oleylamine,15,None,None,None,0,4.936,Hao
+cossairt,cos_raw_row_098,,10.1021/acs.chemmater.6b02456,0,None,220,0.5,,,,,,,,,,492,3.6,indium chloride,0.3,tris(dimethylamino)phosphine,1.2,oleylamine,4.3,None,None,None,0,1.415,Hao
+cossairt,cos_raw_row_099,,10.1021/acs.chemmater.7b04069,0,None,230,1260,,,,,,,,,,584,4.1,"indium tris(N,N-diisopropylacetamidinato)",0.9,tris(trimethylsilyl)phosphine,0.15,hexadecylamine,0.3,mesitylene,None,palmitic acid,0.3,5.077,Hao
+cossairt,cos_raw_row_100,,10.1016/j.jallcom.2013.08.003,0,None,260,15,,,,,,,,,,620,4.3,indium acetate,0.1,phosphine gas,3,None,0,octadecene,None,myristic acid,0.3,2,Hao
+cossairt,cos_raw_row_101,,10.1021/acs.chemmater.6b02456,0,None,220,0.5,,,,,,,,,,611,4.6,indium chloride,0.3,tris(dimethylamino)phosphine,1.2,oleylamine,4.3,None,None,None,0,1.415,Hao
+cossairt,cos_raw_row_102,,10.1039/c6tc02910h,0,522,230,10,,,,,,,,,,462,None,indium chloride,0.5,tris(trimethylsilyl)phosphine,0.6,oleylamine,1,octadecene,trioctylphosphine,None,0,15.598,Hao
+cossairt,cos_raw_row_103,,10.1039/c6tc02910h,0,572,230,10.5,,,,,,,,,,463,None,indium chloride,0.5,tris(trimethylsilyl)phosphine,0.4,oleylamine,1,octadecene,None,None,0,15.33,Hao
+cossairt,cos_raw_row_104,,10.1039/c6tc02910h,0,574,230,40,,,,,,,,,,505,None,indium chloride,0.5,tris(trimethylsilyl)phosphine,0.6,oleylamine,1,octadecene,trioctylphosphine,None,0,15.6,Hao
+cossairt,cos_raw_row_105,,10.1039/c6tc02910h,0,591,230,40,,,,,,,,,,476,None,indium chloride,0.5,tris(trimethylsilyl)phosphine,0.4,oleylamine,1,octadecene,None,None,0,15.33,Hao
+cossairt,cos_raw_row_106,,10.1021/cm401289j,0,None,285,8,,,,,,,,,,537,None,indium acetate,0.4,bis(trimethylsilyl)phosphine,0.2,None,0,octadecene,None,myristic acid,1.45,7.6,Hao
+cossairt,cos_raw_row_107,,10.1021/cm401289j,0,None,285,8,,,,,,,,,,537,None,indium acetate,0.4,tris(trimethylsilyl)phosphine,0.2,None,0,octadecene,None,myristic acid,1.45,7.6,Hao
+cossairt,cos_raw_row_108,,10.1021/acs.chemmater.7b02204,1,None,305,15,,,,,,,,,,486,None,indium acetate,0.15,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,trioctylphosphine,palmitic acid,0.45,11,Hao
+cossairt,cos_raw_row_109,,10.1021/acs.chemmater.7b02204,1,None,305,180,,,,,,,,,,499,None,indium acetate,0.15,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,trioctylphosphine,palmitic acid,0.45,11,Hao
+cossairt,cos_raw_row_110,,10.1007/s11051-013-1750-y,0,None,220,1,,,,,,,,,,571,None,indium chloride,0.88,tris(dimethylamino)phosphine,1.38,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_111,,10.1007/s11051-013-1750-y,0,None,220,30,,,,,,,,,,602,None,indium chloride,0.88,tris(dimethylamino)phosphine,1.38,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_112,,10.1021/cm401289j,0,None,285,8,,,,,,,,,,545,None,indium acetate,0.4,tris(trimethylsilyl)phosphine,0.2,None,0,octadecene,None,None,0,7.6,Hao
+cossairt,cos_raw_row_113,,10.1007/s11051-013-1750-y,0,None,220,1,,,,,,,,,,537,None,indium chloride,0.88,tris(dimethylamino)phosphine,1.38,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_114,,10.1007/s11051-013-1750-y,0,None,220,1,,,,,,,,,,532,None,indium chloride,0.88,tris(dimethylamino)phosphine,1.38,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_115,,10.1039/c6nr04713k,1,None,180,1,,,,,,,,,,461,None,indium chloride,0.3,tris(dimethylamino)phosphine,0.08,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_116,,10.1039/c6nr04713k,1,None,180,1,,,,,,,,,,438,None,indium chloride,0.3,tris(dimethylamino)phosphine,0.08,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_117,,10.1039/c6nr04713k,1,None,180,3,,,,,,,,,,496,None,indium chloride,0.3,tris(dimethylamino)phosphine,0.08,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_118,,10.1039/c6nr04713k,1,None,180,3,,,,,,,,,,460,None,indium chloride,0.3,tris(dimethylamino)phosphine,0.08,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_119,,10.1007/s11051-013-1750-y,0,None,220,30,,,,,,,,,,572,None,indium chloride,0.88,tris(dimethylamino)phosphine,1.38,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_120,,10.1007/s11051-013-1750-y,0,None,220,30,,,,,,,,,,575,None,indium chloride,0.88,tris(dimethylamino)phosphine,1.38,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_121,,10.3389/fchem.2018.00567,0,568,178,4,,,,,,,,,,445,1.5,indium acetate,0.4,tris(trimethylsilyl)phosphine,0.4,oleylamine,1.5,octadecene,None,None,0,3.494,Hao
+cossairt,cos_raw_row_122,,10.1002/adom.202100427,0,None,180,2,,,,,,,,,,444,2.2,indium chloride,1.8,tris(dimethylamino)phosphine,3.84,oleylamine,12,None,trioctylphosphine,None,0,5.249,Hao
+cossairt,cos_raw_row_123,,10.3389/fchem.2018.00567,0,589,178,32,,,,,,,,,,543,2.5,indium acetate,1.2,tris(trimethylsilyl)phosphine,1.2,oleylamine,1.5,octadecene,None,None,0,3.494,Hao
+cossairt,cos_raw_row_124,,10.1021/acsanm.1c00336,0,592,200,20,,,,,,,,,,553,2.6,indium chloride,0.45,tris(dimethylamino)phosphine,2.48,oleylamine,6.15,None,None,None,0,2.024,Hao
+cossairt,cos_raw_row_125,,10.1021/acs.nanolett.7b03703,0,590,300,30,,,,,,,,,,547,3,indium myristate,2,tris(trimethylsilyl)phosphine,0.15,None,0,octadecene,trioctylphosphine,None,0,6,Hao
+cossairt,cos_raw_row_126,,10.1021/acs.jpcc.0c09601,0,595,305,20,,,,,,,,,,555,3.1,indium acetate,4,tris(trimethylsilyl)phosphine,2,None,0,octadecene,None,oleic acid,14.5,15,Hao
+cossairt,cos_raw_row_127,,10.1021/acs.chemmater.7b01648,0,558,300,20,,,,,,,,,,525,4,indium acetate,0.2,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,myristic acid,0.6,10,melanie
+cossairt,cos_raw_row_128,,10.3389/fchem.2018.00567,0,680,178,840,,,,,,,,,,622,6.7,indium acetate,1.2,tris(trimethylsilyl)phosphine,1.2,dioctylamine,0.5,octadecene,None,None,0,3.151,Hao
+cossairt,cos_raw_row_129,,10.1021/acs.chemmater.7b00254,1,482,180,30,,,,,,,,,,430,None,indium iodide,0.3,white phosphorus,0.299,oleylamine,4.06,None,None,None,0,1.336,Hao
+cossairt,cos_raw_row_130,,10.1021/acs.chemmater.7b00254,1,529,150,30,,,,,,,,,,492,None,indium chloride,0.3,white phosphorus,0.45,oleylamine,4.06,None,None,None,0,1.336,Hao
+cossairt,cos_raw_row_131,,10.1021/acs.chemmater.7b00254,1,555,180,30,,,,,,,,,,522,None,indium chloride,0.3,white phosphorus,0.45,oleylamine,4.06,None,None,None,0,1.336,Hao
+cossairt,cos_raw_row_132,,10.1021/acs.chemmater.7b00254,1,595,180,30,,,,,,,,,,560,None,indium chloride,0.3,white phosphorus,0.45,oleylamine,0.8,None,None,None,0,0.264,Hao
+cossairt,cos_raw_row_133,,10.1021/acs.chemmater.7b00254,1,635,210,30,,,,,,,,,,590,None,indium chloride,0.3,white phosphorus,0.45,oleylamine,0.8,None,None,None,0,0.264,Hao
+cossairt,cos_raw_row_134,,10.1021/acs.inorgchem.0c03117,0,None,305,10,,,,,,,,,,480,None,indium paltimate,0.15,tris(trimethylsilyl)phosphine,0.12,None,0,octadecene,trioctylphosphine,None,0,18,Hao
+cossairt,cos_raw_row_135,,nayon,0,653,270,1140,,,,,,,,,,633,5,indium chloride,2.26,tris(trimethylsilyl)phosphine,2,None,0,trioctylphosphine,trioctylphosphine oxide,None,0,8.83,Nayon
+cossairt,cos_raw_row_136,,10.1007/s10854-020-05206-5,0,518,170,10,,,,,,,,,,478,7,indium chloride,0.45,tris(dimethylamino)phosphine,1.926,oleylamine,7.4,None,None,None,0,2.435,Florence
+cossairt,cos_raw_row_137,,10.1021/acsnano.0c08683,0,542,230,15,,,,,,,,,,498,None,indium acetate,1.2,tris(trimethylsilyl)phosphine,0.607,None,0,octadecene,None,stearic acid,3.6,12,Florence
+cossairt,cos_raw_row_138,,10.1021/acsnano.0c08683,0,548,230,5,,,,,,,,,,502,None,indium acetate,1.2,tris(trimethylsilyl)phosphine,0.607,None,0,octadecene,None,palmitic acid,3.6,12,Florence
+cossairt,cos_raw_row_139,,10.1016/j.apsusc.2019.01.067,0,550,300,20,,,,,,,,,,500,None,indium myristate,0.1,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,None,0,8.5,Nayon
+cossairt,cos_raw_row_140,,10.1021/acsnano.0c08683,0,554,230,5,,,,,,,,,,512,None,indium acetate,1.2,tris(trimethylsilyl)phosphine,0.607,None,0,octadecene,None,myristic acid,3.6,12,Florence
+cossairt,cos_raw_row_141,,10.1021/acsnano.0c08683,0,558,230,15,,,,,,,,,,512,None,indium acetate,1.2,tris(trimethylsilyl)phosphine,0.607,None,0,octadecene,None,oleic acid,3.6,12,Florence
+cossairt,cos_raw_row_142,,10.1007/s10854-020-05206-5,0,628,170,10,,,,,,,,,,576,None,indium chloride,0.45,tris(dimethylamino)phosphine,1.926,oleylamine,7.4,None,None,None,0,2.435,Florence
+cossairt,cos_raw_row_143,,10.1016/j.apsusc.2019.01.067,0,None,180,5,,,,,,,,,,515,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_144,,10.1016/j.apsusc.2019.01.067,0,None,220,5,,,,,,,,,,552,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_145,,10.1016/j.apsusc.2019.01.067,0,None,160,10,,,,,,,,,,455,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_146,,10.1016/j.apsusc.2019.01.067,0,None,180,10,,,,,,,,,,523,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_147,,10.1016/j.apsusc.2019.01.067,0,None,220,10,,,,,,,,,,569,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_148,,10.1016/j.apsusc.2019.01.067,0,None,160,20,,,,,,,,,,468,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_149,,10.1016/j.apsusc.2019.01.067,0,None,180,20,,,,,,,,,,544,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_150,,10.1016/j.apsusc.2019.01.067,0,None,220,20,,,,,,,,,,592,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_151,,10.1016/j.apsusc.2019.01.067,0,None,140,30,,,,,,,,,,440,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_152,,10.1016/j.apsusc.2019.01.067,0,None,140,30,,,,,,,,,,410,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_153,,10.1016/j.apsusc.2019.01.067,0,None,160,30,,,,,,,,,,492,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_154,,10.1016/j.apsusc.2019.01.067,0,None,180,30,,,,,,,,,,550,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_155,,10.1016/j.apsusc.2019.01.067,0,None,220,30,,,,,,,,,,600,None,indium chloride,0.9,tris(diethylamino)phosphine,3.2,oleylamine,17.2,None,None,None,0,5.66,Nayon
+cossairt,cos_raw_row_156,,10.1021/acsanm.8b02063,1,477,240,60,,,,,,,,,,430,2,indium acetate,0.6,tris(trimethylsilyl)phosphine,0.4,None,0,octadecene,trioctylphosphine,lauric acid,1.8,11,Nayon
+cossairt,cos_raw_row_157,,10.1038/s42004-019-0138-z,0,None,180,30,,,,,,,,,,None,2.48,indium chloride,0.45,tris(dimethylamino)phosphine,1.6,oleylamine,6.15,None,None,None,0,2.024,Nayon
+cossairt,cos_raw_row_158,,10.1021/acs.jpclett.9b02386,1,None,200,60,,,,,,,,,,420,2,indium chloride,0.45,tris(dimethylamino)phosphine,1.93,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_159,,10.1039/c9nr06847c,0,477,240,60,,,,,,,,,,430,2,indium acetate,0.6,tris(trimethylsilyl)phosphine,0.4,None,None,octadecene,trioctylphosphine,lauric acid,1.8,11,Hao
+cossairt,cos_raw_row_160,,10.1002/smll.201905162,0,None,260,60,,,,,,,,,,None,2.4,indium acetate,3,tris(trimethylsilyl)phosphine,1.5,None,0,octadecene,trioctylphosphine,oleic acid,9,48,Hao
+cossairt,cos_raw_row_161,,10.1038/s41586-019-1771-5,1,None,260,40,,,,,,,,,,500,2.7,indium acetate,4,tris(trimethylsilyl)phosphine,2,None,0,octadecene,trioctylphosphine,palmitic acid,12,110,Hao
+cossairt,cos_raw_row_162,,10.1021/acs.jpcc.9b07092,0,None,180,5,,,,,,,,,,550,3.2,indium chloride,0.45,tris(dimethylamino)phosphine,1.38,dodecylamine,3.7,None,None,None,0,0.85,Hao
+cossairt,cos_raw_row_163,,10.1021/acs.chemmater.8b01789,0,None,180,30,,,,,,,,,,560,3.2,indium chloride,0.225,tris(diethylamino)phosphine,0.8,oleylamine,7.5,None,None,None,0,2.468,Hao
+cossairt,cos_raw_row_164,,10.1021/acs.jpclett.9b02386,1,625,200,60,,,,,,,,,,590,4.3,indium chloride,0.45,tris(dimethylamino)phosphine,1.93,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_165,,10.1038/s41586-019-1771-5,1,None,260,1,,,,,,,,,,465,None,indium acetate,4,tris(trimethylsilyl)phosphine,2,None,0,octadecene,trioctylphosphine,palmitic acid,12,110,Hao
+cossairt,cos_raw_row_166,,10.1038/s41586-019-1771-5,1,None,260,20,,,,,,,,,,495,None,indium acetate,4,tris(trimethylsilyl)phosphine,2,None,0,octadecene,trioctylphosphine,palmitic acid,12,110,Hao
+cossairt,cos_raw_row_167,,10.1016/j.jlumin.2020.117297,0,None,220,0.5,,,,,,,,,,None,2.1,indium chloride,0.9,tris(dimethylamino)phosphine,1.4,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_168,,10.1016/j.jlumin.2020.117297,0,None,220,10,,,,,,,,,,None,3,indium chloride,0.9,tris(dimethylamino)phosphine,1.4,oleylamine,15.2,None,None,None,0,5.002,Hao
+cossairt,cos_raw_row_169,,10.1021/acsenergylett.0c02165,0,None,310,10,,,,,,,,,,None,3.2,indium acetate,0.34,tris(trimethylsilyl)phosphine,0.23,None,0,octadecene,None,oleic acid,1,9,Hao
+cossairt,cos_raw_row_170,,10.1021/acsanm.0c00008,1,None,180,2,,,,,,,,,,485,None,indium iodide,0.9,tris(dimethylamino)phosphine,1.3,oleylamine,6,None,None,None,0,1.975,Hao
+cossairt,cos_raw_row_171,,10.1002/adom.201901362,0,485,280,60,,,,,,,,,,423,2.3,indium chloride,0.1,tris(trimethylsilyl)phosphine,0.1,None,0,trioctylphosphine,None,None,0,5,Hao
+cossairt,cos_raw_row_172,,10.1016/j.jcis.2020.03.110,0,560,180,30,,,,,,,,,,490,3,indium chloride,0.5,tris(dimethylamino)phosphine,2.75,oleylamine,6.15,None,None,None,0,2.024,Hao
+cossairt,cos_raw_row_173,,10.1016/j.jiec.2019.10.021,0,507,300,10,,,,,,,,,,455,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,oleic acid,0.91,6.75,Hao
+cossairt,cos_raw_row_174,,10.1016/j.jiec.2019.10.021,0,518,300,10,,,,,,,,,,460,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,oleic acid,0.268,6.75,Hao
+cossairt,cos_raw_row_175,,10.1016/j.jiec.2019.10.021,0,522,300,10,,,,,,,,,,457,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,oleic acid,0.288,6.75,Hao
+cossairt,cos_raw_row_176,,10.1016/j.jiec.2019.10.021,0,525,300,10,,,,,,,,,,456,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,oleic acid,0.308,6.75,Hao
+cossairt,cos_raw_row_177,,10.1016/j.jiec.2019.10.021,0,530,300,10,,,,,,,,,,470,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,oleic acid,0.248,6.75,Hao
+cossairt,cos_raw_row_178,,10.1021/acs.chemmater.0c00781,0,None,180,3,,,,,,,,,,490,None,indium chloride,0.45,tris(diethylamino)phosphine,0,oleylamine,15,None,None,None,0,4.936,Hao
+cossairt,cos_raw_row_179,,10.1002/cctc.202000616,0,None,180,30,,,,,,,,,,575,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,15.19,toluene,None,None,0,7.998,Hao
+cossairt,cos_raw_row_180,,10.1021/acs.chemmater.0c00781,0,None,180,120,,,,,,,,,,550,2.5,indium chloride,0.45,tris(diethylamino)phosphine,0,oleylamine,15,None,None,None,0,4.936,Hao
+cossairt,cos_raw_row_181,,10.1021/acs.chemmater.0c00551,1,None,180,3,,,,,,,,,,480,1.7,indium iodide,0.45,tris(dimethylamino)phosphine,1,oleylamine,3.7,None,None,None,0,1.218,Hao
+cossairt,cos_raw_row_182,,10.1063/1.4745844,0,590,200,30,,,,,,,,,,460,2.1,indium acetate,0.08,tris(trimethylsilyl)phosphine,0.08,octylamine,0.38,octadecene,None,myristic acid,0.26,7.063,Hao
+cossairt,cos_raw_row_183,,10.1364/ome.4.001436,0,539,300,30,,,,,,,,,,480,None,indium acetate,1,tris(trimethylsilyl)phosphine,1,dodecanethiol,0.5,None,None,None,0,0.12,Hao
+cossairt,cos_raw_row_184,,10.1002/jsid.308,0,500,180,60,,,,,,,,,,None,None,indium acetate,1,tris(trimethylsilyl)phosphine,1,dodecanethiol,0.5,octadecene,None,None,0,1.12,Hao
+cossairt,cos_raw_row_185,,10.1002/jsid.308,0,520,180,120,,,,,,,,,,None,None,indium acetate,1,tris(trimethylsilyl)phosphine,1,dodecanethiol,0.5,octadecene,None,None,0,1.12,Hao
+cossairt,cos_raw_row_186,,10.1002/jsid.308,0,538,180,240,,,,,,,,,,None,None,indium acetate,1,tris(trimethylsilyl)phosphine,1,dodecanethiol,0.5,octadecene,None,None,0,1.12,Hao
+cossairt,cos_raw_row_187,,10.1002/jsid.308,0,540,200,75,,,,,,,,,,None,None,indium acetate,1,tris(trimethylsilyl)phosphine,1,dodecanethiol,0.5,octadecene,None,None,0,1.12,Hao
+cossairt,cos_raw_row_188,,10.1002/jsid.308,0,590,280,30,,,,,,,,,,None,None,indium acetate,1,tris(trimethylsilyl)phosphine,1,dodecanethiol,0.5,octadecene,None,None,0,1.12,Hao
+cossairt,cos_raw_row_189,,10.1002/jsid.308,0,600,280,120,,,,,,,,,,None,None,indium acetate,1,tris(trimethylsilyl)phosphine,1,dodecanethiol,0.5,octadecene,None,None,0,1.12,Hao
+cossairt,cos_raw_row_190,,10.1021/acs.chemmater.8b02590,0,579,285,20,,,,,,,,,,530,2.4,indium acetate,4,tris(trimethylsilyl)phosphine,2,None,0,octadecene,None,myristic acid,14.5,17,Hao
+cossairt,cos_raw_row_191,,10.1021/acsnano.8b06692,1,None,280,20,,,,,,,,,,580,2.5,indium acetate,0.2,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,trioctylphosphine,palmitic acid,0.6,10.5,Melanie Cash
+cossairt,cos_raw_row_192,,10.1021/acs.chemmater.8b02590,0,618,180,20,,,,,,,,,,573,2.9,indium chloride,0.23,tris(diethylamino)phosphine,0.8,oleylamine,7.5,None,None,None,0,2.468,Hao
+cossairt,cos_raw_row_193,,10.3389/fnins.2021.652608,0,645,230,20,,,,,,,,,,555,3.2,indium chloride,0.1,tris(trimethylsilyl)phosphine,0.2,hexadecylamine,0.2,octadecene,None,stearic acid,0.01,6.052,Hao
+cossairt,cos_raw_row_194,,10.1021/acsnano.8b06692,1,615,280,20,,,,,,,,,,584,3.26,indium acetate,0.2,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,trioctylphosphine,palmitic acid,0.6,10.5,Hao
+cossairt,cos_raw_row_195,,10.1039/c8nr01286e,0,470,150,30,,,,,,,,,,405,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,9,octadecene,None,myristic acid,0.45,13.962,Hao
+cossairt,cos_raw_row_196,,10.1039/c8nr01286e,0,475,150,30,,,,,,,,,,416,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,9,octadecene,None,myristic acid,1.35,13.962,Hao
+cossairt,cos_raw_row_197,,10.1039/c8nr01286e,0,501,150,30,,,,,,,,,,448,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,9,octadecene,None,myristic acid,1.35,13.962,Hao
+cossairt,cos_raw_row_198,,10.1039/c8nr01286e,0,502,150,30,,,,,,,,,,439,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,9,octadecene,None,myristic acid,0.45,13.962,Hao
+cossairt,cos_raw_row_199,,10.1039/c8nr01286e,0,502,150,30,,,,,,,,,,428,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,33,None,None,None,0,10.858,Hao
+cossairt,cos_raw_row_200,,10.1039/c8nr01286e,0,507,180,30,,,,,,,,,,423,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,15,None,None,None,0,4.936,Hao
+cossairt,cos_raw_row_201,,10.1039/c8nr01286e,0,531,180,30,,,,,,,,,,473,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,15,None,None,None,0,4.936,Hao
+cossairt,cos_raw_row_202,,10.1039/c8nr01286e,0,538,150,30,,,,,,,,,,478,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,33,None,None,None,0,10.858,Hao
+cossairt,cos_raw_row_203,,10.1039/c8nr01286e,0,551,150,30,,,,,,,,,,515,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,9,octadecene,None,myristic acid,0.45,13.962,Hao
+cossairt,cos_raw_row_204,,10.1039/c8nr01286e,0,555,150,30,,,,,,,,,,508,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,9,octadecene,None,myristic acid,1.35,13.962,Hao
+cossairt,cos_raw_row_205,,10.1002/jsid.308,0,560,230,30,,,,,,,,,,None,None,indium acetate,1,tris(trimethylsilyl)phosphine,1,dodecanethiol,0.5,octadecene,None,None,0,1.12,Hao
+cossairt,cos_raw_row_206,,10.1039/c8nr01286e,0,606,150,30,,,,,,,,,,568,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,33,None,None,None,0,10.858,Hao
+cossairt,cos_raw_row_207,,10.1039/c8nr01286e,0,607,180,30,,,,,,,,,,570,None,indium chloride,0.45,tris(diethylamino)phosphine,1.6,oleylamine,15,None,None,None,0,4.936,Hao
+cossairt,cos_raw_row_208,,10.1002/adma.200800724,0,630,240,20,,,,,,,,,,570,None,indium chloride,0.1,tris(trimethylsilyl)phosphine,0.1,hexadecylamine,0.2,octadecene,None,stearic acid,0.1,3.052,Hao
+cossairt,cos_raw_row_209,,10.1021/cm201550w,0,480,300,10,,,,,,,,,,460,None,indium acetate,0.1,tris(trimethylsilyl)phosphine,0.1,None,0,octadecene,None,oleic acid,0.3,10,Hao
+cossairt,cos_raw_row_210,,10.1039/c1jm13982g,0,None,240,13,,,,,,,,,,620,None,indium acetate,0.2,phosphine gas,0.19,None,0,octadecene,None,myristic acid,0.6,15,Hao
+cossairt,cos_raw_row_211,,10.1039/c1jm13982g,0,None,240,5,,,,,,,,,,570,None,indium acetate,0.2,phosphine gas,0.19,None,0,octadecene,None,myristic acid,0.6,15,Hao
+cossairt,cos_raw_row_212,,10.1039/c1jm13982g,0,610,240,20,,,,,,,,,,590,None,indium acetate,0.2,phosphine gas,0.19,None,0,octadecene,None,myristic acid,0.6,15,Hao
+cossairt,cos_raw_row_213,,10.1021/acsami.7b19144,0,620,210,20,,,,,,,,,,595,1.95,indium chloride,0.3,tris(trimethylsilyl)phosphine,0.3,oleylamine,0.62,octadecene,None,oleic acid,0.34,9.204,Hao
+cossairt,cos_raw_row_214,,10.1021/acs.jpclett.9b01824,0,None,180,20,,,,,,,,,,None,3.2,indium chloride,0.23,tris(diethylamino)phosphine,0.8,oleylamine,7.5,None,None,None,0,2.468,Hao
+cossairt,cos_raw_row_215,,10.1134/s0036023618040071,0,None,230,15,,,,,,,,,,623,4.5,indium acetate,0.1,phosphine gas,3,None,0,octadecene,None,myristic acid,0.3,2,Hao
+cossairt,cos_raw_row_216,,10.3762/bjnano.5.135,0,None,260,15,,,,,,,,,,660,4.5,indium acetate,0.1,phosphine gas,3,None,0,octadecene,None,myristic acid,0.3,2,Hao
+cossairt,cos_raw_row_217,,10.3390/ma12142267,0,530,180,2,,,,,,,,,,505,None,indium iodide,0.3,tris(dimethylamino)phosphine,0.66,oleylamine,6,None,None,None,0,1.975,Hao
+cossairt,cos_raw_row_218,,10.1039/c1jm13982g,0,None,200,15,,,,,,,,,,548,None,indium acetate,0.2,phosphine gas,0.19,None,0,octadecene,None,myristic acid,0.6,15,Hao
+cossairt,cos_raw_row_219,,10.1039/c1jm13982g,0,None,220,15,,,,,,,,,,570,None,indium acetate,0.2,phosphine gas,0.19,None,0,octadecene,None,myristic acid,0.6,15,Hao
+cossairt,cos_raw_row_220,,10.1039/c1jm13982g,0,None,260,15,,,,,,,,,,600,None,indium acetate,0.2,phosphine gas,0.19,None,0,octadecene,None,myristic acid,0.6,15,Hao

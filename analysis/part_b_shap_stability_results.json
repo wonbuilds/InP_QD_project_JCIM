@@ -1,0 +1,1664 @@
+{
+  "analysis": "F19 LOPO SHAP stability for PL_peak_nm_final",
+  "target": "PL_peak_nm_final",
+  "n_papers": 50,
+  "n_rows_full": 129,
+  "model": "GradientBoostingRegressor(n_estimators=300, max_depth=4, learning_rate=0.05, random_state=42)",
+  "baseline_full_data_top10": {
+    "cat__shell_innermost_ZnSe": 31.392860498257825,
+    "num__T_growth_C": 24.131737371545018,
+    "num__time_min": 20.284047914560865,
+    "cat__route_heating_up": 5.418834472847867,
+    "cat__route_aminophosphine_one_pot_HF": 5.1397932682269944,
+    "cat__shell_innermost_ZnS": 3.095537320824919,
+    "cat__route_aminophosphine": 2.9814680670431675,
+    "cat__shell_composition_tier_double_shell": 2.7251352751897278,
+    "cat__shell_innermost_ZnSeS": 1.9542457268872724,
+    "cat__route_hot_injection": 1.3111669353593525
+  },
+  "rank_summary": [
+    {
+      "feature": "cat__shell_innermost_ZnSe",
+      "rank_median": 1.0,
+      "rank_iqr_low": 1.0,
+      "rank_iqr_high": 1.0,
+      "rank_min": 1,
+      "rank_max": 1,
+      "top1_pct": 100.0,
+      "top3_pct": 100.0,
+      "top5_pct": 100.0,
+      "magnitude_mean": 31.22981317265754,
+      "magnitude_std": 1.3334897701816646
+    },
+    {
+      "feature": "num__T_growth_C",
+      "rank_median": 2.0,
+      "rank_iqr_low": 2.0,
+      "rank_iqr_high": 2.0,
+      "rank_min": 2,
+      "rank_max": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 100.0,
+      "top5_pct": 100.0,
+      "magnitude_mean": 23.90855347494426,
+      "magnitude_std": 0.9310817940540174
+    },
+    {
+      "feature": "num__time_min",
+      "rank_median": 3.0,
+      "rank_iqr_low": 3.0,
+      "rank_iqr_high": 3.0,
+      "rank_min": 2,
+      "rank_max": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 100.0,
+      "top5_pct": 100.0,
+      "magnitude_mean": 20.168462892856084,
+      "magnitude_std": 1.1078207147136374
+    },
+    {
+      "feature": "cat__route_heating_up",
+      "rank_median": 4.5,
+      "rank_iqr_low": 4.0,
+      "rank_iqr_high": 5.0,
+      "rank_min": 4,
+      "rank_max": 7,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 88.0,
+      "magnitude_mean": 4.988194686609539,
+      "magnitude_std": 0.7860377655208421
+    },
+    {
+      "feature": "cat__route_aminophosphine_one_pot_HF",
+      "rank_median": 5.0,
+      "rank_iqr_low": 4.0,
+      "rank_iqr_high": 5.0,
+      "rank_min": 4,
+      "rank_max": 5,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 98.0,
+      "magnitude_mean": 5.024094765229952,
+      "magnitude_std": 0.22624299774192452
+    },
+    {
+      "feature": "cat__shell_innermost_ZnS",
+      "rank_median": 7.0,
+      "rank_iqr_low": 6.0,
+      "rank_iqr_high": 7.0,
+      "rank_min": 4,
+      "rank_max": 9,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 6.0,
+      "magnitude_mean": 3.2636820755235094,
+      "magnitude_std": 0.7433408301610006
+    },
+    {
+      "feature": "cat__route_aminophosphine",
+      "rank_median": 7.0,
+      "rank_iqr_low": 6.0,
+      "rank_iqr_high": 7.0,
+      "rank_min": 5,
+      "rank_max": 9,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 2.0,
+      "magnitude_mean": 3.1535968121414255,
+      "magnitude_std": 0.40249774535740124
+    },
+    {
+      "feature": "cat__shell_composition_tier_double_shell",
+      "rank_median": 8.0,
+      "rank_iqr_low": 8.0,
+      "rank_iqr_high": 12.0,
+      "rank_min": 4,
+      "rank_max": 24,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 4.0,
+      "magnitude_mean": 2.1850875160376626,
+      "magnitude_std": 1.2437395549897041
+    },
+    {
+      "feature": "cat__shell_innermost_ZnSeS",
+      "rank_median": 9.0,
+      "rank_iqr_low": 8.0,
+      "rank_iqr_high": 9.0,
+      "rank_min": 6,
+      "rank_max": 15,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 2.020283026544828,
+      "magnitude_std": 0.6635057351310997
+    },
+    {
+      "feature": "num__outer_is_ZnS",
+      "rank_median": 10.0,
+      "rank_iqr_low": 10.0,
+      "rank_iqr_high": 11.0,
+      "rank_min": 8,
+      "rank_max": 18,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 1.2852094273311363,
+      "magnitude_std": 0.32305708403504957
+    },
+    {
+      "feature": "cat__route_hot_injection",
+      "rank_median": 10.0,
+      "rank_iqr_low": 10.0,
+      "rank_iqr_high": 11.0,
+      "rank_min": 4,
+      "rank_max": 14,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 2.0,
+      "magnitude_mean": 1.4390750123798284,
+      "magnitude_std": 0.6529228314656041
+    },
+    {
+      "feature": "cat__route_SILAR_core_growth_then_SILAR_shell",
+      "rank_median": 12.0,
+      "rank_iqr_low": 12.0,
+      "rank_iqr_high": 13.0,
+      "rank_min": 10,
+      "rank_max": 14,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.8771368183692493,
+      "magnitude_std": 0.04963698241559098
+    },
+    {
+      "feature": "cat__shell_composition_tier_single_shell",
+      "rank_median": 13.0,
+      "rank_iqr_low": 12.0,
+      "rank_iqr_high": 14.0,
+      "rank_min": 9,
+      "rank_max": 22,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.7557847980449687,
+      "magnitude_std": 0.2891368107592039
+    },
+    {
+      "feature": "num__shell_layer_count",
+      "rank_median": 13.0,
+      "rank_iqr_low": 12.0,
+      "rank_iqr_high": 14.0,
+      "rank_min": 10,
+      "rank_max": 17,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.7978011073631072,
+      "magnitude_std": 0.33307815490994563
+    },
+    {
+      "feature": "cat__shell_innermost_(Al)ZnS",
+      "rank_median": 16.0,
+      "rank_iqr_low": 15.0,
+      "rank_iqr_high": 18.0,
+      "rank_min": 13,
+      "rank_max": 28,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.38352761946202957,
+      "magnitude_std": 0.1354167871348264
+    },
+    {
+      "feature": "cat__route_one_pot_InZn_then_ZnS_shell",
+      "rank_median": 17.0,
+      "rank_iqr_low": 17.0,
+      "rank_iqr_high": 19.0,
+      "rank_min": 16,
+      "rank_max": 29,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.2982827866670544,
+      "magnitude_std": 0.08032533550356141
+    },
+    {
+      "feature": "cat__route_hot_injection_layer_by_layer",
+      "rank_median": 17.0,
+      "rank_iqr_low": 15.0,
+      "rank_iqr_high": 19.0,
+      "rank_min": 10,
+      "rank_max": 22,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.38421848355102356,
+      "magnitude_std": 0.23178236758974463
+    },
+    {
+      "feature": "cat__shell_innermost_GaP",
+      "rank_median": 17.0,
+      "rank_iqr_low": 15.0,
+      "rank_iqr_high": 19.0,
+      "rank_min": 13,
+      "rank_max": 28,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.3548438933036803,
+      "magnitude_std": 0.17496132280805207
+    },
+    {
+      "feature": "cat__route_one_pot_gram_scale",
+      "rank_median": 19.0,
+      "rank_iqr_low": 17.0,
+      "rank_iqr_high": 21.0,
+      "rank_min": 14,
+      "rank_max": 25,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.2549924102939264,
+      "magnitude_std": 0.10315904374313548
+    },
+    {
+      "feature": "cat__route_hot_injection_MSC_mediated",
+      "rank_median": 19.0,
+      "rank_iqr_low": 18.0,
+      "rank_iqr_high": 22.0,
+      "rank_min": 14,
+      "rank_max": 25,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.23634870132379812,
+      "magnitude_std": 0.08258873564938925
+    },
+    {
+      "feature": "cat__shell_composition_tier_triple_plus_shell",
+      "rank_median": 22.0,
+      "rank_iqr_low": 19.25,
+      "rank_iqr_high": 23.0,
+      "rank_min": 16,
+      "rank_max": 26,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.17508379002692942,
+      "magnitude_std": 0.06157893412119928
+    },
+    {
+      "feature": "cat__shell_innermost_Zn(Mg)Se",
+      "rank_median": 22.0,
+      "rank_iqr_low": 21.0,
+      "rank_iqr_high": 24.0,
+      "rank_min": 17,
+      "rank_max": 28,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.15163240314412935,
+      "magnitude_std": 0.053830769185024406
+    },
+    {
+      "feature": "cat__route_one_pot_InZn_then_SILAR_shell",
+      "rank_median": 23.0,
+      "rank_iqr_low": 21.0,
+      "rank_iqr_high": 25.0,
+      "rank_min": 12,
+      "rank_max": 27,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.14886984777370374,
+      "magnitude_std": 0.1246020371002693
+    },
+    {
+      "feature": "cat__route_modified_SILAR",
+      "rank_median": 24.0,
+      "rank_iqr_low": 22.0,
+      "rank_iqr_high": 26.0,
+      "rank_min": 16,
+      "rank_max": 29,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.13046145981934712,
+      "magnitude_std": 0.10539790758245973
+    },
+    {
+      "feature": "cat__shell_innermost_ZnMnS",
+      "rank_median": 25.0,
+      "rank_iqr_low": 22.0,
+      "rank_iqr_high": 28.0,
+      "rank_min": 15,
+      "rank_max": 30,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.10466063949552432,
+      "magnitude_std": 0.11829272221319122
+    },
+    {
+      "feature": "cat__route_aminophosphine_one_pot_GHAS",
+      "rank_median": 25.0,
+      "rank_iqr_low": 24.0,
+      "rank_iqr_high": 27.0,
+      "rank_min": 18,
+      "rank_max": 30,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.08281563653873347,
+      "magnitude_std": 0.05499970312486531
+    },
+    {
+      "feature": "cat__shell_innermost_InGaP",
+      "rank_median": 26.0,
+      "rank_iqr_low": 24.0,
+      "rank_iqr_high": 27.0,
+      "rank_min": 18,
+      "rank_max": 30,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.07862466752717519,
+      "magnitude_std": 0.06840051607228685
+    },
+    {
+      "feature": "cat__route_aminophosphine_InBr3",
+      "rank_median": 27.0,
+      "rank_iqr_low": 26.0,
+      "rank_iqr_high": 27.0,
+      "rank_min": 22,
+      "rank_max": 30,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.05021871294501073,
+      "magnitude_std": 0.027003937242004037
+    },
+    {
+      "feature": "cat__route_heating_up_then_SILAR_shell",
+      "rank_median": 29.0,
+      "rank_iqr_low": 27.0,
+      "rank_iqr_high": 29.0,
+      "rank_min": 17,
+      "rank_max": 30,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.026751278142870587,
+      "magnitude_std": 0.05367989311423201
+    },
+    {
+      "feature": "cat__route_cation_exchange",
+      "rank_median": 29.0,
+      "rank_iqr_low": 28.0,
+      "rank_iqr_high": 30.0,
+      "rank_min": 23,
+      "rank_max": 30,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "top5_pct": 0.0,
+      "magnitude_mean": 0.012617674728319456,
+      "magnitude_std": 0.013772910674728973
+    }
+  ],
+  "per_fold_top5": [
+    {
+      "holdout_paper": "L001",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          32.1833223722396
+        ],
+        [
+          "num__T_growth_C",
+          22.709593586136265
+        ],
+        [
+          "num__time_min",
+          17.717754618360804
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.927886189679933
+        ],
+        [
+          "cat__shell_composition_tier_double_shell",
+          4.88883800653138
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L002",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          30.208390476735694
+        ],
+        [
+          "num__T_growth_C",
+          23.727557003894265
+        ],
+        [
+          "num__time_min",
+          21.6428163929957
+        ],
+        [
+          "cat__route_heating_up",
+          5.262305930109561
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.8119516908538715
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L003",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.214646079278904
+        ],
+        [
+          "num__T_growth_C",
+          23.785111096387656
+        ],
+        [
+          "num__time_min",
+          21.272566979807603
+        ],
+        [
+          "cat__route_heating_up",
+          5.583017656645714
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.374531910782309
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L005",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          30.628155802085498
+        ],
+        [
+          "num__T_growth_C",
+          24.178326106788077
+        ],
+        [
+          "num__time_min",
+          21.027069727289128
+        ],
+        [
+          "cat__route_heating_up",
+          5.913491866281496
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.094053875471462
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L006",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          32.681669207617006
+        ],
+        [
+          "num__T_growth_C",
+          25.415187539306586
+        ],
+        [
+          "num__time_min",
+          17.776302159553595
+        ],
+        [
+          "cat__route_heating_up",
+          6.0747385938715155
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.707376189793643
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L007",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          33.70002205360925
+        ],
+        [
+          "num__T_growth_C",
+          24.152830916407254
+        ],
+        [
+          "num__time_min",
+          19.905840935707513
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.0301162056399695
+        ],
+        [
+          "cat__route_heating_up",
+          4.131336931355916
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L009",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.84528895903847
+        ],
+        [
+          "num__T_growth_C",
+          23.05598262069502
+        ],
+        [
+          "num__time_min",
+          20.67268758842819
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.8361726861639145
+        ],
+        [
+          "cat__route_heating_up",
+          4.831666410948673
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L010",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          34.001415013412945
+        ],
+        [
+          "num__T_growth_C",
+          24.289113046261203
+        ],
+        [
+          "num__time_min",
+          19.360159984590446
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.198269832070731
+        ],
+        [
+          "cat__route_heating_up",
+          4.270098926252617
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L011",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          28.882915257307857
+        ],
+        [
+          "num__T_growth_C",
+          24.94333805460698
+        ],
+        [
+          "num__time_min",
+          20.134277352726563
+        ],
+        [
+          "cat__route_hot_injection",
+          5.435009334636696
+        ],
+        [
+          "cat__route_heating_up",
+          4.734060613042363
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L012",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.06376614363727
+        ],
+        [
+          "num__T_growth_C",
+          24.588057948039538
+        ],
+        [
+          "num__time_min",
+          21.065736444785173
+        ],
+        [
+          "cat__route_heating_up",
+          5.794973526363368
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.091818268375378
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L013",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          32.420148728641195
+        ],
+        [
+          "num__T_growth_C",
+          24.148133643716506
+        ],
+        [
+          "num__time_min",
+          19.75920485411357
+        ],
+        [
+          "cat__route_heating_up",
+          4.975128593559987
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.906695267898604
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L014",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          32.37177334795516
+        ],
+        [
+          "num__T_growth_C",
+          23.96577675409977
+        ],
+        [
+          "num__time_min",
+          19.9122089328433
+        ],
+        [
+          "cat__route_heating_up",
+          5.478141220466577
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.525108996832728
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L015",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.632689542471113
+        ],
+        [
+          "num__T_growth_C",
+          23.65906676073714
+        ],
+        [
+          "num__time_min",
+          20.06665101849243
+        ],
+        [
+          "cat__route_heating_up",
+          6.639928502112323
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.423677187269421
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L016",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.41442743073138
+        ],
+        [
+          "num__T_growth_C",
+          23.260479283777872
+        ],
+        [
+          "num__time_min",
+          20.43349592437596
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.001291485835865
+        ],
+        [
+          "cat__route_heating_up",
+          4.759845745654769
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L017",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.26768587828724
+        ],
+        [
+          "num__T_growth_C",
+          24.271503293405218
+        ],
+        [
+          "num__time_min",
+          20.45734301828095
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.153716755134088
+        ],
+        [
+          "cat__route_heating_up",
+          4.6301529949779106
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L018",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          32.557606902504425
+        ],
+        [
+          "num__T_growth_C",
+          23.7122649698634
+        ],
+        [
+          "num__time_min",
+          20.49818695064257
+        ],
+        [
+          "cat__route_heating_up",
+          5.6433845211945215
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.673906743684821
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L019",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          30.89813724219643
+        ],
+        [
+          "num__T_growth_C",
+          23.94246969487717
+        ],
+        [
+          "num__time_min",
+          21.480998582751948
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.319656594469764
+        ],
+        [
+          "cat__route_heating_up",
+          4.593960892107803
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L020",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          29.05634165540934
+        ],
+        [
+          "num__T_growth_C",
+          24.574819688378962
+        ],
+        [
+          "num__time_min",
+          21.776403653727815
+        ],
+        [
+          "cat__shell_innermost_ZnS",
+          5.542905387969071
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.284693809093031
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L021",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.817630406754162
+        ],
+        [
+          "num__T_growth_C",
+          22.997483752670398
+        ],
+        [
+          "num__time_min",
+          20.196026469103295
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.620029267687163
+        ],
+        [
+          "cat__route_aminophosphine",
+          3.7056622453612142
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L022",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          29.907118396166354
+        ],
+        [
+          "num__T_growth_C",
+          22.68011485379505
+        ],
+        [
+          "num__time_min",
+          21.62855835512426
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.021036588243198
+        ],
+        [
+          "cat__route_heating_up",
+          4.253592538662188
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L023",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.518719103960745
+        ],
+        [
+          "num__T_growth_C",
+          22.877797803758366
+        ],
+        [
+          "num__time_min",
+          19.579544505181627
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.09758397120882
+        ],
+        [
+          "cat__shell_innermost_ZnS",
+          4.850830453132443
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L024",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.350153209104743
+        ],
+        [
+          "num__T_growth_C",
+          24.14631699546365
+        ],
+        [
+          "num__time_min",
+          20.383078649373207
+        ],
+        [
+          "cat__route_heating_up",
+          5.394316286722967
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.984887836222953
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L025",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          32.03359833156527
+        ],
+        [
+          "num__T_growth_C",
+          25.45866555774971
+        ],
+        [
+          "num__time_min",
+          18.97260200957335
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.955698263587062
+        ],
+        [
+          "cat__route_heating_up",
+          4.358043065653006
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L026",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          34.61499298460618
+        ],
+        [
+          "num__T_growth_C",
+          24.255497822721328
+        ],
+        [
+          "num__time_min",
+          15.543636266467034
+        ],
+        [
+          "cat__shell_composition_tier_double_shell",
+          6.9630279063488585
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.916295178821757
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L028",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          32.46666233611793
+        ],
+        [
+          "num__T_growth_C",
+          23.382683073391892
+        ],
+        [
+          "num__time_min",
+          20.766376365332015
+        ],
+        [
+          "cat__route_heating_up",
+          4.794881819473752
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.684475649176764
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L029",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.56962517615717
+        ],
+        [
+          "num__T_growth_C",
+          25.155682083519704
+        ],
+        [
+          "num__time_min",
+          20.935606399977388
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.231327621107565
+        ],
+        [
+          "cat__route_heating_up",
+          4.985979645173372
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L033",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          30.15077873376947
+        ],
+        [
+          "num__T_growth_C",
+          24.20259809853147
+        ],
+        [
+          "num__time_min",
+          20.314898864985302
+        ],
+        [
+          "cat__route_heating_up",
+          5.9809629284667585
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.071856530674646
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L034",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.716535022814085
+        ],
+        [
+          "num__T_growth_C",
+          25.170323564801212
+        ],
+        [
+          "num__time_min",
+          20.90268771620373
+        ],
+        [
+          "cat__route_heating_up",
+          5.490464903600516
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.1108270671178735
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L035",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          32.2382467439365
+        ],
+        [
+          "num__T_growth_C",
+          23.38134243421685
+        ],
+        [
+          "num__time_min",
+          20.66708310114457
+        ],
+        [
+          "cat__route_heating_up",
+          5.723341826581736
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.947120867832965
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L036",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          30.93884011584265
+        ],
+        [
+          "num__T_growth_C",
+          23.884026705129198
+        ],
+        [
+          "num__time_min",
+          20.110446215228478
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.058784183235374
+        ],
+        [
+          "cat__route_heating_up",
+          4.66253444402035
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L037",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          30.129981310925626
+        ],
+        [
+          "num__T_growth_C",
+          22.765890141372807
+        ],
+        [
+          "num__time_min",
+          20.204771715665462
+        ],
+        [
+          "cat__route_heating_up",
+          5.5483345585388655
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.658420534943336
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L038",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.4154060698087
+        ],
+        [
+          "num__T_growth_C",
+          23.811685641830984
+        ],
+        [
+          "num__time_min",
+          18.345800526232964
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.181313572075134
+        ],
+        [
+          "cat__route_heating_up",
+          4.480678654563694
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L039",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          29.843857401305716
+        ],
+        [
+          "num__T_growth_C",
+          23.14425804566789
+        ],
+        [
+          "num__time_min",
+          20.673934715624195
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.135945831901878
+        ],
+        [
+          "cat__route_heating_up",
+          4.816180925668027
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L040",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.32195144535806
+        ],
+        [
+          "num__T_growth_C",
+          24.275435550901662
+        ],
+        [
+          "num__time_min",
+          21.435975436842167
+        ],
+        [
+          "cat__route_heating_up",
+          5.842854355362672
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.154544839898119
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L041",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          29.42276228478336
+        ],
+        [
+          "num__T_growth_C",
+          25.219484372874398
+        ],
+        [
+          "num__time_min",
+          20.442205491013652
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.118081474986356
+        ],
+        [
+          "cat__route_heating_up",
+          4.990254875299564
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L042",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          28.88658931512992
+        ],
+        [
+          "num__T_growth_C",
+          25.844231291649553
+        ],
+        [
+          "num__time_min",
+          20.143060348711522
+        ],
+        [
+          "cat__route_heating_up",
+          5.583513605028535
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.445539633417462
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L043",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          32.02661962466601
+        ],
+        [
+          "num__time_min",
+          20.52219796515193
+        ],
+        [
+          "num__T_growth_C",
+          20.17050858641648
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.29861664799758
+        ],
+        [
+          "cat__shell_innermost_ZnS",
+          5.035019967210029
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L044",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          28.17936237731272
+        ],
+        [
+          "num__T_growth_C",
+          24.97987542744107
+        ],
+        [
+          "num__time_min",
+          19.96391945918609
+        ],
+        [
+          "cat__route_heating_up",
+          5.709061944648259
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.5551917547583365
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L045",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          30.961354068998634
+        ],
+        [
+          "num__T_growth_C",
+          23.943238011204038
+        ],
+        [
+          "num__time_min",
+          20.467608378761565
+        ],
+        [
+          "cat__route_heating_up",
+          5.413880375744403
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.170165419582626
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L046",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          28.583415410427975
+        ],
+        [
+          "num__T_growth_C",
+          22.78200342417285
+        ],
+        [
+          "num__time_min",
+          19.06173418892095
+        ],
+        [
+          "cat__route_heating_up",
+          5.867035051321519
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.822422205936582
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L047",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.068341868219562
+        ],
+        [
+          "num__T_growth_C",
+          23.567837823796623
+        ],
+        [
+          "num__time_min",
+          19.2949806771253
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.906464289236108
+        ],
+        [
+          "cat__route_heating_up",
+          4.530511007538744
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L049",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.326365896949522
+        ],
+        [
+          "num__T_growth_C",
+          24.507945804343603
+        ],
+        [
+          "num__time_min",
+          21.478821609169014
+        ],
+        [
+          "cat__route_heating_up",
+          6.0846500332738955
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.006316990415685
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L050",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          29.1833483241243
+        ],
+        [
+          "num__T_growth_C",
+          24.106945080989966
+        ],
+        [
+          "num__time_min",
+          20.257240250225376
+        ],
+        [
+          "cat__route_heating_up",
+          5.726019106599619
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.141811186421118
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L051",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.268780418241956
+        ],
+        [
+          "num__T_growth_C",
+          24.563286287012815
+        ],
+        [
+          "num__time_min",
+          20.74783781454368
+        ],
+        [
+          "cat__route_heating_up",
+          5.4548357051617575
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.047949105918159
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L052",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          32.011945489862896
+        ],
+        [
+          "num__T_growth_C",
+          23.94384538707864
+        ],
+        [
+          "num__time_min",
+          19.807322531455224
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          4.999682252024176
+        ],
+        [
+          "cat__route_heating_up",
+          4.7073087101564735
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L053",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          30.337896723390017
+        ],
+        [
+          "num__T_growth_C",
+          23.88709544906032
+        ],
+        [
+          "num__time_min",
+          20.079172163218
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.142809561089476
+        ],
+        [
+          "cat__route_heating_up",
+          4.317024614061782
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L054",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          32.565209844864086
+        ],
+        [
+          "num__T_growth_C",
+          22.951033550145027
+        ],
+        [
+          "num__time_min",
+          18.94625312551266
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.180795711409925
+        ],
+        [
+          "cat__route_heating_up",
+          4.065588856405282
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L055",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.88708596824504
+        ],
+        [
+          "num__T_growth_C",
+          23.97697705946986
+        ],
+        [
+          "num__time_min",
+          20.154500786142123
+        ],
+        [
+          "cat__route_heating_up",
+          5.027392133552731
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.014791149625184
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L056",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.373295956896463
+        ],
+        [
+          "num__T_growth_C",
+          23.658092304619085
+        ],
+        [
+          "num__time_min",
+          20.756336699196787
+        ],
+        [
+          "cat__route_heating_up",
+          5.5403129099114565
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.138247285741741
+        ]
+      ]
+    },
+    {
+      "holdout_paper": "L057",
+      "top5": [
+        [
+          "cat__shell_innermost_ZnSe",
+          31.345786179412194
+        ],
+        [
+          "num__T_growth_C",
+          23.35585975403784
+        ],
+        [
+          "num__time_min",
+          20.67922072293801
+        ],
+        [
+          "cat__route_aminophosphine_one_pot_HF",
+          5.00068733492301
+        ],
+        [
+          "cat__route_heating_up",
+          4.357823430128203
+        ]
+      ]
+    }
+  ],
+  "notes": "Each fold refits the production GBM with one paper's rows held out and recomputes SHAP TreeExplainer mean-magnitude on the refit training set. Top-3/top-5 percentages reflect the fraction of folds where each feature appears in the top-3/top-5 by SHAP magnitude. A feature that remains top-3 in >= 90 % of folds is interpreted as robust to single-paper removal."
+}
