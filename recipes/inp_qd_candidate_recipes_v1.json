@@ -92,7 +92,7 @@
       "predicted_PL_peak_nm_std": 59.303455221706905,
       "mahalanobis_distance": 0.747694551472263,
       "extrap_flag": "in_distribution",
-      "chemistry_rationale": "ZnSe innermost double-shell at training-centroid (T, time); model's confident maximum, predicted near red edge of ZnSe-stratum."
+      "chemistry_rationale": "ZnSe innermost double-shell at training-centroid (T, time); model-prioritized high PL_peak near the red edge of the ZnSe stratum, with large ensemble spread (not a calibrated maximum)."
     },
     {
       "rank": 2,

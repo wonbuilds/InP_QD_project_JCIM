@@ -23,7 +23,7 @@
   "part_c_results": {
     "analysis/part_c_method1_results.json": "9960db7f055e501b7baa7961749b24f554cc50eca8f6dc0eef8d8b3d8b264515",
     "analysis/part_c_c32_results.json": "f94137bbd3ab1a8b07c779c71154ce545ae24b8690c5d3d1136a7f1549439974",
-    "recipes/inp_qd_candidate_recipes_v1.json": "7ef132c312744f0cdc3f7b4a7ae28d9f860ff0eff03da21c8c893983b48444ce"
+    "recipes/inp_qd_candidate_recipes_v1.json": "abd6c0a5b85b524eb7fb161b43a4ebdc9c3549f7ad1ca46a552590b82211736c"
   },
   "phase3_extensions": {
     "_note": "Filled by Phase 3 commits (F17, F18, F19) after their respective scripts run.",
