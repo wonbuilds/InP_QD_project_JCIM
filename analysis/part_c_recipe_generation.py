@@ -22,7 +22,7 @@
 #   `scripts/parse_shell_architecture.py`).
 # - Design space (4 axes): T_growth_C, time_min, shell_innermost,
 #   shell_layer_count.
-# - Methods (3 hybrid, per 사용자 STOP C.2-2 권고):
+# - Methods (3 hybrid):
 #   1. Constrained random sampling (Mahalanobis-aware, in-density)
 #   2. Bayesian optimization with Expected Improvement on PL_peak
 #   3. Grid search in under-explored design corners (e.g., ZnSe-innermost
@@ -506,7 +506,7 @@ print(f"Output SHA-256: {sha256_of(out_json)}")
 # %% [markdown]
 # ## C.3.4 Overlay Method 1 candidates on Figure 10 Panel B
 #
-# Per 사용자 권고 8 at STOP C.3-1, overlay the 1000 Method 1 candidates
+# Overlay the 1000 Method 1 candidates
 # on the (T, log10 time) plane with the Mahalanobis ellipse, colored by
 # extrapolation flag. This makes the in-distribution vs extrapolation
 # split visually obvious alongside the training points and the cutoff
@@ -736,7 +736,7 @@ print(f"Saved: {out_m3}")
 # %% [markdown]
 # ## C.6 Cross-method consolidation + Top-10 final selection
 #
-# Stratification criteria (사용자 STOP C.3-1 권고 10):
+# Stratification criteria:
 # - ≥ 3 ZnSe-innermost (chemistry-fundamental, ZnSe SHAP top-1)
 # - ≥ 3 ZnS-innermost (chemistry-fundamental comparison)
 # - ≥ 2 extrapolation-flagged (under-explored corners)
@@ -1037,9 +1037,9 @@ recipes_json = dict(
             random_state=42,
             n_jobs=1,
         ),
-        training_paper_level_GroupKFold_MAE_nm=49.79,
-        training_paper_level_GroupKFold_MAE_std_nm=7.49,
-        bootstrap_95ci_nm=[37.3, 65.98],
+        training_paper_level_GroupKFold_MAE_nm=50.04,
+        training_paper_level_GroupKFold_MAE_std_nm=7.28,
+        bootstrap_95ci_nm=[37.33, 66.42],
         bootstrap_resamples=1000,
         feature_order=ALL_FEATURES,
         model_repr_hash=model_hash,

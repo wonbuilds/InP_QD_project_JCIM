@@ -205,10 +205,10 @@ ALL_FEATURES = NUM_FEATURES + CAT_FEATURES
 
 # Subset to rows with primary target present
 work = dd.dropna(subset=["PL_peak_nm_final"]).copy()
-# Fill missing numeric with median (only time_min has missingness)
+# Coerce numeric; missing time_min is median-imputed PER FOLD inside the CV
+# pipeline (SimpleImputer below) to avoid leakage from the held-out fold.
 for c in NUM_FEATURES:
     work[c] = pd.to_numeric(work[c], errors="coerce")
-    work[c] = work[c].fillna(work[c].median())
 for c in CAT_FEATURES:
     work[c] = work[c].fillna("Unknown").astype(str)
 
@@ -218,7 +218,8 @@ groups = work["paper_id"].values
 print(f"PL_peak target: n={len(y)} rows, papers={len(set(groups))}")
 
 preprocessor = ColumnTransformer([
-    ("num", StandardScaler(), NUM_FEATURES),
+    ("num", Pipeline([("imp", SimpleImputer(strategy="median")),
+                      ("sc", StandardScaler())]), NUM_FEATURES),
     ("cat", OneHotEncoder(handle_unknown="ignore"), CAT_FEATURES),
 ])
 
@@ -260,28 +261,23 @@ print(f"  GBM per-fold MAE: {[f'{v:.1f}' for v in gbm_mae]}")
 # Bootstrap CI on RF MAE (paper-level resample)
 papers = np.array(sorted(set(groups)))
 paper_to_idx = {p: np.where(groups == p)[0] for p in papers}
-# Bootstrap CI cached from deposited results JSON (identical; avoids 1000x RF refit)
-import json as _json2
-_cp = PROJECT_ROOT / "analysis" / "part_b_pl_peak_results.json"
-if _cp.exists():
-    rf_boot_ci = tuple(_json2.load(open(_cp))["rf"]["bootstrap_paper_level_95ci"])
-    print(f"RF paper-level bootstrap (cached): 95% CI {rf_boot_ci[0]:.2f}, {rf_boot_ci[1]:.2f} nm")
-else:
-    n_boot = 1000
-    rf_boot_maes = np.empty(n_boot)
-    for b in range(n_boot):
-        sampled_papers = RNG.choice(papers, size=len(papers), replace=True)
-        train_idx = np.concatenate([paper_to_idx[p] for p in sampled_papers])
-        rf_pipe.fit(X.iloc[train_idx], y[train_idx])
-        held_out = np.setdiff1d(np.arange(len(y)), np.unique(train_idx))
-        if len(held_out) > 0:
-            y_pred = rf_pipe.predict(X.iloc[held_out])
-            rf_boot_maes[b] = mean_absolute_error(y[held_out], y_pred)
-        else:
-            rf_boot_maes[b] = np.nan
-    rf_boot_maes = rf_boot_maes[~np.isnan(rf_boot_maes)]
-    rf_boot_ci = (float(np.percentile(rf_boot_maes, 2.5)),
-                  float(np.percentile(rf_boot_maes, 97.5)))
+# Bootstrap CI on RF MAE — recomputed live (paper-level resample, 1000x RF refit,
+# per-fold median imputation inside the pipeline). No cache read (A2).
+n_boot = 1000
+rf_boot_maes = np.empty(n_boot)
+for b in range(n_boot):
+    sampled_papers = RNG.choice(papers, size=len(papers), replace=True)
+    train_idx = np.concatenate([paper_to_idx[p] for p in sampled_papers])
+    rf_pipe.fit(X.iloc[train_idx], y[train_idx])
+    held_out = np.setdiff1d(np.arange(len(y)), np.unique(train_idx))
+    if len(held_out) > 0:
+        y_pred = rf_pipe.predict(X.iloc[held_out])
+        rf_boot_maes[b] = mean_absolute_error(y[held_out], y_pred)
+    else:
+        rf_boot_maes[b] = np.nan
+rf_boot_maes = rf_boot_maes[~np.isnan(rf_boot_maes)]
+rf_boot_ci = (float(np.percentile(rf_boot_maes, 2.5)),
+              float(np.percentile(rf_boot_maes, 97.5)))
 
 # %% [markdown]
 # ## B.3 SHAP analysis for the GBM model (TreeExplainer compatible)
@@ -295,17 +291,11 @@ if hasattr(X_transformed, "toarray"):
 X_transformed = np.asarray(X_transformed, dtype=float)
 gbm_model = gbm_pipe.named_steps["gbm"]
 feature_names = gbm_pipe.named_steps["pre"].get_feature_names_out()
-# SHAP cached from deposited results JSON (identical values; avoids slow re-compute)
-import json as _json
-_cache_p = PROJECT_ROOT / "analysis" / "part_b_pl_peak_results.json"
-if _cache_p.exists():
-    _shap_cache = _json.load(open(_cache_p)).get("shap_top10", {})
-    mean_abs_shap = pd.Series(_shap_cache).sort_values(ascending=False)
-else:
-    explainer = shap.TreeExplainer(gbm_model)
-    shap_values = explainer.shap_values(X_transformed)
-    shap_df = pd.DataFrame(shap_values, columns=feature_names)
-    mean_abs_shap = shap_df.abs().mean().sort_values(ascending=False)
+# SHAP recomputed live (TreeExplainer on the production GBM; no cache read, A2).
+explainer = shap.TreeExplainer(gbm_model)
+shap_values = explainer.shap_values(X_transformed)
+shap_df = pd.DataFrame(shap_values, columns=feature_names)
+mean_abs_shap = shap_df.abs().mean().sort_values(ascending=False)
 print(f"\nTop-10 SHAP mean(|value|) for PL_peak_nm_final (GBM):")
 print(mean_abs_shap.head(10).to_string())
 
@@ -454,7 +444,7 @@ results_b1 = dict(
              r2_per_fold=[float(v) for v in gbm_r2]),
     shap_top10=mean_abs_shap.head(10).to_dict(),
     rf_importance_top10=rf_imp.iloc[::-1].to_dict(),  # back to descending
-    notes=("caution_count OFF (default, 사용자 결정 6). Sensitivity with "
+    notes=("caution_count OFF (default configuration). Sensitivity with"
            "caution_count ON to be reported at STOP C.2-2."),
 )
 out_b1 = PROJECT_ROOT / "analysis" / "part_b_pl_peak_results.json"
@@ -522,9 +512,10 @@ def run_target_pipeline(target_name, df_in, *, use_caution_count=False,
     all_features = num_features + cat_features
 
     work = df_in.dropna(subset=[target_name]).copy()
+    # Coerce numeric; missing values median-imputed PER FOLD inside the CV
+    # pipeline (SimpleImputer below) to avoid held-out-fold leakage.
     for c in num_features:
         work[c] = pd.to_numeric(work[c], errors="coerce")
-        work[c] = work[c].fillna(work[c].median())
     for c in cat_features:
         work[c] = work[c].fillna("Unknown").astype(str)
 
@@ -534,7 +525,8 @@ def run_target_pipeline(target_name, df_in, *, use_caution_count=False,
     n_papers = len(set(groups_tgt))
 
     pre = ColumnTransformer([
-        ("num", StandardScaler(), num_features),
+        ("num", Pipeline([("imp", SimpleImputer(strategy="median")),
+                          ("sc", StandardScaler())]), num_features),
         ("cat", OneHotEncoder(handle_unknown="ignore"), cat_features),
     ])
     rf_p = Pipeline([("pre", pre),
@@ -952,7 +944,7 @@ results_c22 = dict(
     cross_target_shap_top5=shap_table_rows,
     feature_appearance_across_targets=dict(feature_appearance),
     notes=("All RF + GBM with paper-level GroupKFold (5-fold). Bootstrap n=1000 "
-           "paper-level resample. caution_count default OFF (사용자 결정 6). "
+           "paper-level resample. caution_count default OFF (default configuration). "
            "Cossairt-side comparison not available for QY/FWHM/shell_layer_count "
            "(absent in Cossairt 2022) — these are DD-only predictive extensions."),
 )

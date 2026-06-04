@@ -54,6 +54,7 @@
       53.77882859603792,
       68.60810446659283
     ],
+    "bootstrap_method": "row-level fixed-prediction bootstrap (descriptive; not paper-level)",
     "gap_vs_within_source": -0.39526286073957806
   },
   "backward": {
@@ -64,6 +65,7 @@
       43.40609803921568,
       60.88702614379084
     ],
+    "bootstrap_method": "row-level fixed-prediction bootstrap (descriptive; not paper-level)",
     "gap_vs_within_source": 14.815704948646108
   },
   "asymmetry_fwd_minus_bwd_gap": -15.210967809385686,

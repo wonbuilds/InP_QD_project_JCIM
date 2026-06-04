@@ -143,12 +143,12 @@
     {
       "numeric": "T_growth_C",
       "categorical": "route",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "T_growth_C",
       "categorical": "shell_innermost",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "T_growth_C",
@@ -163,17 +163,17 @@
     {
       "numeric": "T_growth_C",
       "categorical": "data_quality_tier",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "time_min",
       "categorical": "route",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "time_min",
       "categorical": "shell_innermost",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "time_min",
@@ -188,17 +188,17 @@
     {
       "numeric": "time_min",
       "categorical": "data_quality_tier",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "outer_is_ZnS",
       "categorical": "route",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "outer_is_ZnS",
       "categorical": "shell_innermost",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "outer_is_ZnS",
@@ -213,17 +213,17 @@
     {
       "numeric": "outer_is_ZnS",
       "categorical": "data_quality_tier",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "shell_layer_count",
       "categorical": "route",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "shell_layer_count",
       "categorical": "shell_innermost",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "shell_layer_count",
@@ -238,17 +238,17 @@
     {
       "numeric": "shell_layer_count",
       "categorical": "data_quality_tier",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "caution_count",
       "categorical": "route",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "caution_count",
       "categorical": "shell_innermost",
-      "eta_sq": NaN
+      "eta_sq": null
     },
     {
       "numeric": "caution_count",
@@ -263,7 +263,7 @@
     {
       "numeric": "caution_count",
       "categorical": "data_quality_tier",
-      "eta_sq": NaN
+      "eta_sq": null
     }
   ],
   "suspicious_pairs": [

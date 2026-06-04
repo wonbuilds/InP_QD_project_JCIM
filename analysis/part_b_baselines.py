@@ -41,6 +41,7 @@ from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.model_selection import GroupKFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.impute import SimpleImputer
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
@@ -60,8 +61,8 @@ def load_pl_peak_dataset():
     dd = pd.concat([dd, parsed.drop(columns=["shell_layers"])], axis=1)
     dd["outer_is_ZnS"] = (dd["shell_outermost"] == "ZnS").astype(int)
     work = dd.dropna(subset=["PL_peak_nm_final"]).copy()
-    work["T_growth_C"] = work["T_growth_C"].fillna(work["T_growth_C"].median())
-    work["time_min"] = work["time_min"].fillna(work["time_min"].median())
+    # T_growth_C has no missingness; time_min (12/132 missing) is imputed PER FOLD
+    # inside each model pipeline (SimpleImputer) to avoid held-out-fold leakage.
     work["log10_time_min"] = np.log10(work["time_min"].clip(lower=1.0))
     work["shell_innermost"] = work["shell_innermost"].fillna("Unknown").astype(str)
     work["route"] = work["route"].fillna("Unknown").astype(str)
@@ -125,7 +126,8 @@ def make_full_rf():
     NUM = ["T_growth_C", "time_min", "outer_is_ZnS", "shell_layer_count"]
     CAT = ["route", "shell_innermost", "shell_composition_tier"]
     pre = ColumnTransformer([
-        ("num", StandardScaler(), NUM),
+        ("num", Pipeline([("imp", SimpleImputer(strategy="median")),
+                          ("sc", StandardScaler())]), NUM),
         ("cat", OneHotEncoder(handle_unknown="ignore"), CAT),
     ])
     return (Pipeline([("pre", pre),
@@ -217,7 +219,8 @@ def main() -> None:
 
     # 4. T_growth_C only (linear)
     print("\n→ Baseline 4: T_growth_C only (linear)")
-    lin1 = Pipeline([("scale", StandardScaler()), ("lr", LinearRegression())])
+    lin1 = Pipeline([("imp", SimpleImputer(strategy="median")),
+                     ("scale", StandardScaler()), ("lr", LinearRegression())])
     X1 = work[["T_growth_C"]]
     res = cv_eval(lin1, X1, y, groups, n_boot=1000)
     results["4_T_only_linear"] = dict(
@@ -240,7 +243,8 @@ def main() -> None:
 
     # 6. T + log(time) (2-feature linear, Part A.4 baseline-equivalent)
     print("\n→ Baseline 6: T + log(time) (2-feature linear)")
-    lin2 = Pipeline([("scale", StandardScaler()), ("lr", LinearRegression())])
+    lin2 = Pipeline([("imp", SimpleImputer(strategy="median")),
+                     ("scale", StandardScaler()), ("lr", LinearRegression())])
     X2 = work[["T_growth_C", "log10_time_min"]]
     res = cv_eval(lin2, X2, y, groups, n_boot=1000)
     results["6_T_plus_logtime_linear"] = dict(

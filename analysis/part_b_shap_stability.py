@@ -27,6 +27,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.impute import SimpleImputer
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
@@ -46,8 +47,8 @@ def load_pl_peak_dataset():
     dd = pd.concat([dd, parsed.drop(columns=["shell_layers"])], axis=1)
     dd["outer_is_ZnS"] = (dd["shell_outermost"] == "ZnS").astype(int)
     work = dd.dropna(subset=["PL_peak_nm_final"]).copy()
-    work["T_growth_C"] = work["T_growth_C"].fillna(work["T_growth_C"].median())
-    work["time_min"] = work["time_min"].fillna(work["time_min"].median())
+    # time_min (12/132 missing) imputed PER FOLD inside the GBM pipeline (SimpleImputer);
+    # T_growth_C has no missingness. No global fill (avoids LOPO held-out leakage).
     work["shell_innermost"] = work["shell_innermost"].fillna("Unknown").astype(str)
     work["route"] = work["route"].fillna("Unknown").astype(str)
     work["shell_composition_tier"] = work["shell_composition_tier"].fillna("Unknown").astype(str)
@@ -60,7 +61,8 @@ def build_gbm_pipe():
     NUM = ["T_growth_C", "time_min", "outer_is_ZnS", "shell_layer_count"]
     CAT = ["route", "shell_innermost", "shell_composition_tier"]
     pre = ColumnTransformer([
-        ("num", StandardScaler(), NUM),
+        ("num", Pipeline([("imp", SimpleImputer(strategy="median")),
+                          ("sc", StandardScaler())]), NUM),
         ("cat", OneHotEncoder(handle_unknown="ignore"), CAT),
     ])
     pipe = Pipeline([

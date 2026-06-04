@@ -28,7 +28,7 @@
 # `time_min` is excluded from A.1 paired comparison and analyzed only in A.2
 # (distribution-level).
 #
-# **Bootstrap policy (user 지시 2026-05-21)**: paper-level resample with
+# **Bootstrap policy**: paper-level resample with
 # replacement, n = 1000 iterations. Row-level bootstrap is *not* used because
 # within-paper rows are dependent (recipe variants from the same paper).
 
@@ -549,7 +549,7 @@ print(a2_df[["column", "n_dd", "n_cos", "ks_stat", "ks_p", "ks_p_bh",
 #   same distribution for that column.
 # - **Wasserstein-1**: effect-size unit = column unit. Small relative to
 #   the column's natural scale → distributional convergence.
-# - **time_min long-tail expectation (사용자 지시 A 2026-05-21)**: if
+# - **time_min long-tail expectation**: if
 #   Cossairt time_min distribution is heavier-tailed than DD (which is
 #   expected because Cossairt extracts multiple conditions per paper
 #   while DD selects one representative), the manuscript framing is
@@ -1149,6 +1149,10 @@ fwd_mae = float(mean_absolute_error(y_dd_a4, y_dd_pred_from_cos))
 fwd_r2 = float(r2_score(y_dd_a4, y_dd_pred_from_cos))
 print(f"Forward (Cossairt→DD):  MAE = {fwd_mae:.2f} nm   R² = {fwd_r2:.3f}")
 
+# Row-level fixed-prediction bootstrap (descriptive only; NOT paper-level):
+# predictions are computed once, then row indices are resampled with replacement.
+# It characterizes row-level prediction-error spread and ignores within-paper
+# dependence — it is not a paper-level generalization CI.
 rng_a4 = np.random.default_rng(42)
 fwd_mae_boot = np.empty(1000)
 for i in range(1000):
@@ -1328,10 +1332,12 @@ results_a4 = dict(
     forward=dict(direction="Cossairt -> DD",
                  mae_nm=fwd_mae, r2=fwd_r2,
                  bootstrap_95ci=fwd_ci,
+                 bootstrap_method="row-level fixed-prediction bootstrap (descriptive; not paper-level)",
                  gap_vs_within_source=float(fwd_gap)),
     backward=dict(direction="DD -> Cossairt",
                   mae_nm=bwd_mae, r2=bwd_r2,
                   bootstrap_95ci=bwd_ci,
+                  bootstrap_method="row-level fixed-prediction bootstrap (descriptive; not paper-level)",
                   gap_vs_within_source=float(bwd_gap)),
     asymmetry_fwd_minus_bwd_gap=float(asym),
     hyperparameters=dict(model="ExtraTreesRegressor", **COS_HP_EMISSION),

@@ -14,23 +14,23 @@
     "analysis/part_a1_results.json": "b401c097f7b23966402f3db26054b2bd9bd49846e73742ed866bb0339a7aaed5",
     "analysis/part_a2_results.json": "d87136137e5c5a4db064de48adc95d8e9f0c72652f4e6dd21b97ef920cf7ebf7",
     "analysis/part_a3_results.json": "0c807bdc40042fadd358e5a022347b80bd0ef0812d6712dfa47aaf1b46b1a870",
-    "analysis/part_a4_results.json": "fadfe686013d98204c02d731a65241e0b68dc855a662f8054cc319221e4c46de"
+    "analysis/part_a4_results.json": "a391fe94915bb3b34e831769335400dea12967a925c82dc8a4efc29630b6fb27"
   },
   "part_b_results": {
-    "analysis/part_b_pl_peak_results.json": "ca40a59d4f7a11087e421d005f5e7561f102e198730abe7ae71c099c61d167ae",
-    "analysis/part_b_c22_results.json": "67d1ae3a1a94419502d186a112453e2cf9921ff12290978d86b0d81fa1ba7566"
+    "analysis/part_b_pl_peak_results.json": "ebe13877b3cfc70a0ea9b98aca60666bb5b54096991c877fb946c5637bb33e13",
+    "analysis/part_b_c22_results.json": "36c07efbf39a70f4d1c51a312fcc81ee9f6aa797dc8783047ff7d483228938ba"
   },
   "part_c_results": {
     "analysis/part_c_method1_results.json": "9960db7f055e501b7baa7961749b24f554cc50eca8f6dc0eef8d8b3d8b264515",
     "analysis/part_c_c32_results.json": "f94137bbd3ab1a8b07c779c71154ce545ae24b8690c5d3d1136a7f1549439974",
-    "recipes/inp_qd_candidate_recipes_v1.json": "abd6c0a5b85b524eb7fb161b43a4ebdc9c3549f7ad1ca46a552590b82211736c"
+    "recipes/inp_qd_candidate_recipes_v1.json": "7e8814f74d0b977ffc518e17d919f7cc1b1fbe2ab3ed2b9558a9ede212154422"
   },
   "phase3_extensions": {
     "_note": "Filled by Phase 3 commits (F17, F18, F19) after their respective scripts run.",
-    "analysis/cossairt_ablation_results.json": "0fb6b11b765635a6d0148bb7293b6a79422970e15d0c90df0f5f35da6aeb7d64",
-    "analysis/part_b_baselines_results.json": "534930755aaa0dd161d72ade675b73a94701c86eb531a425d385add9c4c3b50d",
+    "analysis/cossairt_ablation_results.json": "ce474e95f6190a012a94d0d0d9adcdbfa7f5217ef3dd7f9874d33d8cb74111d2",
+    "analysis/part_b_baselines_results.json": "8825815ae2487edc10c42edd1b5dbf28504766f5df7cb335436f3b89992b595a",
     "analysis/part_b_shap_stability_results.json": "6c5cbb702a05a4349e1766998dce1493eb7eb4b328e95cffed54fc41903e10ac",
     "analysis/time_forward_results.json": "fb4497f3c8160ab70ceade218088c7f66e8d8ccb641f80c8e3f6fcd401230ae6",
-    "analysis/feature_pair_audit_results.json": "d364c0abe89cf224782cbb9feb475cf59c0fa200c6409b8fb5413e7339e9882b"
+    "analysis/feature_pair_audit_results.json": "9ba5ef74063dbb8c2ff9e5ce6f9117c10b9fe48aebfca37c63ed549d09f2c24d"
   }
 }

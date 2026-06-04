@@ -132,5 +132,5 @@
     "interaction_residual": 3.76408130553137,
     "interpretation": "gap_total = imputation_effect + leakage_effect + interaction. If interaction_residual is small (within bootstrap noise), the two effects are approximately additive and the main-text claim 'gap is largely explained by stricter evaluation' holds."
   },
-  "notes": "Regimes R1-R4 cover the Cartesian product of imputation (KNN vs none) and split (random KFold vs paper-level GroupKFold). R1 matches Cossairt's original protocol; R4 matches the audit-grade strict regime adopted in the main text. R2 and R3 isolate the imputation and leakage effects respectively. Bootstrap n=1000."
+  "notes": "Regimes R1-R4 cover the Cartesian product of imputation (KNNImputer-based vs none) and split (random KFold vs paper-level GroupKFold). R1 uses our own KNNImputer-based imputation-sensitivity setting (NOT a reproduction of Cossairt's sequential model-based imputation procedure); R4 is the audit-grade strict regime adopted in the main text. R2 and R3 isolate the imputation and leakage effects respectively. Bootstrap n=1000."
 }

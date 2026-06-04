@@ -189,8 +189,17 @@ def main() -> None:
             "co-occurrence patterns, not a transform leak)."
         ),
     )
+    def _nan_to_none(o):
+        # RFC 8259: emit JSON null instead of the non-standard bare NaN token.
+        if isinstance(o, (float, np.floating)):
+            return None if np.isnan(o) else float(o)
+        if isinstance(o, dict):
+            return {k: _nan_to_none(v) for k, v in o.items()}
+        if isinstance(o, (list, tuple)):
+            return [_nan_to_none(x) for x in o]
+        return o
     with out.open("w", encoding="utf-8") as f:
-        json.dump(payload, f, indent=2, default=str)
+        json.dump(_nan_to_none(payload), f, indent=2, allow_nan=False, default=str)
     print(f"\nSaved: {out}")
     print(f"Output SHA-256: {sha256_of(out)}")
 

@@ -26,11 +26,11 @@
       "random_state": 42,
       "n_jobs": 1
     },
-    "training_paper_level_GroupKFold_MAE_nm": 49.79,
-    "training_paper_level_GroupKFold_MAE_std_nm": 7.49,
+    "training_paper_level_GroupKFold_MAE_nm": 50.04,
+    "training_paper_level_GroupKFold_MAE_std_nm": 7.28,
     "bootstrap_95ci_nm": [
-      37.3,
-      65.98
+      37.33,
+      66.42
     ],
     "bootstrap_resamples": 1000,
     "feature_order": [

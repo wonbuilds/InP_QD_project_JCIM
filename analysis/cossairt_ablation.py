@@ -9,7 +9,7 @@ to the audit-grade evaluation adopted in the main text.
 
 Regimes
 -------
-1. KNN imputation + random KFold (mirrors Cossairt's original protocol, 219 rows)
+1. KNNImputer-based imputation + random KFold (our own imputation-sensitivity regime; NOT a reproduction of Cossairt's sequential model-based imputation procedure; 219 rows)
 2. No imputation + random KFold (isolates imputation; n_rows = 85)
 3. KNN imputation + paper-level GroupKFold by doi (isolates leakage; 219 rows)
 4. No imputation + paper-level GroupKFold by doi (audit-grade strict; n_rows = 85)
@@ -80,7 +80,7 @@ def prepare_features(cos_df: pd.DataFrame, *, impute: str) -> tuple:
         pub[c] = pub[c].fillna("None").astype(str)
 
     if impute == "knn":
-        # KNN imputation on numeric features + target jointly (k=5, Cossairt default)
+        # KNNImputer on numeric features + target jointly (k=5; our own choice, not Cossairt's procedure)
         num_block = pub[COS_NUMERIC + ["emission_nm"]].copy()
         for c in num_block.columns:
             num_block[c] = pd.to_numeric(num_block[c], errors="coerce")
@@ -249,10 +249,11 @@ def main() -> None:
         regimes=regimes,
         decomposition=decomposition,
         notes=("Regimes R1-R4 cover the Cartesian product of imputation "
-               "(KNN vs none) and split (random KFold vs paper-level GroupKFold). "
-               "R1 matches Cossairt's original protocol; R4 matches the audit-grade "
-               "strict regime adopted in the main text. R2 and R3 isolate the "
-               "imputation and leakage effects respectively. Bootstrap n=1000."),
+               "(KNNImputer-based vs none) and split (random KFold vs paper-level GroupKFold). "
+               "R1 uses our own KNNImputer-based imputation-sensitivity setting (NOT a "
+               "reproduction of Cossairt's sequential model-based imputation procedure); "
+               "R4 is the audit-grade strict regime adopted in the main text. R2 and R3 "
+               "isolate the imputation and leakage effects respectively. Bootstrap n=1000."),
     )
     with out.open("w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, default=str)
