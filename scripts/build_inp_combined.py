@@ -4,7 +4,7 @@ and Cossairt raw dataset (220 entries) on a common-schema set of columns.
 
 Output: `data/integrated/inp_combined.csv` (long/stacked format).
 
-Stacking strategy (CLAUDE.md §4.3, §4.4):
+Stacking strategy (the project analysis plan §4.3, §4.4):
 - Each output row carries a `source` field (`dd` or `cossairt`) so downstream
   analyses can stratify trivially.
 - Comparable cross-source columns are normalized to a single shared name

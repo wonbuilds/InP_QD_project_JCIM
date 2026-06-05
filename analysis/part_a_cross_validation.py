@@ -15,14 +15,14 @@
 # %% [markdown]
 # # Part A — Cross-validation (JCIM application paper)
 #
-# **Stages** (CLAUDE.md §5.1 v2.1, `analysis_plan_v1.md` §2):
+# **Stages** (the project analysis plan §5.1 v2.1, the analysis design plan §2):
 #
 # - A.1 Paper-level paired comparison (9 overlap papers, this notebook).
 # - A.2 Distribution-level comparison (independent samples — separate notebook section).
 # - A.3 Reproduction of Cossairt PCA/RF/GB on full Cossairt 220 (separate section).
 # - A.4 Cross-prediction.
 #
-# **Phase C.1 first task — internal analysis notes outcome (2026-05-21)**:
+# **Phase C.1 first task — analysis design notes outcome (2026-05-21)**:
 # Option B adopted — Part A.1 paired comparison uses `emission_nm` (primary)
 # + `T_growth_C` (secondary, with paper-median aggregation and caveat for L002 / L009).
 # `time_min` is excluded from A.1 paired comparison and analyzed only in A.2
@@ -139,7 +139,7 @@ print(pair_df[["paper", "dd_n", "cos_n",
 #   rows). This makes the emission paired analysis N = 3 — descriptive only.
 # - **T paper-median paired**: 9 papers, 7 perfectly match, 2 mismatch
 #   (L002 +40 °C from DD STAGE-FIX, L009 -90 °C from sample misalignment
-#   confirmed in internal analysis notes).
+#   confirmed in analysis design notes).
 
 # %% [markdown]
 # ## A.1.2 Bland–Altman + scatter (paper-level)
@@ -204,7 +204,7 @@ print(f"T_growth_C paper-level bootstrap (n=1000): {T_boot}")
 # paper by emission_nm and pairs index-wise. Restricted to papers where both
 # sources have emission numeric *and* the sample alignment is interpretable
 # (L023: 5↔5; L038: 1 row each with non-NaN emission). L009 is excluded
-# because sample mismatch was confirmed in internal analysis notes (DD
+# because sample mismatch was confirmed in analysis design notes (DD
 # 150/blank vs Cossairt 240/60). L009 paper-level pair stays in the primary
 # A.1.2/A.1.3 analysis as a transparently-flagged outlier.
 
@@ -438,7 +438,7 @@ print(f"Saved: {out_json}")
 print(f"Output SHA-256: {sha256_of(out_json)}")
 
 # %% [markdown]
-# ## A.1.7 Findings narrative — see internal analysis notes
+# ## A.1.7 Findings narrative — see analysis design notes
 #
 # The narrative interpretation, limitations, caveats, and decisions for the
 # manuscript (Phase D) are recorded in a separate markdown file alongside this
@@ -447,7 +447,7 @@ print(f"Output SHA-256: {sha256_of(out_json)}")
 # %% [markdown]
 # # Part A.2 — Distribution-level comparison (independent samples)
 #
-# **Question (analysis_plan_v1.md §2, A.2)**: At the *marginal-distribution*
+# **Question (the analysis design plan §2, A.2)**: At the *marginal-distribution*
 # level — independent of paper-level pairing — do the DD-curated InP subset
 # (132 records) and the Cossairt 2022 published-literature subset (219
 # records, `nayon` excluded) sample the same underlying distribution of
@@ -658,7 +658,7 @@ print(f"Saved: {out2}")
 print(f"Output SHA-256: {sha256_of(out2)}")
 
 # %% [markdown]
-# ## A.2.6 Findings narrative → internal analysis notes
+# ## A.2.6 Findings narrative → analysis design notes
 
 # %% [markdown]
 # # Part A.3 — Reproduction of Cossairt's predictive pipeline
@@ -1082,7 +1082,7 @@ print(f"Saved: {out3}")
 print(f"Output SHA-256: {sha256_of(out3)}")
 
 # %% [markdown]
-# ## A.3.7 Findings narrative → internal analysis notes
+# ## A.3.7 Findings narrative → analysis design notes
 
 # %% [markdown]
 # # Part A.4 — Cross-prediction (shared-features subset, no-imputation)
@@ -1350,4 +1350,4 @@ print(f"Saved: {out4}")
 print(f"Output SHA-256: {sha256_of(out4)}")
 
 # %% [markdown]
-# ## A.4.7 Findings narrative → internal analysis notes
+# ## A.4.7 Findings narrative → analysis design notes

@@ -14,9 +14,9 @@
 # ---
 
 # %% [markdown]
-# # Part C — Candidate recipe generation for under-explored design regions
+# # Part C — Candidate condition generation for under-explored design regions
 #
-# **Scope** (CLAUDE.md §5.3 + `analysis_plan_v1.md` §4):
+# **Scope** (the project analysis plan §5.3 + the analysis design plan §4):
 # - Dataset: DD InP subset 132 rows (`data/from_dd/inp_subset.csv`, no
 #   imputation; shell-architecture parsed via
 #   `scripts/parse_shell_architecture.py`).
@@ -34,14 +34,14 @@
 # - ★ ZnSe-axis prioritization: SHAP top-1 finding (Part B) motivates
 #   ZnSe-innermost × multi-shell stratification for candidate diversity.
 #
-# **STOP C.3-1 milestone scope (this notebook initial commit)**:
+# **Part C (initial) milestone scope (this notebook initial commit)**:
 # - C.0 Imports + load DD enriched
 # - C.1 Design space mapping (parallel coords + density + heatmap)
 # - C.2 Mahalanobis distance distribution + 95th-percentile cutoff
 # - C.3 Method 1 — Constrained random sampling (first results)
 # - Figure 9 prep (design space coverage)
-# - internal analysis notes initial draft
-# Methods 2/3 + Top-10 + Figure 10 + recipes JSON handled at STOP C.3-2.
+# - analysis design notes initial draft
+# Methods 2/3 + Top-10 + Figure 10 + recipes JSON handled at Part C (consolidated).
 
 # %%
 import json, sys, hashlib
@@ -377,7 +377,7 @@ def rf_predict_with_std(model_pipe, X_query):
     return per_tree.mean(axis=0), per_tree.std(axis=0)
 
 # %% [markdown]
-# ### C.3.1 Sample candidate recipes (n = 1000)
+# ### C.3.1 Sample candidate conditions (n = 1000)
 
 # %%
 n_samples = 1000
@@ -463,7 +463,7 @@ candidates_export.to_csv(out_c3, index=False, float_format="%.4f")
 print(f"Saved: {out_c3}  ({len(candidates_export)} candidates)")
 
 results_c31 = dict(
-    milestone="STOP C.3-1",
+    milestone="Part C (initial)",
     method="Method 1 — constrained random sampling",
     n_samples=int(n_samples),
     sampling_ranges=dict(
@@ -495,7 +495,7 @@ results_c31 = dict(
             "129 PL_peak rows (50 papers). Ensemble std = std across "
             "200 trees per query. Mahalanobis on (T_growth_C, log10 time_min) "
             "subspace, 95th-percentile within-training cutoff. ZnSeS / GaP / "
-            "other innermost categories deferred to STOP C.3-2."),
+            "other innermost categories deferred to Part C (consolidated)."),
 )
 out_json = PROJECT_ROOT / "analysis" / "part_c_method1_results.json"
 with open(out_json, "w", encoding="utf-8") as f:
@@ -979,7 +979,7 @@ recipes_dir.mkdir(exist_ok=True)
 RATIONALES = {
     "M1-0475": "ZnSe innermost double-shell at training-centroid (T, time); model-prioritized high PL_peak near the red edge of the ZnSe stratum, with large ensemble spread (not a calibrated maximum).",
     "M1-0822": "ZnSe innermost double-shell variant near rank-1; degenerate optimum within RF's local plateau.",
-    "M2-0178": "Bayesian-optimization-confirmed ZnSe optimum at (T=230, time=61); independent convergence with M1.",
+    "M2-0178": "Bayesian-optimization-confirmed ZnSe optimum at (T=230, time=61); internal algorithmic consistency, not independent validation.",
     "M3-001": "High-T grid point (T=300, 30 min) ZnSe double-shell; in-distribution boundary of Mahalanobis ellipse.",
     "M3-000": "High-T grid point (T=300, 30 min) ZnSe single-shell; explores single-shell architecture at higher temperature.",
     "M3-037": "High-T extrapolation candidate (T=360, 30 min) ZnSe double-shell; tests model's high-T predictive scope; requires wet-lab validation.",
@@ -1012,7 +1012,7 @@ for _, r in top10.iterrows():
 recipes_json = dict(
     schema_version="1.1",
     version="v1",
-    milestone="STOP C.3-2",
+    milestone="Part C (consolidated)",
     generated_date="2026-05-21",
     timestamp_local="2026-05-21",
     paper_target_journal="Journal of Chemical Information and Modeling",
@@ -1067,9 +1067,9 @@ with open(recipes_path, "w", encoding="utf-8") as f:
 print(f"Saved: {recipes_path}")
 print(f"Output SHA-256: {sha256_of(recipes_path)}")
 
-# STOP C.3-2 consolidated JSON
+# Part C (consolidated) consolidated JSON
 results_c32 = dict(
-    milestone="STOP C.3-2",
+    milestone="Part C (consolidated)",
     method_pool_sizes=dict(M1=int(len(m1_df)), M2=int(len(m2_df)), M3=int(len(m3_df)),
                             total=int(len(pool))),
     method2_summary=dict(

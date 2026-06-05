@@ -8,7 +8,11 @@
     "data/from_cossairt/dataset_InP_raw.csv": "33539b8dbd60d434a6d9c27d52b9e51e84c83416405c47ecb6059675dbeedc09",
     "data/from_cossairt/hao_dataset.csv": "cc982b13d67c0179ce2096207c6699ae186806ec93def16b86d52b403478e282",
     "data/from_cossairt/flo_dataset.csv": "241e19751fc9c7ba687922c3987bb5478140777188879a082ee46f929efecf8e",
-    "data/integrated/inp_combined.csv": "b3113d969c5f9bde5ae7b10b632578f34602d9f7679b19a72690a6bf7056bc6a"
+    "data/integrated/inp_combined.csv": "b3113d969c5f9bde5ae7b10b632578f34602d9f7679b19a72690a6bf7056bc6a",
+    "data/from_cossairt/cossairt_ref_values_dd_matched.csv": "39dda98870fc0607e536714b696acab6f077e84535adf942dd8d5e56b14d0cce",
+    "data/from_cossairt/cossairt_reference_master_paper_level.csv": "d3b4772ba2b2f4435e6c23ec280b63e3be572bebae5a78821245b3f839e30b2f",
+    "data/integrated/common_schema.json": "1e945484d5ad29760ba01e256fbcc24780218685c5cbd53a1c0f494ab029e6a6",
+    "data/from_dd/constant_columns.md": "d7d3b585609571921d16d05c76a1058db113f574997355cc2bbbf3402fd1d83c"
   },
   "part_a_results": {
     "analysis/part_a1_results.json": "b401c097f7b23966402f3db26054b2bd9bd49846e73742ed866bb0339a7aaed5",
@@ -17,13 +21,17 @@
     "analysis/part_a4_results.json": "a391fe94915bb3b34e831769335400dea12967a925c82dc8a4efc29630b6fb27"
   },
   "part_b_results": {
-    "analysis/part_b_pl_peak_results.json": "ebe13877b3cfc70a0ea9b98aca60666bb5b54096991c877fb946c5637bb33e13",
-    "analysis/part_b_c22_results.json": "36c07efbf39a70f4d1c51a312fcc81ee9f6aa797dc8783047ff7d483228938ba"
+    "analysis/part_b_pl_peak_results.json": "70402688f9b0638db84b877edfa93bfeb2fc45e80335cc25b2e066656095445b",
+    "analysis/part_b_c22_results.json": "04727937fda63733ce393ffb27aafb6537502926d0b6066aad06f25e3e6be75c"
   },
   "part_c_results": {
-    "analysis/part_c_method1_results.json": "9960db7f055e501b7baa7961749b24f554cc50eca8f6dc0eef8d8b3d8b264515",
-    "analysis/part_c_c32_results.json": "f94137bbd3ab1a8b07c779c71154ce545ae24b8690c5d3d1136a7f1549439974",
-    "recipes/inp_qd_candidate_recipes_v1.json": "7e8814f74d0b977ffc518e17d919f7cc1b1fbe2ab3ed2b9558a9ede212154422"
+    "analysis/part_c_method1_results.json": "0a6922609b93f4b224d3502b1d53a413530f076a04be0719162a6973277830d3",
+    "analysis/part_c_c32_results.json": "ba1b1d140a2e25da5886943ad2ca8c192834e19ec8aac4d3f53d26824ef6d551",
+    "recipes/inp_qd_candidate_recipes_v1.json": "77605fe534db1141e508f301c7868cbf1a4a9fb63383cb530c546648f1908cbf",
+    "analysis/part_c_method1_candidates.csv": "3a6316604b1400ac8fec8128e7487bb0eda67c6eed5013e7b0f404c515c3c91d",
+    "analysis/part_c_method2_candidates.csv": "b3da3dd1f4bc94ed2abb644d4fad741521959dfe0d633cec69b6b7e3f295257a",
+    "analysis/part_c_method3_candidates.csv": "7e0e03196dab5eb2139845035130fdecebc9e5f82d64deca1eda3435579f008b",
+    "analysis/part_c_consolidated_candidates.csv": "318a76871f45d5fc71c8cd88f89798a9dd6683ce4c3c0497c4b1eff85250ddbc"
   },
   "phase3_extensions": {
     "_note": "Filled by Phase 3 commits (F17, F18, F19) after their respective scripts run.",
