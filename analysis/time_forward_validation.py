@@ -9,7 +9,7 @@ and post-cutoff sets, and the model is trained on pre-cutoff papers and
 evaluated on post-cutoff papers. Bootstrap CI on MAE via paper-level
 resample.
 
-This complements the paper-level GroupKFold MAE (49.79 ± 7.49 nm,
+This complements the paper-level GroupKFold MAE (50.04 ± 7.28 nm,
 random-shuffle cross-paper) with a temporal-extrapolation evaluation
 that more closely approximates the candidate-prioritization use case.
 
@@ -186,8 +186,8 @@ def main() -> None:
     print(f"\n=== Selected cutoff (closest to 60/40 split): Y_cutoff = {best['y_cutoff']} ===")
 
     # Reference: existing GroupKFold MAE for context
-    groupkfold_mae = 49.79
-    groupkfold_ci = (37.30, 65.98)
+    groupkfold_mae = 50.04
+    groupkfold_ci = (37.33, 66.42)
 
     interpretation = (
         f"Time-forward MAE at Y_cutoff={best['y_cutoff']}: {best['mae']:.2f} nm "
