@@ -1,5 +1,5 @@
 {
-  "milestone": "STOP C.3-1",
+  "milestone": "Part C (initial)",
   "method": "Method 1 \u2014 constrained random sampling",
   "n_samples": 1000,
   "sampling_ranges": {
@@ -147,5 +147,5 @@
       }
     ]
   },
-  "notes": "Production RF (n=200, max_features='sqrt', random_state=42) fit on 129 PL_peak rows (50 papers). Ensemble std = std across 200 trees per query. Mahalanobis on (T_growth_C, log10 time_min) subspace, 95th-percentile within-training cutoff. ZnSeS / GaP / other innermost categories deferred to STOP C.3-2."
+  "notes": "Production RF (n=200, max_features='sqrt', random_state=42) fit on 129 PL_peak rows (50 papers). Ensemble std = std across 200 trees per query. Mahalanobis on (T_growth_C, log10 time_min) subspace, 95th-percentile within-training cutoff. ZnSeS / GaP / other innermost categories deferred to Part C (consolidated)."
 }

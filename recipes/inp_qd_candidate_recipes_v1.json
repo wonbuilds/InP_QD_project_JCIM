@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "version": "v1",
-  "milestone": "STOP C.3-2",
+  "milestone": "Part C (consolidated)",
   "generated_date": "2026-05-21",
   "timestamp_local": "2026-05-21",
   "paper_target_journal": "Journal of Chemical Information and Modeling",
@@ -126,7 +126,7 @@
       "predicted_PL_peak_nm_std": 63.56626024246783,
       "mahalanobis_distance": 0.919393171962545,
       "extrap_flag": "in_distribution",
-      "chemistry_rationale": "Bayesian-optimization-confirmed ZnSe optimum at (T=230, time=61); independent convergence with M1."
+      "chemistry_rationale": "Bayesian-optimization-confirmed ZnSe optimum at (T=230, time=61); internal algorithmic consistency, not independent validation."
     },
     {
       "rank": 4,

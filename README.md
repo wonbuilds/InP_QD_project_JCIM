@@ -1,15 +1,21 @@
 # InP QD Literature-Mining Project (JCIM)
 
-Analysis code, processed data, and figures for the JCIM submission **"External
-Compatibility and Interpretable Structure–Property Analysis of an LLM-Curated InP
-Quantum-Dot Synthesis Corpus under Leakage-Aware Evaluation"** (Yoo).
+Analysis code, processed data, and figures for the JCIM submission
+**"Leakage-Aware External Assessment of an LLM-Curated InP Quantum-Dot Synthesis
+Corpus"** (Yoo).
 
 This repository is the **reproducible analysis package** for that manuscript: it
 cross-validates an LLM-curated InP quantum-dot synthesis corpus (132 records / 52
 papers) against the manually curated reference of Nguyen et al. (*Chem. Mater.*
 2022, 34, 6296), fits leakage-aware (paper-level GroupKFold) interpretable models
 of emission/QY/FWHM/shell architecture, and prioritizes candidate synthesis
-recipes. The manuscript text itself is **not** included here.
+conditions. The manuscript text itself is **not** included here.
+
+> **On "candidate conditions / recipes":** the prioritized synthesis conditions
+> (`recipes/inp_qd_candidate_recipes_v1.json`; the filename is retained for
+> stability) are **model-prioritized candidate hypotheses**, not experimentally
+> validated syntheses — computational suggestions for under-explored design
+> regions that require wet-lab confirmation.
 
 ## Repository layout
 
@@ -20,7 +26,7 @@ recipes. The manuscript text itself is **not** included here.
 | `data/integrated/` | Combined dataset (`inp_combined.csv`) + `common_schema.json`. |
 | `analysis/` | Analysis scripts (`part_a/b/c_*.py`, baselines, SHAP stability, Cossairt ablation, time-forward, feature-pair audit) + their `*_results.json` and the paired `.ipynb` notebooks. |
 | `figures/` | Generated figures (`figure_1`–`figure_11`, PDF + SVG). Outside the checksum manifest. |
-| `recipes/` | `inp_qd_candidate_recipes_v1.json` — Top-10 candidate recipes with provenance. |
+| `recipes/` | `inp_qd_candidate_recipes_v1.json` — Top-10 model-prioritized candidate conditions (hypotheses) with provenance. |
 | `scripts/` | Pipeline helpers: `reproduce_all.py`, `extract_inp_subset.py`, `build_inp_combined.py`, `io_helpers.py`, `parse_shell_architecture.py`, and the SHA-256 manifest `expected_checksums.json`. |
 
 ## Reproduction
@@ -30,15 +36,17 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
 # (a) Verify deposited outputs against the SHA-256 manifest (fast, no recompute):
-python scripts/reproduce_all.py --verify-only          # expect 20/20 [ok]
+python scripts/reproduce_all.py --verify-only          # expect all [ok]
 
 # (b) Full clean rebuild, then verify (re-runs the whole pipeline):
 python scripts/reproduce_all.py --strict
 ```
 
 - **`--verify-only`** only hashes the deposited artifacts and compares them to
-  `scripts/expected_checksums.json` (20 checksummed artifacts). Seconds to run; it
-  does **not** re-run any analysis.
+  `scripts/expected_checksums.json`. Seconds to run; it does **not** re-run any
+  analysis. Note: `--verify-only` checks **file integrity, not regenerability** —
+  it confirms the committed files match the manifest, not that the code rebuilds
+  them bit-for-bit (use `--strict` for that).
 - **`--strict`** re-runs the entire pipeline and then verifies. The Part B SHAP
   recomputation and the paper-level bootstraps dominate runtime — expect roughly
   **5–15 minutes** on a typical laptop (single-threaded, `random_state = 42`).
@@ -55,8 +63,11 @@ serialization, p-values, SHAP magnitudes at trailing digits, and figure hashes �
 the numeric conclusions are stable, but `--strict` checksum equality is not
 guaranteed off-pin. Use `--verify-only` against the deposited artifacts for a
 pinned-independent integrity check of what is committed; use `--strict` for a
-clean rebuild in the pinned environment. `figures/` are intentionally outside the
-manifest.
+clean rebuild in the pinned environment. **`figures/` are regenerated from the
+data and are not checksum-manifest-verified** (PDF/SVG serialization is not
+guaranteed bit-stable); they are intentionally outside the manifest, and the
+numbers behind every figure are checksum-verified via the `*_results.json`
+artifacts.
 
 ## What each script produces
 

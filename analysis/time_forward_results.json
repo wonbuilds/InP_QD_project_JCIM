@@ -117,13 +117,13 @@
     "bootstrap_n": 1000
   },
   "reference_groupkfold": {
-    "mae": 49.79,
+    "mae": 50.04,
     "bootstrap_95ci": [
-      37.3,
-      65.98
+      37.33,
+      66.42
     ],
     "source": "part_b_pl_peak_results.json"
   },
-  "interpretation": "Time-forward MAE at Y_cutoff=2023: 57.41 nm (95% CI 42.51-72.93); reference GroupKFold MAE: 49.79 nm (95% CI 37.3-65.98). The time-forward bootstrap CI overlaps the GroupKFold CI, indicating the model generalizes to chronologically future papers without statistically detectable additional degradation. This supports prospective-style predictive coverage for candidate prioritization.",
+  "interpretation": "Time-forward MAE at Y_cutoff=2023: 57.41 nm (95% CI 42.51-72.93); reference GroupKFold MAE: 50.04 nm (95% CI 37.33-66.42). The time-forward bootstrap CI overlaps the GroupKFold CI, indicating the model generalizes to chronologically future papers without statistically detectable additional degradation. This supports prospective-style predictive coverage for candidate prioritization.",
   "notes": "RF model trained on pre-cutoff papers, evaluated on post-cutoff papers under no-imputation regime. Bootstrap n=1000 via paper-level resample of test set. Model: RandomForestRegressor(n_estimators=200, max_features='sqrt', random_state=42), identical to production Part B configuration."
 }

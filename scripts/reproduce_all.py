@@ -23,6 +23,19 @@ the manifest `scripts/expected_checksums.json`. Any mismatch terminates with
 exit code 2 and a diff report. Without --strict, mismatches are warned but
 not fatal.
 
+Notes on actual behavior
+------------------------
+- Step 1 (data) is *skip-if-exists*: when the shipped `inp_subset.csv` /
+  `inp_combined.csv` are present they are reused, not re-derived (the source
+  DD corpus lives on Zenodo, not in this repo). So a clean public checkout
+  reproduces the *analysis* (Steps 2–5), while the deposited data CSVs are
+  verified by checksum rather than rebuilt. Use `extract_inp_subset.py
+  --source <corpus> --force` to actually re-derive them.
+- The Phase 3 extension *outputs* are verified against the manifest in every
+  run, including `--skip-phase3` (which only skips *re-running* them).
+- Part C generation is wrapped so a failure warns and continues to the
+  verification phase rather than aborting the whole run.
+
 Expected runtime: ~ 15 minutes on a standard laptop for Steps 1–4; +5 min
 for Step 5 (Phase 3 extensions) on the same hardware.
 """
@@ -99,7 +112,9 @@ def main() -> int:
     parser.add_argument("--verify-only", action="store_true",
                         help="Skip all analysis steps; only verify existing outputs.")
     parser.add_argument("--skip-phase3", action="store_true",
-                        help="Skip Phase 3 extension scripts (F17/F18/F19).")
+                        help="Skip *re-running* Phase 3 extension scripts "
+                             "(F17/F18/F19); their deposited outputs are still "
+                             "verified against the manifest.")
     args = parser.parse_args()
 
     manifest = load_manifest()
@@ -123,9 +138,15 @@ def main() -> int:
         run_step("Step 3: Part B predictive modeling",
                  [python, "analysis/part_b_predictive_modeling.py"])
 
-        # Step 4 — Part C
-        run_step("Step 4: Part C recipe generation",
-                 [python, "analysis/part_c_recipe_generation.py"])
+        # Step 4 — Part C (wrapped: warn instead of abort on failure; the
+        # verification phase still checks deposited Part C artifacts).
+        try:
+            run_step("Step 4: Part C recipe generation",
+                     [python, "analysis/part_c_recipe_generation.py"])
+        except subprocess.CalledProcessError as e:
+            print(f"  [warn] Part C generation exited {e.returncode}; continuing "
+                  f"to verification. Deposited Part C artifacts will be checked "
+                  f"against the manifest as-is.")
 
         # Step 5 — Phase 3 extensions (optional)
         if not args.skip_phase3:
@@ -147,9 +168,10 @@ def main() -> int:
     print("VERIFICATION PHASE")
     print("=" * 70)
     all_ok = True
-    sections_to_verify = ["data", "part_a_results", "part_b_results", "part_c_results"]
-    if not args.skip_phase3:
-        sections_to_verify.append("phase3_extensions")
+    # Phase 3 extension *outputs* are always verified against the manifest, even
+    # when --skip-phase3 skips re-running them (deposited artifacts are checked).
+    sections_to_verify = ["data", "part_a_results", "part_b_results",
+                          "part_c_results", "phase3_extensions"]
     for section_name in sections_to_verify:
         section_ok = verify_section(section_name, manifest.get(section_name, {}),
                                     args.strict)

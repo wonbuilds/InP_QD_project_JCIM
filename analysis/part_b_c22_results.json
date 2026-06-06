@@ -1,5 +1,5 @@
 {
-  "milestone": "STOP C.2-2",
+  "milestone": "Part B (extended)",
   "targets": [
     "PL_peak_nm_final",
     "QY_percent_final",
@@ -1015,5 +1015,5 @@
     "shell_layer_count": 1,
     "outer_is_ZnS": 1
   },
-  "notes": "All RF + GBM with paper-level GroupKFold (5-fold). Bootstrap n=1000 paper-level resample. caution_count default OFF (\uc0ac\uc6a9\uc790 \uacb0\uc815 6). Cossairt-side comparison not available for QY/FWHM/shell_layer_count (absent in Cossairt 2022) \u2014 these are DD-only predictive extensions."
+  "notes": "All RF + GBM with paper-level GroupKFold (5-fold). Bootstrap n=1000 paper-level resample. caution_count default OFF (default configuration). Cossairt-side comparison not available for QY/FWHM/shell_layer_count (absent in Cossairt 2022) \u2014 these are DD-only predictive extensions."
 }

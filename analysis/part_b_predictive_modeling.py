@@ -16,7 +16,7 @@
 # %% [markdown]
 # # Part B — DD-only predictive modeling (Phase C.2)
 #
-# **Scope** (CLAUDE.md §5.2 + `analysis_plan_v1.md` §3):
+# **Scope** (the project analysis plan §5.2 + the analysis design plan §3):
 # - Dataset: DD InP subset 132 rows (`data/from_dd/inp_subset.csv`, no
 #   imputation; `caution_count` default OFF).
 # - Targets: PL_peak_nm_final (primary), QY_percent_final, FWHM_nm_final,
@@ -26,14 +26,14 @@
 # - Models: RF, sklearn GBM; optional GP later.
 # - CV: paper-level GroupKFold (5-fold), bootstrap CI ≥ 1000, SHAP.
 #
-# **STOP C.2-1 milestone scope (this notebook initial commit)**:
+# **Part B (initial) milestone scope (this notebook initial commit)**:
 # - B.0 Data load + shell parsing application (verify 132 rows derive cols)
 # - B.1 EDA (feature + target distributions, correlation)
 # - B.2 First target = PL_peak_nm_final (RF + GBM, GroupKFold, bootstrap,
 #   SHAP, predicted-vs-observed)
 # - Figure 5 (EDA) + Figure 6 (PL_peak first-target performance)
-# - Findings file internal analysis notes (PL only at this milestone)
-# Remaining targets (QY, FWHM, shell_layer_count) handled at STOP C.2-2.
+# - Findings file analysis design notes (PL only at this milestone)
+# Remaining targets (QY, FWHM, shell_layer_count) handled at Part B (extended).
 
 # %%
 import json, hashlib, sys
@@ -444,8 +444,8 @@ results_b1 = dict(
              r2_per_fold=[float(v) for v in gbm_r2]),
     shap_top10=mean_abs_shap.head(10).to_dict(),
     rf_importance_top10=rf_imp.iloc[::-1].to_dict(),  # back to descending
-    notes=("caution_count OFF (default configuration). Sensitivity with"
-           "caution_count ON to be reported at STOP C.2-2."),
+    notes=("caution_count OFF (default configuration). Sensitivity with "
+           "caution_count ON to be reported at Part B (extended)."),
 )
 out_b1 = PROJECT_ROOT / "analysis" / "part_b_pl_peak_results.json"
 with open(out_b1, "w", encoding="utf-8") as f:
@@ -454,11 +454,11 @@ print(f"Saved: {out_b1}")
 print(f"Output SHA-256: {sha256_of(out_b1)}")
 
 # %% [markdown]
-# ## B.6 Findings narrative → internal analysis notes (STOP C.2-1 milestone)
+# ## B.6 Findings narrative → analysis design notes (Part B (initial) milestone)
 #
 # ---
 #
-# # STOP C.2-2 — Remaining targets + sensitivities + cross-target consistency
+# # Part B (extended) — Remaining targets + sensitivities + cross-target consistency
 #
 # Scope:
 # - **3 remaining targets**: QY_percent_final, FWHM_nm_final, shell_layer_count
@@ -621,7 +621,7 @@ def run_target_pipeline(target_name, df_in, *, use_caution_count=False,
 
 # %%
 print("=" * 70)
-print("STOP C.2-2 BASELINE — caution_count OFF, full 132 rows")
+print("Part B (extended) BASELINE — caution_count OFF, full 132 rows")
 print("=" * 70)
 
 baselines = {}
@@ -667,7 +667,7 @@ baselines["PL_peak_nm_final"] = dict(
 
 # %%
 print("=" * 70)
-print("STOP C.2-2 SENSITIVITY I — caution_count ON (feature added)")
+print("Part B (extended) SENSITIVITY I — caution_count ON (feature added)")
 print("=" * 70)
 
 cc_on = {}
@@ -684,7 +684,7 @@ for tgt in ["PL_peak_nm_final", "QY_percent_final", "FWHM_nm_final", "shell_laye
 
 # %%
 print("=" * 70)
-print("STOP C.2-2 SENSITIVITY II — caution_count==0 stratification (n=101)")
+print("Part B (extended) SENSITIVITY II — caution_count==0 stratification (n=101)")
 print("=" * 70)
 
 dd_clean = dd[dd["caution_count"] == 0].copy()
@@ -716,7 +716,7 @@ for tgt in ["PL_peak_nm_final", "QY_percent_final", "FWHM_nm_final", "shell_laye
 
 # %%
 print("=" * 70)
-print("STOP C.2-2 SENSITIVITY III — data_origin (NOT APPLICABLE for DD-only)")
+print("Part B (extended) SENSITIVITY III — data_origin (NOT APPLICABLE for DD-only)")
 print("=" * 70)
 print(f"All {len(dd)} rows in DD InP subset are published-literature "
       f"by construction (corpus == 'InP (L-series)' filter).")
@@ -931,11 +931,11 @@ fig.savefig(fig8_svg, bbox_inches="tight")
 print(f"Saved: {fig8_pdf}")
 
 # %% [markdown]
-# ## B.15 Persist STOP C.2-2 consolidated results
+# ## B.15 Persist Part B (extended) consolidated results
 
 # %%
 results_c22 = dict(
-    milestone="STOP C.2-2",
+    milestone="Part B (extended)",
     targets=target_order,
     baseline_caution_off=baselines,
     sensitivity_caution_on=cc_on,
