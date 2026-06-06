@@ -138,15 +138,18 @@ def main() -> int:
         run_step("Step 3: Part B predictive modeling",
                  [python, "analysis/part_b_predictive_modeling.py"])
 
-        # Step 4 — Part C (wrapped: warn instead of abort on failure; the
-        # verification phase still checks deposited Part C artifacts).
+        # Step 4 — Part C. Under --strict any failure aborts immediately;
+        # without --strict it warns and continues to the verification phase
+        # (deposited Part C artifacts are still checked against the manifest).
         try:
             run_step("Step 4: Part C recipe generation",
                      [python, "analysis/part_c_recipe_generation.py"])
         except subprocess.CalledProcessError as e:
-            print(f"  [warn] Part C generation exited {e.returncode}; continuing "
-                  f"to verification. Deposited Part C artifacts will be checked "
-                  f"against the manifest as-is.")
+            if args.strict:
+                raise
+            print(f"  [WARN] Part C generation exited {e.returncode}; continuing "
+                  f"only because --strict is not set. Deposited Part C artifacts "
+                  f"will be checked against the manifest as-is.")
 
         # Step 5 — Phase 3 extensions (optional)
         if not args.skip_phase3:
