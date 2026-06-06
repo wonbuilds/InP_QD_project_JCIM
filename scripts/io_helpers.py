@@ -6,7 +6,7 @@ Why this module exists:
 - DD's deposited CSVs encode "blank" as the literal empty string "" with the
   recommended pandas options dtype=str / keep_default_na=False / na_values=[].
 - Cossairt's deposited CSV encodes missing as the literal string "None"
-  (confirmed in Phase B-5 audit: matches SI §S2 missingness distribution
+  (matches SI §S2 missingness distribution
   exactly — emission_nm has 86 numeric + 134 "None" = 220).
 - The integrated `data/integrated/inp_combined.csv` carries over both
   conventions row-by-row (build script preserves source values verbatim so

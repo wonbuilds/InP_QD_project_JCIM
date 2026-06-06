@@ -86,5 +86,5 @@
     "cat__route_aminophosphine": 0.02322770995336858,
     "cat__shell_composition_tier_double_shell": 0.019659974202576605
   },
-  "notes": "caution_count OFF (default configuration). Sensitivity with caution_count ON to be reported at Part B (extended)."
+  "notes": "caution_count OFF (default configuration); caution_count ON reported as a sensitivity check in the SI."
 }

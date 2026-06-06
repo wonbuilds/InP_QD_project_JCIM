@@ -25,50 +25,63 @@
     ]
   },
   "dd": {
-    "n": 129,
-    "n_papers": 50,
-    "within_groupkfold5_mae_mean": 61.86005921855921,
-    "within_groupkfold5_mae_std": 11.88724128419655,
+    "n": 119,
+    "n_papers": 43,
+    "within_groupkfold5_mae_mean": 61.25252789279962,
+    "within_groupkfold5_mae_std": 9.313153458009637,
     "within_groupkfold5_mae_per_fold": [
-      51.577090964590965,
-      46.92860195360194,
-      78.97008547008545,
-      60.800946275946266,
-      71.02357142857143
+      54.401802248677235,
+      69.13541666666664,
+      75.55335648148149,
+      52.45958994708993,
+      54.71247412008279
     ],
-    "within_groupkfold5_r2_mean": -0.3947410347040053,
-    "within_groupkfold5_r2_std": 0.27216908600990913,
+    "within_groupkfold5_r2_mean": -0.330663895577622,
+    "within_groupkfold5_r2_std": 0.23231804631686942,
     "within_groupkfold5_r2_per_fold": [
-      -0.25991509924245504,
-      -0.4779938641993542,
-      -0.866352472489698,
-      -0.316322670570206,
-      -0.053121067018313095
+      -0.5665450936852494,
+      -0.4936630396444539,
+      -0.4971594070750813,
+      -0.05518808801410291,
+      -0.0407638494692224
     ]
   },
   "forward": {
     "direction": "Cossairt -> DD",
-    "mae_nm": 61.46479635781963,
-    "r2": -0.14195505961673338,
+    "mae_nm": 62.006189142323606,
+    "r2": -0.14482241767642945,
     "bootstrap_95ci": [
-      53.77882859603792,
-      68.60810446659283
+      54.65106642657063,
+      68.8666940109377
     ],
     "bootstrap_method": "row-level fixed-prediction bootstrap (descriptive; not paper-level)",
-    "gap_vs_within_source": -0.39526286073957806
+    "gap_vs_within_source": 0.7536612495239865
   },
   "backward": {
     "direction": "DD -> Cossairt",
-    "mae_nm": 51.89294117647057,
-    "r2": -0.2421450195368673,
+    "mae_nm": 56.123692810457506,
+    "r2": -0.3640797686768722,
     "bootstrap_95ci": [
-      43.40609803921568,
-      60.88702614379084
+      47.358900326797375,
+      65.5420588235294
     ],
     "bootstrap_method": "row-level fixed-prediction bootstrap (descriptive; not paper-level)",
-    "gap_vs_within_source": 14.815704948646108
+    "gap_vs_within_source": 19.04645658263304
   },
-  "asymmetry_fwd_minus_bwd_gap": -15.210967809385686,
+  "asymmetry_fwd_minus_bwd_gap": -18.292795333109055,
+  "overlap_excluded_sensitivity": {
+    "description": "9 DOI-overlap publications removed from both corpora (train + test)",
+    "dd_n": 93,
+    "dd_n_papers": 35,
+    "cossairt_n": 78,
+    "forward_mae_nm": 64.17875348466747,
+    "dd_within_mae_nm": 64.19512438503668,
+    "forward_gap_nm": -0.016370900369210517,
+    "backward_mae_nm": 55.14711538461541,
+    "cossairt_within_mae_nm": 38.409687500000004,
+    "backward_gap_nm": 16.737427884615407,
+    "groupkfold_n_splits": 5
+  },
   "hyperparameters": {
     "model": "ExtraTreesRegressor",
     "n_estimators": 3,

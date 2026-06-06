@@ -290,7 +290,7 @@ def main(argv=None) -> int:
             "cossairt_filter": "all 220 entries from dataset_InP_raw.csv (GitHub Cossairt-Lab/Indium-Phosphide master, SHA-256 verified MIT)",
         },
         "overlap_definition": (
-            "10 papers in DD ∩ Cossairt, derived from the user's prior "
+            "10 papers in DD ∩ Cossairt, derived from prior "
             "paper-level matching (matched_to_L_series == 'yes' in "
             "cossairt_reference_master_paper_level.csv)."
         ),
@@ -312,7 +312,7 @@ def main(argv=None) -> int:
                 "dd_source": "time_min (min)",
                 "cossairt_source": "time_min (min)",
                 "unit": "min",
-                "notes": "growth-time definition consistency to verify in Phase C.1",
+                "notes": "growth-time definition consistency across sources",
             },
         },
         "dd_only_columns": [

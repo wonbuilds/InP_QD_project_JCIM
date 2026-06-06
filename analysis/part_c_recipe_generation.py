@@ -44,6 +44,10 @@
 # Methods 2/3 + Top-10 + Figure 10 + recipes JSON handled at Part C (consolidated).
 
 # %%
+import os
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+
 import json, sys, hashlib
 from pathlib import Path
 from collections import Counter
@@ -1006,7 +1010,7 @@ for _, r in top10.iterrows():
         predicted_PL_peak_nm_std=float(r["pred_PL_peak_nm_std"]),
         mahalanobis_distance=float(r["maha_distance"]),
         extrap_flag=r["extrap_flag"],
-        chemistry_rationale=RATIONALES[r["candidate_id"]],
+        chemistry_rationale=RATIONALES.get(r["candidate_id"], ""),
     ))
 
 recipes_json = dict(

@@ -6,6 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
+#       jupytext_version: 1.19.3
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -22,7 +23,7 @@
 # - A.3 Reproduction of Cossairt PCA/RF/GB on full Cossairt 220 (separate section).
 # - A.4 Cross-prediction.
 #
-# **Phase C.1 first task — analysis design notes outcome (2026-05-21)**:
+# **Analysis design notes outcome (2026-05-21)**:
 # Option B adopted — Part A.1 paired comparison uses `emission_nm` (primary)
 # + `T_growth_C` (secondary, with paper-median aggregation and caveat for L002 / L009).
 # `time_min` is excluded from A.1 paired comparison and analyzed only in A.2
@@ -441,7 +442,7 @@ print(f"Output SHA-256: {sha256_of(out_json)}")
 # ## A.1.7 Findings narrative — see analysis design notes
 #
 # The narrative interpretation, limitations, caveats, and decisions for the
-# manuscript (Phase D) are recorded in a separate markdown file alongside this
+# manuscript are recorded in a separate markdown file alongside this
 # notebook. Refer to that file for the human-readable conclusion.
 
 # %% [markdown]
@@ -708,6 +709,12 @@ COS_SPLIT = dict(test_size=0.15, random_state=45, shuffle=True)
 # (inp_combined.csv carries only a subset of Cossairt columns).
 cos_raw = load_cossairt_raw()  # 220 rows, "None" -> NaN
 print(f"Cossairt raw: {len(cos_raw)} rows, {len(cos_raw.columns)} cols")
+
+# Non-0.0-filled snapshot of the A.4 columns (published-only), captured
+# BEFORE the COS_NUMERIC 0.0-fill below, for the no-imputation A.4
+# cross-prediction so the Cossairt side is symmetric with the DD side.
+cos_raw_a4 = cos_raw[cos_raw["doi"].astype(str) != "nayon"][
+    ["doi", "temp_c", "time_min", "emission_nm"]].copy()
 
 # Numeric + categorical Cossairt features (mirror Cossairt SI Table S1)
 COS_NUMERIC = [
@@ -1117,8 +1124,11 @@ print(f"Output SHA-256: {sha256_of(out3)}")
 # %%
 SHARED_FEATURES_A4 = ["T_temp", "time_min"]
 
-# Cossairt subset (published + emission-present) with unified column name
-cos_a4 = cos_em[["temp_c", "time_min", "emission_nm"]].copy()
+# Cossairt subset (published + emission-present), built from the non-0.0-
+# filled raw snapshot cos_raw_a4 (NOT cos_em, which inherits the COS_NUMERIC
+# 0.0-fill at L726 used for the A.3 reproduction). Coerce then drop genuinely
+# missing rows (no-imputation, symmetric with the DD side).
+cos_a4 = cos_raw_a4[["temp_c", "time_min", "emission_nm"]].copy()
 cos_a4 = cos_a4.rename(columns={"temp_c": "T_temp"})
 for c in ["T_temp", "time_min", "emission_nm"]:
     cos_a4[c] = pd.to_numeric(cos_a4[c], errors="coerce")
@@ -1127,12 +1137,16 @@ X_cos_a4 = cos_a4[SHARED_FEATURES_A4].values.astype(float)
 y_cos_a4 = cos_a4["emission_nm"].values.astype(float)
 print(f"Cossairt A.4 subset: n={len(y_cos_a4)} rows (features={SHARED_FEATURES_A4})")
 
-# DD subset (emission-present) with unified column name
-dd_a4 = dd_em[["T_growth_C", "time_min", "emission_nm", "paper_id_dd"]].copy()
+# DD subset (emission-present) with unified column name.
+# Build from the raw DD frame (dd_all), NOT dd_em: dd_em fills missing
+# T_growth_C / time_min with 0.0 (A.3 pipeline), which would leak spurious
+# 0-minute / 0-degree rows into A.4. Here we coerce, then drop genuinely
+# missing rows (no-imputation audit-grade regime).
+dd_a4 = dd_all[["T_growth_C", "time_min", "emission_nm", "paper_id_dd"]].copy()
 dd_a4 = dd_a4.rename(columns={"T_growth_C": "T_temp"})
 for c in ["T_temp", "time_min", "emission_nm"]:
     dd_a4[c] = pd.to_numeric(dd_a4[c], errors="coerce")
-dd_a4 = dd_a4.dropna(subset=SHARED_FEATURES_A4 + ["emission_nm"])
+dd_a4 = dd_a4.dropna(subset=["T_temp", "time_min", "emission_nm"])
 X_dd_a4 = dd_a4[SHARED_FEATURES_A4].values.astype(float)
 y_dd_a4 = dd_a4["emission_nm"].values.astype(float)
 groups_dd_a4 = dd_a4["paper_id_dd"].values
@@ -1313,6 +1327,55 @@ print(f"Saved: {fig4_svg}")
 # ## A.4.6 Persist A.4 results
 
 # %%
+# --- Overlap-excluded sensitivity ---------------------------------------
+# Drop the 9 DOI-overlap publications (A.1 overlap set) from BOTH corpora,
+# train + test, then recompute forward / backward / within-source under the
+# same minimal shared-feature, no-imputation regime. Tests whether the
+# cross-prediction transfer is inflated by shared papers.
+ovl_pids = set(paper_to_doi.keys())            # 9 DD overlap paper_ids
+ovl_dois = set(paper_to_doi.values())          # their Cossairt DOIs
+
+dd_a4_ne = dd_a4[~dd_a4["paper_id_dd"].isin(ovl_pids)].copy()
+
+# Rebuild the Cossairt A.4 frame carrying doi (identical coercion/dropna to
+# the main cos_a4) so overlap rows can be excluded by DOI.
+cos_a4_doi = cos_raw_a4[["temp_c", "time_min", "emission_nm", "doi"]].copy()
+cos_a4_doi = cos_a4_doi.rename(columns={"temp_c": "T_temp"})
+for c in ["T_temp", "time_min", "emission_nm"]:
+    cos_a4_doi[c] = pd.to_numeric(cos_a4_doi[c], errors="coerce")
+cos_a4_doi = cos_a4_doi.dropna(subset=["T_temp", "time_min", "emission_nm"])
+cos_a4_ne = cos_a4_doi[~cos_a4_doi["doi"].astype(str).isin(ovl_dois)].copy()
+
+X_dd_ne = dd_a4_ne[SHARED_FEATURES_A4].values.astype(float)
+y_dd_ne = dd_a4_ne["emission_nm"].values.astype(float)
+groups_dd_ne = dd_a4_ne["paper_id_dd"].values
+X_cos_ne = cos_a4_ne[SHARED_FEATURES_A4].values.astype(float)
+y_cos_ne = cos_a4_ne["emission_nm"].values.astype(float)
+print(f"Overlap-excluded subsets: DD n={len(y_dd_ne)} "
+      f"({len(set(groups_dd_ne))} papers), Cossairt n={len(y_cos_ne)}")
+
+_fwd_ne = ExtraTreesRegressor(**COS_HP_EMISSION).fit(X_cos_ne, y_cos_ne)
+fwd_mae_ne = float(mean_absolute_error(y_dd_ne, _fwd_ne.predict(X_dd_ne)))
+_bwd_ne = ExtraTreesRegressor(**COS_HP_EMISSION).fit(X_dd_ne, y_dd_ne)
+bwd_mae_ne = float(mean_absolute_error(y_cos_ne, _bwd_ne.predict(X_cos_ne)))
+
+_n_splits_ne = max(2, min(5, len(set(groups_dd_ne))))
+dd_within_ne = -cross_val_score(
+    Pipeline([("et", ExtraTreesRegressor(**COS_HP_EMISSION))]),
+    X_dd_ne, y_dd_ne, groups=groups_dd_ne, cv=GroupKFold(_n_splits_ne),
+    scoring="neg_mean_absolute_error", n_jobs=1)
+cos_within_ne = -cross_val_score(
+    Pipeline([("et", ExtraTreesRegressor(**COS_HP_EMISSION))]),
+    X_cos_ne, y_cos_ne, cv=KFold(5, shuffle=True, random_state=42),
+    scoring="neg_mean_absolute_error", n_jobs=1)
+fwd_gap_ne = float(fwd_mae_ne - dd_within_ne.mean())
+bwd_gap_ne = float(bwd_mae_ne - cos_within_ne.mean())
+print(f"[overlap-excluded] forward  MAE={fwd_mae_ne:.2f}  DD within={dd_within_ne.mean():.2f}  "
+      f"gap={fwd_gap_ne:+.2f} nm")
+print(f"[overlap-excluded] backward MAE={bwd_mae_ne:.2f}  Cos within={cos_within_ne.mean():.2f}  "
+      f"gap={bwd_gap_ne:+.2f} nm")
+
+# %%
 results_a4 = dict(
     shared_features=SHARED_FEATURES_A4,
     cossairt=dict(n=int(len(y_cos_a4)),
@@ -1340,6 +1403,18 @@ results_a4 = dict(
                   bootstrap_method="row-level fixed-prediction bootstrap (descriptive; not paper-level)",
                   gap_vs_within_source=float(bwd_gap)),
     asymmetry_fwd_minus_bwd_gap=float(asym),
+    overlap_excluded_sensitivity=dict(
+        description="9 DOI-overlap publications removed from both corpora (train + test)",
+        dd_n=int(len(y_dd_ne)), dd_n_papers=int(len(set(groups_dd_ne))),
+        cossairt_n=int(len(y_cos_ne)),
+        forward_mae_nm=fwd_mae_ne,
+        dd_within_mae_nm=float(dd_within_ne.mean()),
+        forward_gap_nm=fwd_gap_ne,
+        backward_mae_nm=bwd_mae_ne,
+        cossairt_within_mae_nm=float(cos_within_ne.mean()),
+        backward_gap_nm=bwd_gap_ne,
+        groupkfold_n_splits=int(_n_splits_ne),
+    ),
     hyperparameters=dict(model="ExtraTreesRegressor", **COS_HP_EMISSION),
     regime="no-imputation audit-grade; shared minimal features (T + time only)",
 )

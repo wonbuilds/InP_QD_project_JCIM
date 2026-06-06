@@ -14,7 +14,7 @@
 # ---
 
 # %% [markdown]
-# # Part B — DD-only predictive modeling (Phase C.2)
+# # Part B — DD-only predictive modeling
 #
 # **Scope** (the project analysis plan §5.2 + the analysis design plan §3):
 # - Dataset: DD InP subset 132 rows (`data/from_dd/inp_subset.csv`, no
@@ -444,8 +444,8 @@ results_b1 = dict(
              r2_per_fold=[float(v) for v in gbm_r2]),
     shap_top10=mean_abs_shap.head(10).to_dict(),
     rf_importance_top10=rf_imp.iloc[::-1].to_dict(),  # back to descending
-    notes=("caution_count OFF (default configuration). Sensitivity with "
-           "caution_count ON to be reported at Part B (extended)."),
+    notes=("caution_count OFF (default configuration); caution_count ON "
+           "reported as a sensitivity check in the SI."),
 )
 out_b1 = PROJECT_ROOT / "analysis" / "part_b_pl_peak_results.json"
 with open(out_b1, "w", encoding="utf-8") as f:
