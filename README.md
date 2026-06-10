@@ -1,8 +1,9 @@
-# InP QD Literature-Mining Project (JCIM)
+# InP QD Literature-Mining Project
 
-Analysis code, processed data, and figures for the JCIM submission
-**"Leakage-Aware External Assessment of an LLM-Curated InP Quantum-Dot Synthesis
-Corpus"** (Yoo).
+Analysis code, processed data, and figures for the manuscript
+**"Shell Composition and Growth Conditions in InP Quantum-Dot Emission: A
+Reproducible Cross-Source Literature Analysis"** (Yoo), submitted to a
+peer-reviewed journal.
 
 This repository is the **reproducible analysis package** for that manuscript: it
 cross-validates an LLM-curated InP quantum-dot synthesis corpus (132 records / 52
