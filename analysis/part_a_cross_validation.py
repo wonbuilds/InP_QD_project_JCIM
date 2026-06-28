@@ -286,8 +286,8 @@ ally = pd.concat([em_paired["dd_em"], sample_pair_df["dd_em"]]).dropna()
 lo = min(allx.min(), ally.min()) - 25
 hi = max(allx.max(), ally.max()) + 25
 ax.plot([lo, hi], [lo, hi], "--", color="gray", lw=1, label="y = x", zorder=1)
-ax.set_xlabel("Cossairt emission (nm)", fontsize=9)
-ax.set_ylabel("DD emission (nm)", fontsize=9)
+ax.set_xlabel("reference emission (nm)", fontsize=9)
+ax.set_ylabel("curated emission (nm)", fontsize=9)
 ax.set_title("A. Emission: paired", fontsize=11, fontweight="bold")
 ax.legend(loc="upper left", bbox_to_anchor=(0.0, 1.30), fontsize=6.6, framealpha=0.95, markerscale=0.4, labelspacing=0.85, handletextpad=0.5, borderpad=0.6, ncol=2)
 ax.text(0.03, 0.03,
@@ -317,7 +317,7 @@ ax.axhline(em_ba["loa_low"], color="red", lw=0.6, ls="--",
 ax.axhline(em_ba["loa_high"], color="red", lw=0.6, ls="--")
 ax.axhline(0, color="gray", lw=0.5, ls=":")
 ax.set_xlabel("Mean emission (nm)", fontsize=9)
-ax.set_ylabel("DD − Cossairt (nm)", fontsize=9)
+ax.set_ylabel("curated − reference (nm)", fontsize=9)
 ax.set_title("B. Emission Bland–Altman", fontsize=11, fontweight="bold")
 ax.legend(loc="upper left", bbox_to_anchor=(0.0, 1.30), fontsize=6.6, framealpha=0.95, markerscale=0.4, labelspacing=0.85, handletextpad=0.5, borderpad=0.6, ncol=2)
 _em_mean_all = (em_paired["dd_em"] + em_paired["cos_em"]) / 2
@@ -340,8 +340,8 @@ ax.scatter(T_l023["cos_T"], T_l023["dd_T"], s=82, c=COLOR_L023,
 lo = T_paired["cos_T"].min() - 30
 hi = T_paired["cos_T"].max() + 30
 ax.plot([lo, hi], [lo, hi], "--", color="gray", lw=1, label="y = x", zorder=1)
-ax.set_xlabel("Cossairt growth temperature (°C)", fontsize=9)
-ax.set_ylabel("DD growth temperature (°C)", fontsize=9)
+ax.set_xlabel("reference growth temperature (°C)", fontsize=9)
+ax.set_ylabel("curated growth temperature (°C)", fontsize=9)
 ax.set_title("C. Growth temperature: paired", fontsize=11, fontweight="bold")
 ax.legend(loc="upper left", bbox_to_anchor=(0.0, 1.30), fontsize=6.6, framealpha=0.95, markerscale=0.4, labelspacing=0.85, handletextpad=0.5, borderpad=0.6, ncol=2)
 ax.text(0.97, 0.03,
@@ -381,7 +381,7 @@ ax.axhline(T_ba["loa_low"], color="red", lw=0.6, ls="--",
 ax.axhline(T_ba["loa_high"], color="red", lw=0.6, ls="--")
 ax.axhline(0, color="gray", lw=0.5, ls=":")
 ax.set_xlabel("Mean growth temperature (°C)", fontsize=9)
-ax.set_ylabel("DD − Cossairt (°C)", fontsize=9)
+ax.set_ylabel("curated − reference (°C)", fontsize=9)
 ax.set_title("D. Growth temperature Bland–Altman", fontsize=11, fontweight="bold")
 ax.legend(loc="upper left", bbox_to_anchor=(0.0, 1.30), fontsize=6.6, framealpha=0.95, markerscale=0.4, labelspacing=0.85, handletextpad=0.5, borderpad=0.6, ncol=2)
 _texts_D = [ax.text(r["T_mean"], r["T_diff"], r["paper"], fontsize=7.5) for _, r in T_paired.iterrows() if r["paper"] in {"L023","L038","L009","L002","L006"}]
@@ -585,16 +585,16 @@ for i, col in enumerate(A2_TARGETS):
         bins = np.logspace(np.log10(min(dd_vals.min(), cos_vals.min())),
                            np.log10(max(dd_vals.max(), cos_vals.max())), 25)
         ax.hist(dd_vals, bins=bins, alpha=0.55, color="#1f77b4",
-                label=f"DD (n={len(dd_vals)})", density=True)
+                label=f"curated (n={len(dd_vals)})", density=True)
         ax.hist(cos_vals, bins=bins, alpha=0.55, color="#ff7f0e",
-                label=f"Cossairt (n={len(cos_vals)})", density=True)
+                label=f"reference (n={len(cos_vals)})", density=True)
         ax.set_xscale("log")
     else:
         bins = 20
         ax.hist(dd_vals, bins=bins, alpha=0.55, color="#1f77b4",
-                label=f"DD (n={len(dd_vals)})", density=True)
+                label=f"curated (n={len(dd_vals)})", density=True)
         ax.hist(cos_vals, bins=bins, alpha=0.55, color="#ff7f0e",
-                label=f"Cossairt (n={len(cos_vals)})", density=True)
+                label=f"reference (n={len(cos_vals)})", density=True)
     ax.set_xlabel(PRETTY[col][0])
     ax.set_ylabel("Density")
     ax.set_title(f"{chr(ord('A')+i)}. {PRETTY[col][1]} (density)", fontsize=11, fontweight="bold")
@@ -616,7 +616,7 @@ for i, col in enumerate(A2_TARGETS):
         body.set_facecolor("#1f77b4" if j == 0 else "#ff7f0e")
         body.set_alpha(0.55)
     ax.set_xticks([1, 2])
-    ax.set_xticklabels([f"DD\n(n={len(dd_vals)})", f"Cossairt\n(n={len(cos_vals)})"])
+    ax.set_xticklabels([f"curated\n(n={len(dd_vals)})", f"reference\n(n={len(cos_vals)})"])
     ax.set_ylabel(PRETTY[col][0])
     ax.set_title(f"{chr(ord('D')+i)}. {PRETTY[col][1]} (violin)", fontsize=11, fontweight="bold")
     if col == "time_min":
@@ -627,7 +627,7 @@ for i, col in enumerate(A2_TARGETS):
     ax.axhline(rec["cos_median"], xmin=0.55, xmax=0.95, color="#ff7f0e",
                lw=0.6, ls="--")
     ax.text(0.02, 0.02,
-            f"DD median = {rec['dd_median']:.1f}\nCos median = {rec['cos_median']:.1f}",
+            f"curated median = {rec['dd_median']:.1f}\nreference median = {rec['cos_median']:.1f}",
             transform=ax.transAxes, fontsize=7.5, va="bottom", ha="left",
             bbox=dict(facecolor="white", alpha=0.85, edgecolor="gray"))
 
@@ -944,7 +944,7 @@ SHARED_NAMES = {"num__temp_c", "num__T_growth_C", "num__time_min"}
 # Panel A — Cossairt observed vs predicted, with reported MAE reference line
 ax = axes[0, 0]
 ax.scatter(y_cos, cos_pred_full, s=50, c="#ff7f0e", edgecolors="black",
-           linewidths=0.4, alpha=0.75, label="Cossairt entries")
+           linewidths=0.4, alpha=0.75, label="reference entries")
 lo = min(y_cos.min(), cos_pred_full.min()) - 15
 hi = max(y_cos.max(), cos_pred_full.max()) + 15
 ax.plot([lo, hi], [lo, hi], "--", color="gray", lw=1, label="y = x", zorder=2)
@@ -952,7 +952,7 @@ ax.plot([lo, hi], [lo, hi], "--", color="gray", lw=1, label="y = x", zorder=2)
 mid = (lo + hi) / 2
 ax.set_xlabel("Observed emission (nm)", fontsize=9)
 ax.set_ylabel("Predicted emission (nm)", fontsize=9)
-ax.set_title("A. Cossairt reproduction", fontsize=11, fontweight="bold")
+ax.set_title("A. reference reproduction", fontsize=11, fontweight="bold")
 ax.legend(loc="upper left", fontsize=7.5, framealpha=0.9)
 
 # F40: inset bar chart — 11.46 / 27.28 / 41.75 nm progression decomposition
@@ -979,13 +979,13 @@ for spine in ax_inset.spines.values():
 # Panel B — DD observed vs predicted (paper-level CV emphasis)
 ax = axes[0, 1]
 ax.scatter(y_dd, dd_pred_full, s=50, c="#1f77b4", edgecolors="black",
-           linewidths=0.4, alpha=0.75, label="DD entries")
+           linewidths=0.4, alpha=0.75, label="curated entries")
 lo = min(y_dd.min(), dd_pred_full.min()) - 15
 hi = max(y_dd.max(), dd_pred_full.max()) + 15
 ax.plot([lo, hi], [lo, hi], "--", color="gray", lw=1, label="y = x", zorder=2)
 ax.set_xlabel("Observed emission (nm)", fontsize=9)
 ax.set_ylabel("Predicted emission (nm)", fontsize=9)
-ax.set_title("B. DD reproduction", fontsize=11, fontweight="bold")
+ax.set_title("B. curated reproduction", fontsize=11, fontweight="bold")
 ax.legend(loc="upper left", fontsize=7.5, framealpha=0.9)
 
 # Panel C — Cossairt feature importance with shared features highlighted
@@ -1004,7 +1004,7 @@ for f in top_cos["feature"]:
     labels.append(label)
 ax.set_yticklabels(labels, fontsize=7.5)
 ax.set_xlabel("Feature importance", fontsize=9)
-ax.set_title("C. Cossairt feature importance", fontsize=11, fontweight="bold")
+ax.set_title("C. reference feature importance", fontsize=11, fontweight="bold")
 ax.text(0.97, 0.04,
         "★ growth temp. rank 2\n★ growth time rank 3",
         transform=ax.transAxes, fontsize=7, va="bottom", ha="right",
@@ -1026,7 +1026,7 @@ for f in top_dd["feature"]:
     labels.append(label)
 ax.set_yticklabels(labels, fontsize=7.5)
 ax.set_xlabel("Feature importance", fontsize=9)
-ax.set_title("D. DD feature importance", fontsize=11, fontweight="bold")
+ax.set_title("D. curated feature importance", fontsize=11, fontweight="bold")
 ax.text(0.97, 0.04,
         "★ growth temp. rank 1\n★ growth time rank 3",
         transform=ax.transAxes, fontsize=7, va="bottom", ha="right",
@@ -1256,13 +1256,13 @@ fig, axes = plt.subplots(1, 3, figsize=(17, 5.5))
 ax = axes[0]
 ax.scatter(y_dd_a4, y_dd_pred_from_cos, s=55, c="#ff7f0e", alpha=0.7,
            edgecolors="black", linewidths=0.4,
-           label="DD test entries")
+           label="curated test entries")
 lo = min(y_dd_a4.min(), y_dd_pred_from_cos.min()) - 20
 hi = max(y_dd_a4.max(), y_dd_pred_from_cos.max()) + 20
 ax.plot([lo, hi], [lo, hi], "--", color="gray", lw=1, label="y = x")
 ax.set_xlabel("Observed emission (nm)", fontsize=9)
 ax.set_ylabel("Predicted emission (nm)", fontsize=9)
-ax.set_title("A. Forward: Cossairt → DD", fontsize=11, fontweight="bold")
+ax.set_title("A. Forward: reference → curated", fontsize=11, fontweight="bold")
 ax.legend(loc="upper left", fontsize=8, framealpha=0.9)
 ax.text(0.97, 0.04,
         f"MAE = {fwd_mae:.1f} nm\nforward gap = {fwd_gap:+.1f} nm",
@@ -1273,13 +1273,13 @@ ax.text(0.97, 0.04,
 ax = axes[1]
 ax.scatter(y_cos_a4, y_cos_pred_from_dd, s=55, c="#1f77b4", alpha=0.7,
            edgecolors="black", linewidths=0.4,
-           label="Cossairt test entries")
+           label="reference test entries")
 lo = min(y_cos_a4.min(), y_cos_pred_from_dd.min()) - 20
 hi = max(y_cos_a4.max(), y_cos_pred_from_dd.max()) + 20
 ax.plot([lo, hi], [lo, hi], "--", color="gray", lw=1, label="y = x")
 ax.set_xlabel("Observed emission (nm)", fontsize=9)
 ax.set_ylabel("Predicted emission (nm)", fontsize=9)
-ax.set_title("B. Backward: DD → Cossairt", fontsize=11, fontweight="bold")
+ax.set_title("B. Backward: curated → reference", fontsize=11, fontweight="bold")
 ax.legend(loc="upper left", fontsize=8, framealpha=0.9)
 ax.text(0.97, 0.04,
         f"MAE = {bwd_mae:.1f} nm\nbackward gap = {bwd_gap:+.1f} nm",
@@ -1288,8 +1288,8 @@ ax.text(0.97, 0.04,
 
 # Panel C — Bar chart summary (MAEs + gaps)
 ax = axes[2]
-bars_labels = ["DD\nwithin-source", "Cossairt\u2192DD\n(forward)",
-               "Cossairt\nwithin-source", "DD\u2192Cossairt\n(backward)"]
+bars_labels = ["curated\nwithin-source", "reference\u2192curated\n(forward)",
+               "reference\nwithin-source", "curated\u2192reference\n(backward)"]
 bars_vals = [dd_within_cv.mean(), fwd_mae, cos_within_cv.mean(), bwd_mae]
 bars_errs = [dd_within_cv.std(), 0, cos_within_cv.std(), 0]
 bars_colors = ["#1f77b4", "#ff7f0e", "#1f77b4", "#ff7f0e"]
@@ -1310,8 +1310,8 @@ ax.set_title("C. Cross-source transfer vs baselines", fontsize=11, fontweight="b
 ax.set_ylim(0, max(bars_vals) * 1.40)
 from matplotlib.patches import Patch
 ax.legend(handles=[
-    Patch(facecolor="#1f77b4", alpha=0.85, label="DD target"),
-    Patch(facecolor="#ff7f0e", alpha=0.85, label="Cossairt target"),
+    Patch(facecolor="#1f77b4", alpha=0.85, label="curated target"),
+    Patch(facecolor="#ff7f0e", alpha=0.85, label="reference target"),
 ], loc="upper left", fontsize=7.5)
 
 fig.tight_layout()
