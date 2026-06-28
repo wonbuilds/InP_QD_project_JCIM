@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-"""Part B baseline comparison for PL_peak — hypothesis-prioritization framing.
+"""Part B baseline comparison for PL_peak — interpretable data-trust-check framing.
 
 Phase 3 F18 — quantitative baseline hierarchy for the PL_peak_nm_final
 target under paper-level GroupKFold (5-fold), bootstrap n=1000 paper-level
 resample. Supports the main-text framing (Discussion §4.4) that the Part B
-model functions as a hypothesis-prioritization tool whose value lies in its
-improvement over coarse interpretable baselines, not as a high-accuracy
-quantitative predictor.
+model functions as an interpretable data-trust check, used only to inspect
+attribution structure, not as a predictive instrument.
 
 Baselines (in order of complexity)
 ----------------------------------

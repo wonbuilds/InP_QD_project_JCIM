@@ -14,8 +14,7 @@ Steps
 1. Data: extract DD InP subset (132 rows) + build inp_combined.csv (352 rows).
 2. Part A: cross-validation (4 stages — paired / distributional / reproduction / cross-prediction).
 3. Part B: predictive modeling (4 targets — PL_peak, QY, FWHM, shell_layer_count).
-4. Part C: recipe generation (3 methods — RF sampling, Bayesian optimization, grid).
-5. Phase 3 extensions (optional): Cossairt 2 x 2 ablation, Part B baseline
+4. Phase 3 extensions (optional): Cossairt 2 x 2 ablation, Part B baseline
    hierarchy, leave-one-paper-out SHAP stability.
 
 After each step, --strict mode verifies all expected output SHA-256 against
@@ -28,16 +27,14 @@ Notes on actual behavior
 - Step 1 (data) is *skip-if-exists*: when the shipped `inp_subset.csv` /
   `inp_combined.csv` are present they are reused, not re-derived (the source
   DD corpus lives on Zenodo, not in this repo). So a clean public checkout
-  reproduces the *analysis* (Steps 2–5), while the deposited data CSVs are
+  reproduces the *analysis* (Steps 2–4), while the deposited data CSVs are
   verified by checksum rather than rebuilt. Use `extract_inp_subset.py
   --source <corpus> --force` to actually re-derive them.
 - The Phase 3 extension *outputs* are verified against the manifest in every
   run, including `--skip-phase3` (which only skips *re-running* them).
-- Part C generation is wrapped so a failure warns and continues to the
-  verification phase rather than aborting the whole run.
 
-Expected runtime: ~ 15 minutes on a standard laptop for Steps 1–4; +5 min
-for Step 5 (Phase 3 extensions) on the same hardware.
+Expected runtime: ~ 15 minutes on a standard laptop for Steps 1–3; +5 min
+for Step 4 (Phase 3 extensions) on the same hardware.
 """
 
 from __future__ import annotations
@@ -138,33 +135,18 @@ def main() -> int:
         run_step("Step 3: Part B predictive modeling",
                  [python, "analysis/part_b_predictive_modeling.py"])
 
-        # Step 4 — Part C. Under --strict any failure aborts immediately;
-        # without --strict it warns and continues to the verification phase
-        # (deposited Part C artifacts are still checked against the manifest).
-        try:
-            run_step("Step 4: Part C recipe generation",
-                     [python, "analysis/part_c_recipe_generation.py"])
-        except subprocess.CalledProcessError as e:
-            if args.strict:
-                raise
-            print(f"  [WARN] Part C generation exited {e.returncode}; continuing "
-                  f"only because --strict is not set. Deposited Part C artifacts "
-                  f"will be checked against the manifest as-is.")
-
-        # Step 5 — Phase 3 extensions (optional)
+        # Step 4 — Phase 3 extensions (optional)
         if not args.skip_phase3:
-            run_step("Step 5a: Cossairt 2x2 ablation (F17)",
+            run_step("Step 4a: Cossairt 2x2 ablation (F17)",
                      [python, "analysis/cossairt_ablation.py"])
-            run_step("Step 5b: Part B baseline hierarchy (F18)",
+            run_step("Step 4b: Part B baseline hierarchy (F18)",
                      [python, "analysis/part_b_baselines.py"])
-            run_step("Step 5c: LOPO SHAP stability (F19)",
+            run_step("Step 4c: LOPO SHAP stability (F19)",
                      [python, "analysis/part_b_shap_stability.py"])
-            run_step("Step 5d: Time-forward validation (F37)",
-                     [python, "analysis/time_forward_validation.py"])
-            run_step("Step 5e: Feature pair audit (F39)",
+            run_step("Step 4d: Feature pair audit (F39)",
                      [python, "analysis/feature_pair_audit.py"])
         else:
-            print("\n=== Step 5: Phase 3 extensions (SKIPPED via --skip-phase3) ===")
+            print("\n=== Step 4: Phase 3 extensions (SKIPPED via --skip-phase3) ===")
 
     # Verification phase
     print("\n" + "=" * 70)
@@ -174,7 +156,7 @@ def main() -> int:
     # Phase 3 extension *outputs* are always verified against the manifest, even
     # when --skip-phase3 skips re-running them (deposited artifacts are checked).
     sections_to_verify = ["data", "part_a_results", "part_b_results",
-                          "part_c_results", "phase3_extensions"]
+                          "phase3_extensions"]
     for section_name in sections_to_verify:
         section_ok = verify_section(section_name, manifest.get(section_name, {}),
                                     args.strict)

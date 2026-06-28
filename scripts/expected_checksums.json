@@ -24,21 +24,11 @@
     "analysis/part_b_pl_peak_results.json": "842eca3d2f2893278bb88b1639d5aebb394593eb55b70ded30c88947ebd1e87d",
     "analysis/part_b_c22_results.json": "04727937fda63733ce393ffb27aafb6537502926d0b6066aad06f25e3e6be75c"
   },
-  "part_c_results": {
-    "analysis/part_c_method1_results.json": "0a6922609b93f4b224d3502b1d53a413530f076a04be0719162a6973277830d3",
-    "analysis/part_c_c32_results.json": "ba1b1d140a2e25da5886943ad2ca8c192834e19ec8aac4d3f53d26824ef6d551",
-    "recipes/inp_qd_candidate_recipes_v1.json": "77605fe534db1141e508f301c7868cbf1a4a9fb63383cb530c546648f1908cbf",
-    "analysis/part_c_method1_candidates.csv": "3a6316604b1400ac8fec8128e7487bb0eda67c6eed5013e7b0f404c515c3c91d",
-    "analysis/part_c_method2_candidates.csv": "b3da3dd1f4bc94ed2abb644d4fad741521959dfe0d633cec69b6b7e3f295257a",
-    "analysis/part_c_method3_candidates.csv": "7e0e03196dab5eb2139845035130fdecebc9e5f82d64deca1eda3435579f008b",
-    "analysis/part_c_consolidated_candidates.csv": "318a76871f45d5fc71c8cd88f89798a9dd6683ce4c3c0497c4b1eff85250ddbc"
-  },
   "phase3_extensions": {
     "_note": "Filled by Phase 3 commits (F17, F18, F19) after their respective scripts run.",
     "analysis/cossairt_ablation_results.json": "ce474e95f6190a012a94d0d0d9adcdbfa7f5217ef3dd7f9874d33d8cb74111d2",
     "analysis/part_b_baselines_results.json": "8825815ae2487edc10c42edd1b5dbf28504766f5df7cb335436f3b89992b595a",
     "analysis/part_b_shap_stability_results.json": "6c5cbb702a05a4349e1766998dce1493eb7eb4b328e95cffed54fc41903e10ac",
-    "analysis/time_forward_results.json": "105be65b4fb78069a0dc7791049cddfb7edefe9ca1ad807ec2d6be163d62855c",
     "analysis/feature_pair_audit_results.json": "9ba5ef74063dbb8c2ff9e5ce6f9117c10b9fe48aebfca37c63ed549d09f2c24d"
   }
 }

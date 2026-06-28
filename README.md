@@ -8,14 +8,8 @@ This repository is the **reproducible analysis package** for that manuscript: it
 cross-validates an LLM-curated InP quantum-dot synthesis corpus (132 records / 52
 papers) against the manually curated reference of Nguyen et al. (*Chem. Mater.*
 2022, 34, 6296), fits leakage-aware (paper-level GroupKFold) interpretable models
-of emission/QY/FWHM/shell architecture, and prioritizes candidate synthesis
-conditions. The manuscript text itself is **not** included here.
-
-> **On "candidate conditions / recipes":** the prioritized synthesis conditions
-> (`recipes/inp_qd_candidate_recipes_v1.json`; the filename is retained for
-> stability) are **model-prioritized candidate hypotheses**, not experimentally
-> validated syntheses — computational suggestions for under-explored design
-> regions that require wet-lab confirmation.
+of emission/QY/FWHM/shell architecture. The manuscript text itself is **not**
+included here.
 
 ## Repository layout
 
@@ -24,9 +18,8 @@ conditions. The manuscript text itself is **not** included here.
 | `data/from_dd/` | LLM-curated InP subset (`inp_subset.csv`, 132 rows) + provenance docs (`constant_columns.md`, `dd_paper_years.csv`). |
 | `data/from_cossairt/` | Cossairt-group reference dataset (Nguyen et al. 2022) CSVs, redeposited with SHA-256 verification. |
 | `data/integrated/` | Combined dataset (`inp_combined.csv`) + `common_schema.json`. |
-| `analysis/` | Analysis scripts (`part_a/b/c_*.py`, baselines, SHAP stability, Cossairt ablation, time-forward, feature-pair audit) + their `*_results.json` and the paired `.ipynb` notebooks. |
-| `figures/` | Generated figures (`figure_1`–`figure_11`, PDF + SVG). Outside the checksum manifest. |
-| `recipes/` | `inp_qd_candidate_recipes_v1.json` — Top-10 model-prioritized candidate conditions (hypotheses) with provenance. |
+| `analysis/` | Analysis scripts (`part_a/b_*.py`, baselines, SHAP stability, Cossairt ablation, feature-pair audit) + their `*_results.json` and the paired `.ipynb` notebooks. |
+| `figures/` | Generated figures (`figure_1`–`figure_8`, PDF + SVG). Outside the checksum manifest. |
 | `scripts/` | Pipeline helpers: `reproduce_all.py`, `extract_inp_subset.py`, `build_inp_combined.py`, `io_helpers.py`, `parse_shell_architecture.py`, and the SHA-256 manifest `expected_checksums.json`. |
 
 ## Reproduction
@@ -79,9 +72,7 @@ artifacts.
 | `analysis/part_b_predictive_modeling.py` | `analysis/part_b_pl_peak_results.json`, `analysis/part_b_c22_results.json`; `figures/figure_5`–`figure_8`. |
 | `analysis/part_b_baselines.py` | `analysis/part_b_baselines_results.json`. |
 | `analysis/part_b_shap_stability.py` | `analysis/part_b_shap_stability_results.json`. |
-| `analysis/part_c_recipe_generation.py` | `recipes/inp_qd_candidate_recipes_v1.json`, `analysis/part_c_{method1,c32}_results.json`, candidate CSVs; `figures/figure_9`–`figure_11`. |
 | `analysis/cossairt_ablation.py` | `analysis/cossairt_ablation_results.json`. |
-| `analysis/time_forward_validation.py` | `analysis/time_forward_results.json`. |
 | `analysis/feature_pair_audit.py` | `analysis/feature_pair_audit_results.json`. |
 
 ## Related resources
