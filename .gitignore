@@ -9,3 +9,8 @@ catboost_info/
 Thumbs.db
 .env
 *.tmp
+
+# local-only audit/build artifacts (never publish)
+reports/
+run_security_audit.sh
+*.log
