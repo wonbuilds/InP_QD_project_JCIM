@@ -64,8 +64,8 @@
     }
   ],
   "spearman_rho": {
-    "rho": null,
-    "p": null,
+    "computed": false,
+    "reason": "only 1 shared feature name(s) after dropping num__/cat__ prefixes (OneHotEncoder value suffixes are not canonicalized, so e.g. temp_c vs T_growth_C do not match); Spearman rho is undefined for n<3 and is therefore NOT computed \u2014 missing-by-design, not a zero/absent correlation result",
     "n_features_intersected": 1
   },
   "pca": {

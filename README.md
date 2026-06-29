@@ -16,7 +16,7 @@ included here.
 | Path | Role |
 | --- | --- |
 | `data/from_dd/` | LLM-curated InP subset (`inp_subset.csv`, 132 rows) + provenance docs (`constant_columns.md`, `dd_paper_years.csv`). |
-| `data/from_cossairt/` | Cossairt-group reference dataset (Nguyen et al. 2022) CSVs, redeposited with SHA-256 verification. |
+| `data/from_cossairt/` | Cossairt 2022 InP data under `data/from_cossairt/` is redistributed as a privacy-cleaned derivative of the upstream MIT-licensed dataset (Cossairt-Lab/Indium-Phosphide): the `user` attribution column and one no-DOI author-synthesis entry were removed. It is therefore not a byte-for-byte copy of the upstream. See `COSSAIRT_PROVENANCE.md`; upstream originals remain available at the source URL. |
 | `data/integrated/` | Combined dataset (`inp_combined.csv`) + `common_schema.json`. |
 | `analysis/` | Analysis scripts (`part_a/b_*.py`, baselines, SHAP stability, Cossairt ablation, feature-pair audit) + their `*_results.json` and the paired `.ipynb` notebooks. |
 | `figures/` | Generated figures (`figure_1`–`figure_8`, PDF + SVG). Outside the checksum manifest. |
@@ -31,7 +31,7 @@ pip install -r requirements.txt
 # (a) Verify deposited outputs against the SHA-256 manifest (fast, no recompute):
 python scripts/reproduce_all.py --verify-only          # expect all [ok]
 
-# (b) Full clean rebuild, then verify (re-runs the whole pipeline):
+# (b) Re-run the analysis, then verify (data CSVs are reused if present; pass --force to rebuild them):
 python scripts/reproduce_all.py --strict
 ```
 
@@ -42,9 +42,12 @@ python scripts/reproduce_all.py --strict
   them bit-for-bit (use `--strict` for that).
 - **`--strict`** re-runs the entire pipeline and then verifies. The Part B SHAP
   recomputation and the paper-level bootstraps dominate runtime — expect roughly
-  **5–15 minutes** on a typical laptop (single-threaded, `random_state = 42`).
-- All randomness is seeded (`random_state = 42`); feature imputation is performed
-  per-fold inside the CV pipelines (no leakage).
+  **5–15 minutes** on a typical laptop (single-threaded, fully seeded).
+- All randomness is seeded: CV/bootstrap steps use `random_state = 42`, while the
+  Cossairt-reproduction ExtraTrees uses its published `random_state = 51` (with a
+  `random_state = 45` train/test split). Feature imputation, where applied (Part B),
+  is performed per-fold inside the CV pipelines (no leakage); the Part A Cossairt
+  reproduction uses Cossairt's 0.0-fill fallback rather than statistical imputation.
 
 ### ⚠️ Version sensitivity (pinned environment required)
 
@@ -84,3 +87,5 @@ artifacts.
 ## License
 
 MIT License — see [LICENSE](LICENSE). Copyright (c) 2026 Seungwon Yoo.
+
+The MIT License above covers original code/analysis (© 2026 Seungwon Yoo). Third-party data under `data/from_cossairt/` is © 2021 Cossairt-Lab under its own MIT License; see `COSSAIRT_PROVENANCE.md` and `data/from_cossairt/LICENSE-upstream.txt`.

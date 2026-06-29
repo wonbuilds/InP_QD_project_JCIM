@@ -11,5 +11,5 @@ Of the 28 columns in the InP subset, **4** are constant across all 132/132 recor
 | `measurement_state` | `final_purified` (on 132/132) | incidental constant |
 | `shell_present_flag` | `1` (on 132/132) | incidental constant |
 
-None of these constant columns is a model feature. The Part B / Part C feature set is `T_growth_C`, `time_min`, `outer_is_ZnS`, `shell_layer_count`, `route`, `shell_innermost`, `shell_composition_tier`; the columns above are provenance/quality flags carried for transparency and are excluded from all modeling.
+None of these constant columns is a model feature. The Part B feature set is `T_growth_C`, `time_min`, `outer_is_ZnS`, `shell_layer_count`, `route`, `shell_innermost`, `shell_composition_tier`; the columns above are provenance/quality flags carried for transparency and are excluded from all modeling.
 

@@ -9,10 +9,14 @@ to the audit-grade evaluation adopted in the main text.
 
 Regimes
 -------
-1. KNNImputer-based imputation + random KFold (our own imputation-sensitivity regime; NOT a reproduction of Cossairt's sequential model-based imputation procedure; 219 rows)
-2. No imputation + random KFold (isolates imputation; n_rows = 85)
-3. KNN imputation + paper-level GroupKFold by doi (isolates leakage; 219 rows)
-4. No imputation + paper-level GroupKFold by doi (audit-grade strict; n_rows = 85)
+1. Per-fold KNN-imputed features + random KFold (imputation-sensitivity regime; KNNImputer fit INSIDE each CV fold on train features only; n_rows = 85)
+2. No imputation (zero-fill) + random KFold (n_rows = 85)
+3. Per-fold KNN-imputed features + paper-level GroupKFold by doi (n_rows = 85)
+4. No imputation (zero-fill) + paper-level GroupKFold by doi (audit-grade strict; n_rows = 85)
+
+All four regimes share the SAME target-present 85-row sample; the only axes
+are (imputer: per-fold KNN vs zero-fill) x (split: random KFold vs GroupKFold).
+The target (emission_nm) is never imputed nor placed in the feature matrix.
 
 Model: ExtraTreesRegressor with Cossairt's official hyperparameters
 (n_estimators=3, max_features=13, random_state=51). Mirrors part_a3
@@ -31,7 +35,6 @@ Determinism: random_state=42 throughout where applicable.
 
 from __future__ import annotations
 
-import hashlib
 import json
 import sys
 from pathlib import Path
@@ -68,11 +71,15 @@ COS_CATEGORICAL = [
 def prepare_features(cos_df: pd.DataFrame, *, impute: str) -> tuple:
     """Prepare X, y, groups for a given imputation strategy.
 
-    impute='knn': KNNImputer on numeric features + target; categorical 'None' fill.
-                  Returns all 219 published rows (target column imputed for missing).
+    impute='knn': feature NaNs are LEFT INTACT (the per-fold KNNImputer in the
+                  CV pipeline imputes them, fit on train features only); the
+                  target is never imputed nor placed in X. Target-present rows
+                  only (n=85). Categorical 'None' fill.
     impute='none': fillna(0.0) on numeric features (Cossairt's actual fallback);
                   target-present rows only (n=85). Categorical 'None' fill.
     """
+    # Defensive: the unpublished "nayon" author-synthesis row was removed from
+    # the public deposit (GROUP A2); this filter is kept as a safety net.
     pub = cos_df[cos_df["doi"].astype(str) != "nayon"].copy()
 
     # Categorical fill is identical in both regimes
@@ -80,17 +87,17 @@ def prepare_features(cos_df: pd.DataFrame, *, impute: str) -> tuple:
         pub[c] = pub[c].fillna("None").astype(str)
 
     if impute == "knn":
-        # KNNImputer on numeric features + target jointly (k=5; our own choice, not Cossairt's procedure)
-        num_block = pub[COS_NUMERIC + ["emission_nm"]].copy()
-        for c in num_block.columns:
-            num_block[c] = pd.to_numeric(num_block[c], errors="coerce")
-        knn = KNNImputer(n_neighbors=5, weights="uniform")
-        imputed_arr = knn.fit_transform(num_block)
-        for i, c in enumerate(num_block.columns):
-            pub[c] = imputed_arr[:, i]
-        X = pub[COS_NUMERIC + COS_CATEGORICAL]
-        y = pd.to_numeric(pub["emission_nm"], errors="coerce").values
-        groups = pub["doi"].values
+        # NO global imputation. Feature NaNs are kept and imputed PER FOLD inside
+        # the CV pipeline (KNNImputer on numeric features only — see build_pipeline).
+        # The target is never imputed nor included in the feature matrix. Use the
+        # SAME target-present 85 rows as the 'none' regime.
+        for c in COS_NUMERIC:
+            pub[c] = pd.to_numeric(pub[c], errors="coerce")  # keep NaN (no fill)
+        mask = pd.to_numeric(pub["emission_nm"], errors="coerce").notna()
+        sub = pub[mask].copy()
+        X = sub[COS_NUMERIC + COS_CATEGORICAL]
+        y = pd.to_numeric(sub["emission_nm"], errors="coerce").values
+        groups = sub["doi"].values
         return X, y, groups
 
     if impute == "none":
@@ -108,17 +115,25 @@ def prepare_features(cos_df: pd.DataFrame, *, impute: str) -> tuple:
     raise ValueError(f"unknown impute={impute!r}")
 
 
-def build_pipeline() -> Pipeline:
+def build_pipeline(impute: str = "none") -> Pipeline:
+    if impute == "knn":
+        # Per-fold KNN imputation of NUMERIC features only (fit on each train fold).
+        num_tf = Pipeline([
+            ("knn", KNNImputer(n_neighbors=5, weights="uniform")),
+            ("sc", StandardScaler()),
+        ])
+    else:
+        num_tf = StandardScaler()
     pre = ColumnTransformer([
-        ("num", StandardScaler(), COS_NUMERIC),
+        ("num", num_tf, COS_NUMERIC),
         ("cat", OneHotEncoder(handle_unknown="ignore"), COS_CATEGORICAL),
     ])
     return Pipeline([("pre", pre), ("et", ExtraTreesRegressor(**COS_HP))])
 
 
-def evaluate_regime(X, y, groups, *, split: str, n_boot: int = 1000) -> dict:
+def evaluate_regime(X, y, groups, *, split: str, impute: str = "none", n_boot: int = 1000) -> dict:
     """Run 5-fold CV under the requested split strategy + bootstrap CI on MAE."""
-    pipe = build_pipeline()
+    pipe = build_pipeline(impute)
     if split == "random":
         cv = KFold(n_splits=5, shuffle=True, random_state=42)
         cv_args = dict(cv=cv)
@@ -194,17 +209,17 @@ def main() -> None:
     print(f"  No-imputation: X {X_none.shape}, y {len(y_none)}, papers {len(set(g_none))}")
 
     regimes = {}
-    for regime_id, label, X, y, g, split in [
-        ("R1", "KNN imputation + random KFold", X_knn, y_knn, g_knn, "random"),
-        ("R2", "No imputation + random KFold", X_none, y_none, g_none, "random"),
-        ("R3", "KNN imputation + paper-level GroupKFold (doi)", X_knn, y_knn, g_knn, "groupkfold_doi"),
-        ("R4", "No imputation + paper-level GroupKFold (doi)", X_none, y_none, g_none, "groupkfold_doi"),
+    for regime_id, label, X, y, g, split, impute in [
+        ("R1", "Per-fold KNN features + random KFold", X_knn, y_knn, g_knn, "random", "knn"),
+        ("R2", "No imputation (zero-fill) + random KFold", X_none, y_none, g_none, "random", "none"),
+        ("R3", "Per-fold KNN features + paper-level GroupKFold (doi)", X_knn, y_knn, g_knn, "groupkfold_doi", "knn"),
+        ("R4", "No imputation (zero-fill) + paper-level GroupKFold (doi)", X_none, y_none, g_none, "groupkfold_doi", "none"),
     ]:
         print(f"\n→ Regime {regime_id}: {label}")
-        result = evaluate_regime(X, y, g, split=split, n_boot=1000)
+        result = evaluate_regime(X, y, g, split=split, impute=impute, n_boot=1000)
         result["label"] = label
         result["split"] = split
-        result["imputation"] = "knn" if X is X_knn else "none"
+        result["imputation"] = impute
         regimes[regime_id] = result
         print(f"   n_rows={result['n_rows']} (papers={result['n_papers']})")
         print(f"   MAE = {result['mae_mean']:.2f} ± {result['mae_std']:.2f} nm   "

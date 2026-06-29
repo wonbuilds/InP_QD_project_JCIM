@@ -17,7 +17,7 @@ Steps
 4. Phase 3 extensions (optional): Cossairt 2 x 2 ablation, Part B baseline
    hierarchy, leave-one-paper-out SHAP stability.
 
-After each step, --strict mode verifies all expected output SHA-256 against
+After all steps complete, --strict mode verifies all expected output SHA-256 against
 the manifest `scripts/expected_checksums.json`. Any mismatch terminates with
 exit code 2 and a diff report. Without --strict, mismatches are warned but
 not fatal.

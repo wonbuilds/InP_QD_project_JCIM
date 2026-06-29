@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build integrated InP dataset by union-stacking DD InP subset (132 rows)
-and Cossairt raw dataset (220 entries) on a common-schema set of columns.
+and Cossairt raw dataset (219 entries; unpublished "nayon" author-synthesis row
+removed from the public deposit) on a common-schema set of columns.
 
 Output: `data/integrated/inp_combined.csv` (long/stacked format).
 
@@ -79,7 +80,6 @@ OUTPUT_COLUMNS = [
     "acid",                  # Cossairt: acid
     "acid_amount_mmol",      # Cossairt: acid_amount_mmol
     "total_volume_ml",       # Cossairt: total_volume_ml
-    "cossairt_user",         # Cossairt: user (Hao / Florence / Nayon ...)
 ]
 
 
@@ -154,8 +154,8 @@ def main(argv=None) -> int:
     if len(dd_rows) != 132:
         print(f"FAIL dd_rows count: expected 132, got {len(dd_rows)}", file=sys.stderr)
         return 2
-    if len(cos_rows) != 220:
-        print(f"FAIL cos_rows count: expected 220, got {len(cos_rows)}", file=sys.stderr)
+    if len(cos_rows) != 219:
+        print(f"FAIL cos_rows count: expected 219, got {len(cos_rows)}", file=sys.stderr)
         return 3
 
     # ----- build paper-id ↔ DOI map for DD overlap rows -----
@@ -219,7 +219,6 @@ def main(argv=None) -> int:
         o["acid"] = r["acid"].strip()
         o["acid_amount_mmol"] = r["acid_amount_mmol"].strip()
         o["total_volume_ml"] = r["total_volume_ml"].strip()
-        o["cossairt_user"] = r["user"].strip()
         out_rows.append(o)
 
     # ----- sort: DD first (by recipe_id), then Cossairt (by row_id) -----
@@ -243,10 +242,10 @@ def main(argv=None) -> int:
 
     print("=== inp_combined.csv build — PASS ===")
     print(f"  DD rows emitted     : {dd_emitted}  (expected 132)")
-    print(f"  Cossairt rows       : {cos_emitted}  (expected 220)")
-    print(f"  Total rows          : {len(out_rows)}  (expected 352)")
+    print(f"  Cossairt rows       : {cos_emitted}  (expected 219)")
+    print(f"  Total rows          : {len(out_rows)}  (expected 351)")
     print(f"  DD overlap_flag=1   : {dd_overlap}  (expected 10)")
-    print(f"  Cossairt overlap=1  : {cos_overlap}  (>=10 — counted by DOI literal in 220 entries)")
+    print(f"  Cossairt overlap=1  : {cos_overlap}  (>=10 — counted by DOI literal in 219 entries)")
     print(f"  DD rows with doi    : {dd_with_doi}  (expected 10, only overlap papers)")
     print(f"  Cossairt with doi   : {cos_with_doi}")
     print(f"  Output              : {CSV_OUT.relative_to(PROJECT_ROOT)}")
@@ -274,7 +273,7 @@ def main(argv=None) -> int:
         "description": (
             "Common schema for the integrated InP dataset. Stacks DD InP subset "
             "(132 rows from data/from_dd/inp_subset.csv) and Cossairt raw "
-            "dataset (220 entries from data/from_cossairt/dataset_InP_raw.csv) "
+            "dataset (219 entries from data/from_cossairt/dataset_InP_raw.csv) "
             "on cross-comparable columns. Source-specific columns are preserved "
             "as separate fields filled with empty string for non-applicable rows."
         ),
@@ -287,7 +286,7 @@ def main(argv=None) -> int:
         },
         "filter_rules": {
             "dd_filter": "df[df[\"corpus\"] == \"InP (L-series)\"] (authoritative InP-subset filter)",
-            "cossairt_filter": "all 220 entries from dataset_InP_raw.csv (GitHub Cossairt-Lab/Indium-Phosphide master, SHA-256 verified MIT)",
+            "cossairt_filter": "219 entries derived from upstream MIT data (Cossairt-Lab/Indium-Phosphide) with documented privacy modifications (the 'user' attribution column and the unpublished 'nayon' author-synthesis row were removed); not a byte-for-byte copy of upstream — see COSSAIRT_PROVENANCE.md",
         },
         "overlap_definition": (
             "10 papers in DD ∩ Cossairt, derived from prior "
@@ -335,7 +334,6 @@ def main(argv=None) -> int:
             "first_sol / second_sol",
             "acid / acid_amount_mmol",
             "total_volume_ml",
-            "cossairt_user (Hao / Florence / Nayon / ...)",
         ],
         "unit_normalization_rules": {
             "T_growth_C": "kept as °C (no conversion); Cossairt temp_c and DD T_growth_C are both °C per audit",

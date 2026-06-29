@@ -35,9 +35,7 @@
 
 # %%
 import json
-import hashlib
 import sys
-from collections import Counter
 from pathlib import Path
 
 import numpy as np
@@ -301,8 +299,7 @@ adjust_text(_texts_A, ax=ax, x=list(em_paired["cos_em"]), y=list(em_paired["dd_e
 ax = axes[0, 1]
 em_paired["em_mean"] = (em_paired["dd_em"] + em_paired["cos_em"]) / 2
 # non-L023
-ax.scatter(non_l023["em_mean"] if "em_mean" in non_l023 else
-           (non_l023["dd_em"] + non_l023["cos_em"]) / 2,
+ax.scatter((non_l023["dd_em"] + non_l023["cos_em"]) / 2,
            non_l023["em_diff"], s=50, c=COLOR_BASE,
            edgecolors="black", linewidths=0.6, label="other paper medians", zorder=3)
 # L023 paper-median (hero)
@@ -482,7 +479,7 @@ dd_all = df[df["source"] == "dd"].copy()
 # Cossairt published-only — 219 rows (data_origin filter excludes nayon)
 cos_pub = df[(df["source"] == "cossairt") & (df["data_origin"] == "published_literature")].copy()
 print(f"DD InP subset:           {len(dd_all)} rows")
-print(f"Cossairt published-only: {len(cos_pub)} rows  (220 raw - 1 nayon = 219)")
+print(f"Cossairt published-only: {len(cos_pub)} rows  (raw deposit is 219; the nayon author-synthesis row was removed from the public deposit in A2)")
 
 # %%
 A2_TARGETS = ["emission_nm", "T_growth_C", "time_min"]
@@ -524,9 +521,6 @@ else:
     p = np.asarray(all_pvals, dtype=float)
     n = len(p)
     order = np.argsort(p)
-    ranks = np.empty(n, dtype=int)
-    ranks[order] = np.arange(1, n + 1)
-    p_bh = p * n / ranks
     # enforce monotonicity from the top
     p_sorted = p[order]
     bh_sorted = (p_sorted * n) / np.arange(1, n + 1)
@@ -684,7 +678,8 @@ print(f"Output SHA-256: {sha256_of(out2)}")
 #     add k-fold CV + bootstrap CI to characterize variance honestly.
 #   - Cossairt's training data is *augmented + scaled*
 #     (`dataset_scaled_emission.csv`). We use the raw 219-row published-only
-#     subset for honest comparison (no augmentation, no imputation).
+#     subset for honest comparison (no augmentation; missing numerics use
+#     Cossairt's 0.0-fill fallback below, not statistical imputation).
 #
 # Cossairt requirements.txt pin: `scikit_learn==0.24.1` (2021). We run on
 # `scikit-learn==1.8.0` — same algorithm but minor numerical differences
@@ -692,7 +687,7 @@ print(f"Output SHA-256: {sha256_of(out2)}")
 
 # %%
 from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import ExtraTreesRegressor, RandomForestRegressor
+from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.model_selection import (GroupKFold, KFold, cross_val_score,
                                      train_test_split)
@@ -864,7 +859,9 @@ print(shared_df.to_string(index=False))
 # Spearman ρ across all features by name normalization (drop num__/cat__ prefixes)
 def norm(name):
     name = name.replace("num__", "").replace("cat__", "")
-    # Strip OneHotEncoder per-column prefix (e.g., "in_source_indium chloride")
+    # NOTE: only the num__/cat__ family prefix is removed above; the per-column
+    # OneHotEncoder value suffix (e.g. "in_source_indium chloride") is NOT
+    # stripped, so only bare numeric features (e.g. time_min) can intersect.
     return name
 
 cos_norm = cos_imp.assign(feat=cos_imp["feature"].map(norm))
@@ -948,8 +945,6 @@ ax.scatter(y_cos, cos_pred_full, s=50, c="#ff7f0e", edgecolors="black",
 lo = min(y_cos.min(), cos_pred_full.min()) - 15
 hi = max(y_cos.max(), cos_pred_full.max()) + 15
 ax.plot([lo, hi], [lo, hi], "--", color="gray", lw=1, label="y = x", zorder=2)
-# Bands showing MAE-level expected spread
-mid = (lo + hi) / 2
 ax.set_xlabel("Observed emission (nm)", fontsize=9)
 ax.set_ylabel("Predicted emission (nm)", fontsize=9)
 ax.set_title("A. reference reproduction", fontsize=11, fontweight="bold")
@@ -1072,9 +1067,19 @@ results_a3 = dict(
         nongrouped_kfold5_mae_std=float(dd_kfold_cv.std()),
     ),
     shared_feature_comparison=shared_df.to_dict("records"),
-    spearman_rho=dict(rho=float(rho) if not np.isnan(rho) else None,
-                      p=float(rho_p) if not np.isnan(rho_p) else None,
-                      n_features_intersected=int(len(joined))),
+    spearman_rho=(
+        dict(computed=True, rho=float(rho), p=float(rho_p),
+             n_features_intersected=int(len(joined)))
+        if (len(joined) >= 3 and not np.isnan(rho)) else
+        dict(computed=False,
+             reason=("only %d shared feature name(s) after dropping num__/cat__ "
+                     "prefixes (OneHotEncoder value suffixes are not canonicalized, "
+                     "so e.g. temp_c vs T_growth_C do not match); Spearman rho is "
+                     "undefined for n<3 and is therefore NOT computed — "
+                     "missing-by-design, not a zero/absent correlation result"
+                     ) % int(len(joined)),
+             n_features_intersected=int(len(joined)))
+    ),
     pca=dict(
         cossairt_explained_variance=[float(v) for v in pca_cos.explained_variance_ratio_],
         dd_explained_variance=[float(v) for v in pca_dd.explained_variance_ratio_],
@@ -1128,13 +1133,14 @@ SHARED_FEATURES_A4 = ["T_temp", "time_min"]
 # filled raw snapshot cos_raw_a4 (NOT cos_em, which inherits the COS_NUMERIC
 # 0.0-fill at L726 used for the A.3 reproduction). Coerce then drop genuinely
 # missing rows (no-imputation, symmetric with the DD side).
-cos_a4 = cos_raw_a4[["temp_c", "time_min", "emission_nm"]].copy()
+cos_a4 = cos_raw_a4[["doi", "temp_c", "time_min", "emission_nm"]].copy()
 cos_a4 = cos_a4.rename(columns={"temp_c": "T_temp"})
 for c in ["T_temp", "time_min", "emission_nm"]:
     cos_a4[c] = pd.to_numeric(cos_a4[c], errors="coerce")
-cos_a4 = cos_a4.dropna()
+cos_a4 = cos_a4.dropna(subset=["T_temp", "time_min", "emission_nm"])
 X_cos_a4 = cos_a4[SHARED_FEATURES_A4].values.astype(float)
 y_cos_a4 = cos_a4["emission_nm"].values.astype(float)
+groups_cos_a4 = cos_a4["doi"].values  # paper-level (doi) grouping — symmetric with the DD side
 print(f"Cossairt A.4 subset: n={len(y_cos_a4)} rows (features={SHARED_FEATURES_A4})")
 
 # DD subset (emission-present) with unified column name.
@@ -1205,11 +1211,11 @@ print(f"  Bootstrap 95% CI: ({bwd_ci[0]:.2f}, {bwd_ci[1]:.2f}) nm")
 # %%
 cos_within_cv = -cross_val_score(
     Pipeline([("et", ExtraTreesRegressor(**COS_HP_EMISSION))]),
-    X_cos_a4, y_cos_a4, cv=KFold(5, shuffle=True, random_state=42),
+    X_cos_a4, y_cos_a4, groups=groups_cos_a4, cv=GroupKFold(5),
     scoring="neg_mean_absolute_error", n_jobs=1)
 cos_within_r2 = cross_val_score(
     Pipeline([("et", ExtraTreesRegressor(**COS_HP_EMISSION))]),
-    X_cos_a4, y_cos_a4, cv=KFold(5, shuffle=True, random_state=42),
+    X_cos_a4, y_cos_a4, groups=groups_cos_a4, cv=GroupKFold(5),
     scoring="r2", n_jobs=1)
 print(f"Cossairt within-source 5-fold CV MAE (shared features only): "
       f"{cos_within_cv.mean():.2f} ± {cos_within_cv.std():.2f} nm")
@@ -1351,6 +1357,7 @@ y_dd_ne = dd_a4_ne["emission_nm"].values.astype(float)
 groups_dd_ne = dd_a4_ne["paper_id_dd"].values
 X_cos_ne = cos_a4_ne[SHARED_FEATURES_A4].values.astype(float)
 y_cos_ne = cos_a4_ne["emission_nm"].values.astype(float)
+groups_cos_ne = cos_a4_ne["doi"].values
 print(f"Overlap-excluded subsets: DD n={len(y_dd_ne)} "
       f"({len(set(groups_dd_ne))} papers), Cossairt n={len(y_cos_ne)}")
 
@@ -1366,7 +1373,8 @@ dd_within_ne = -cross_val_score(
     scoring="neg_mean_absolute_error", n_jobs=1)
 cos_within_ne = -cross_val_score(
     Pipeline([("et", ExtraTreesRegressor(**COS_HP_EMISSION))]),
-    X_cos_ne, y_cos_ne, cv=KFold(5, shuffle=True, random_state=42),
+    X_cos_ne, y_cos_ne, groups=groups_cos_ne,
+    cv=GroupKFold(max(2, min(5, len(set(groups_cos_ne))))),
     scoring="neg_mean_absolute_error", n_jobs=1)
 fwd_gap_ne = float(fwd_mae_ne - dd_within_ne.mean())
 bwd_gap_ne = float(bwd_mae_ne - cos_within_ne.mean())
@@ -1378,13 +1386,13 @@ print(f"[overlap-excluded] backward MAE={bwd_mae_ne:.2f}  Cos within={cos_within
 # %%
 results_a4 = dict(
     shared_features=SHARED_FEATURES_A4,
-    cossairt=dict(n=int(len(y_cos_a4)),
-                  within_kfold5_mae_mean=float(cos_within_cv.mean()),
-                  within_kfold5_mae_std=float(cos_within_cv.std()),
-                  within_kfold5_mae_per_fold=[float(v) for v in cos_within_cv],
-                  within_kfold5_r2_mean=float(cos_within_r2.mean()),
-                  within_kfold5_r2_std=float(cos_within_r2.std()),
-                  within_kfold5_r2_per_fold=[float(v) for v in cos_within_r2]),
+    cossairt=dict(n=int(len(y_cos_a4)), n_papers=int(len(set(groups_cos_a4))),
+                  within_groupkfold5_mae_mean=float(cos_within_cv.mean()),
+                  within_groupkfold5_mae_std=float(cos_within_cv.std()),
+                  within_groupkfold5_mae_per_fold=[float(v) for v in cos_within_cv],
+                  within_groupkfold5_r2_mean=float(cos_within_r2.mean()),
+                  within_groupkfold5_r2_std=float(cos_within_r2.std()),
+                  within_groupkfold5_r2_per_fold=[float(v) for v in cos_within_r2]),
     dd=dict(n=int(len(y_dd_a4)), n_papers=int(len(set(groups_dd_a4))),
             within_groupkfold5_mae_mean=float(dd_within_cv.mean()),
             within_groupkfold5_mae_std=float(dd_within_cv.std()),

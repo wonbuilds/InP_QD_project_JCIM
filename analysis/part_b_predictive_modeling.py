@@ -17,8 +17,9 @@
 # # Part B — DD-only predictive modeling
 #
 # **Scope** (the project analysis plan §5.2 + the analysis design plan §3):
-# - Dataset: DD InP subset 132 rows (`data/from_dd/inp_subset.csv`, no
-#   imputation; `caution_count` default OFF).
+# - Dataset: DD InP subset 132 rows (`data/from_dd/inp_subset.csv`, raw/
+#   un-imputed CSV — features are median-imputed PER FOLD inside the CV
+#   pipeline; `caution_count` default OFF).
 # - Targets: PL_peak_nm_final (primary), QY_percent_final, FWHM_nm_final,
 #   shell_layer_count (derived from system_tag).
 # - Features: T_growth_C, time_min, route, shell_layer_count,
@@ -36,14 +37,13 @@
 # Remaining targets (QY, FWHM, shell_layer_count) handled at Part B (extended).
 
 # %%
-import json, hashlib, sys
+import json, sys
 from pathlib import Path
 from collections import Counter
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 PROJECT_ROOT = Path.cwd()
 if not (PROJECT_ROOT / "scripts").exists():
@@ -192,7 +192,7 @@ print(f"Saved: {fig5_pdf}")
 
 # %%
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.model_selection import GroupKFold, cross_val_score, cross_validate
+from sklearn.model_selection import GroupKFold, cross_validate
 from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
@@ -463,7 +463,7 @@ print(f"Output SHA-256: {sha256_of(out_b1)}")
 # Scope:
 # - **3 remaining targets**: QY_percent_final, FWHM_nm_final, shell_layer_count
 # - **caution_count sensitivity**: (a) feature ON vs OFF — ΔMAE per target; (b) data-quality stratification — full 132 vs caution_count==0 subset (n=101)
-# - **data_origin sensitivity**: published_literature only (n=131) vs full 132 (includes 1 nayon record)
+# - **data_origin sensitivity**: degenerate for DD-only — all 132 DD rows are published_literature; the "nayon" author-synthesis row is a Cossairt-side entry only and was removed from the public deposit (GROUP A2)
 # - **Cross-target SHAP consistency**: top features per target table
 # - **Cossairt-side exclusion**: QY/FWHM/shell_layer_count are DD-only (not in Cossairt 2022)
 # - **Figure 7**: 4-target performance comparison (MAE + R² + bootstrap CI per target)
@@ -478,7 +478,7 @@ print(f"Output SHA-256: {sha256_of(out_b1)}")
 # %%
 def run_target_pipeline(target_name, df_in, *, use_caution_count=False,
                         rng_seed=42, n_boot=1000, run_shap=True):
-    """RF + GBM + paper-level GroupKFold + bootstrap + SHAP, no-imputation regime.
+    """RF + GBM + paper-level GroupKFold + bootstrap + SHAP; CSV features are raw/un-imputed and median-imputed PER FOLD inside the CV pipeline.
 
     Parameters
     ----------
@@ -617,7 +617,7 @@ def run_target_pipeline(target_name, df_in, *, use_caution_count=False,
 # Targets:
 # - QY_percent_final (n = 119 / 132, present rate 90.2 %)
 # - FWHM_nm_final (n = 125 / 132, present rate 94.7 %)
-# - shell_layer_count (n = 132 / 132, derived; treated as continuous regression since it ranges over {1, 2, 3} — predicting an integer with a regressor returns rounded values via MAE)
+# - shell_layer_count (n = 132 / 132, derived; treated as continuous regression since it ranges over {1, 2, 3} — the regressor outputs continuous values and MAE is computed on those directly, with no rounding)
 
 # %%
 print("=" * 70)
@@ -710,7 +710,8 @@ for tgt in ["PL_peak_nm_final", "QY_percent_final", "FWHM_nm_final", "shell_laye
 # The `data_origin == published_literature` filter referenced in
 # `INTEGRATION_NOTE.md` is a property of the *integrated* DD + Cossairt
 # dataset (`inp_combined.csv`), where it distinguishes DD-curated rows
-# from the single Nayon row in Cossairt. For DD-only Part B predictive
+# from the single Nayon author-synthesis row in Cossairt (now removed from the
+# public deposit). For DD-only Part B predictive
 # modeling, no row is excluded by this filter, so the sensitivity test
 # is degenerate and not reported.
 
@@ -876,7 +877,9 @@ print(f"Saved: {fig7_pdf}")
 # %%
 # Features appearing in top-5 across all 4 targets — cross-target dominant.
 # Highlighted in DARK red to distinguish from per-target top-3 (red).
-DOMINANT_4_4 = {"num__T_growth_C", "num__time_min"}
+# Derived from the cross-target appearance counter (feature_appearance) so it
+# cannot silently desync from the data: features in the top set of all 4 targets.
+DOMINANT_4_4 = {f for f, c in feature_appearance.items() if c == 4}
 
 # Display-only route abbreviation (e.g. "... one pot ..." -> "... 1-pot ...")
 def _shorten(label):

@@ -70,7 +70,7 @@
       ]
     },
     "3_paper_grouped_dummy": {
-      "label": "Paper-grouped dummy (paper-mean if seen, else global mean)",
+      "label": "Paper-grouped dummy (paper-mean if seen, else global mean) \u2014 degenerate under GroupKFold: held-out paper never in train, so always == global mean (numerically == baseline 2)",
       "features": [
         "paper_id"
       ],
@@ -226,6 +226,6 @@
     "improvement_over_T_only": 10.851532958533909,
     "improvement_over_T_plus_logtime": 6.374571081245534,
     "full_vs_shuffled_gap": 14.271507063833596,
-    "interpretation": "Full RF improves on T_growth_C-only by improvement_over_T_only nm and on T + log(time) by improvement_over_T_plus_logtime nm. The shuffled-target negative control demonstrates the RF's signal is not numerical artifact (a substantial full_vs_shuffled_gap indicates meaningful target dependence)."
+    "interpretation": "Full RF improves on T_growth_C-only by 10.85 nm and on T + log(time) by 6.37 nm. The shuffled-target negative control demonstrates the RF's signal is not a numerical artifact (a 14.27 nm full-vs-shuffled gap indicates meaningful target dependence)."
   }
 }

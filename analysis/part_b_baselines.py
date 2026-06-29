@@ -13,8 +13,10 @@ Baselines (in order of complexity)
    leakage prevention sanity).
 2. Global mean predictor — constant prediction at training mean.
 3. Paper-grouped dummy — predicts paper-mean for the test paper if present in
-   training history, else global mean (tests whether paper-level structure
-   alone carries signal).
+   training history, else global mean. NOTE: under paper-level GroupKFold the
+   held-out paper is by construction never in the training history, so this
+   ALWAYS falls back to the global mean — i.e. degenerate and numerically
+   identical to baseline 2 (global mean). Retained only to make that explicit.
 4. T_growth_C only — single-feature linear regression.
 5. shell_innermost only — categorical OneHotEncoded linear regression.
 6. T + log(time) — 2-feature linear regression (Part A.4 baseline-equivalent).
@@ -25,7 +27,6 @@ Determinism: random_state=42 throughout. Output JSON SHA-256-verified.
 
 from __future__ import annotations
 
-import hashlib
 import json
 import sys
 from pathlib import Path
@@ -60,7 +61,8 @@ def load_pl_peak_dataset():
     dd = pd.concat([dd, parsed.drop(columns=["shell_layers"])], axis=1)
     dd["outer_is_ZnS"] = (dd["shell_outermost"] == "ZnS").astype(int)
     work = dd.dropna(subset=["PL_peak_nm_final"]).copy()
-    # T_growth_C has no missingness; time_min (12/132 missing) is imputed PER FOLD
+    # T_growth_C has no missingness; time_min (10/129 missing in the working
+    # frame; 12/132 before dropping rows missing PL_peak) is imputed PER FOLD
     # inside each model pipeline (SimpleImputer) to avoid held-out-fold leakage.
     work["log10_time_min"] = np.log10(work["time_min"].clip(lower=1.0))
     work["shell_innermost"] = work["shell_innermost"].fillna("Unknown").astype(str)
@@ -202,7 +204,9 @@ def main() -> None:
         boots.append(mean_absolute_error(y[held], pred))
     boots = np.array(boots)
     results["3_paper_grouped_dummy"] = dict(
-        label="Paper-grouped dummy (paper-mean if seen, else global mean)",
+        label=("Paper-grouped dummy (paper-mean if seen, else global mean) — "
+               "degenerate under GroupKFold: held-out paper never in train, so "
+               "always == global mean (numerically == baseline 2)"),
         features=["paper_id"],
         mae_mean=float(pg_mae.mean()),
         mae_std=float(pg_mae.std()),
@@ -264,16 +268,19 @@ def main() -> None:
     t_only_mae = results["4_T_only_linear"]["mae_mean"]
     t_log_t_mae = results["6_T_plus_logtime_linear"]["mae_mean"]
     shuffled_mae = results["1_shuffled_negative_control"]["mae_mean"]
+    _imp_t = float(t_only_mae - rf_mae)
+    _imp_tlog = float(t_log_t_mae - rf_mae)
+    _gap_shuf = float(shuffled_mae - rf_mae)
     summary = dict(
-        improvement_over_T_only=float(t_only_mae - rf_mae),
-        improvement_over_T_plus_logtime=float(t_log_t_mae - rf_mae),
-        full_vs_shuffled_gap=float(shuffled_mae - rf_mae),
+        improvement_over_T_only=_imp_t,
+        improvement_over_T_plus_logtime=_imp_tlog,
+        full_vs_shuffled_gap=_gap_shuf,
         interpretation=(
-            "Full RF improves on T_growth_C-only by improvement_over_T_only nm "
-            "and on T + log(time) by improvement_over_T_plus_logtime nm. "
-            "The shuffled-target negative control demonstrates the RF's signal "
-            "is not numerical artifact (a substantial full_vs_shuffled_gap "
-            "indicates meaningful target dependence)."
+            f"Full RF improves on T_growth_C-only by {_imp_t:.2f} nm "
+            f"and on T + log(time) by {_imp_tlog:.2f} nm. "
+            f"The shuffled-target negative control demonstrates the RF's signal "
+            f"is not a numerical artifact (a {_gap_shuf:.2f} nm full-vs-shuffled "
+            f"gap indicates meaningful target dependence)."
         ),
     )
 

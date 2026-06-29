@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Standard I/O helpers for Phase C analysis layer.
+"""Standard I/O helpers for the Parts A-B analysis layer.
 
 Why this module exists:
 
@@ -69,9 +69,9 @@ def load_combined(path: str | Path | None = None, *, with_data_origin: bool = Tr
     - "published_literature" for all rows where `doi` is non-NaN and not
       the literal `"nayon"`,
     - "author_synthesis" for the single Cossairt `doi == "nayon"` row,
-    - "" for DD rows without a DOI lookup (paper-level overlap rows have
-      a DOI; non-overlap DD rows do not). DD rows are always
-      publication-sourced per the DD curation methodology.
+    - "published_literature" for all DD rows (DD rows are always
+      publication-sourced per the DD curation methodology; the data_origin
+      flag only ever singles out the one Cossairt "nayon" author_synthesis row).
 
     Default analysis filter: `df[df["data_origin"] != "author_synthesis"]`
     (CON: 219 Cossairt + 132 DD = 351 rows). Sensitivity analysis can

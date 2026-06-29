@@ -163,7 +163,7 @@ def main() -> None:
               f"{r['top1_pct']:>6.1f}%  {r['top3_pct']:>6.1f}%  {r['top5_pct']:>6.1f}%")
 
     # Specific ZnSe stability check
-    znse_features = [r for r in rank_summary if "ZnSe" in r["feature"]]
+    znse_features = [r for r in rank_summary if r["feature"] == "cat__shell_innermost_ZnSe"]
     print("\n=== shell_innermost = ZnSe stability ===")
     for r in znse_features:
         print(f"  {r['feature']}: rank median={r['rank_median']:.1f}, "

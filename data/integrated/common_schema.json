@@ -1,17 +1,17 @@
 {
   "version": "1.0",
   "created": "2026-05-21",
-  "description": "Common schema for the integrated InP dataset. Stacks DD InP subset (132 rows from data/from_dd/inp_subset.csv) and Cossairt raw dataset (220 entries from data/from_cossairt/dataset_InP_raw.csv) on cross-comparable columns. Source-specific columns are preserved as separate fields filled with empty string for non-applicable rows.",
+  "description": "Common schema for the integrated InP dataset. Stacks DD InP subset (132 rows from data/from_dd/inp_subset.csv) and Cossairt raw dataset (219 entries from data/from_cossairt/dataset_InP_raw.csv) on cross-comparable columns. Source-specific columns are preserved as separate fields filled with empty string for non-applicable rows.",
   "row_counts": {
     "dd_rows": 132,
-    "cossairt_rows": 220,
-    "total": 352,
+    "cossairt_rows": 219,
+    "total": 351,
     "dd_overlap_rows": 29,
     "cossairt_overlap_rows": 25
   },
   "filter_rules": {
     "dd_filter": "df[df[\"corpus\"] == \"InP (L-series)\"] (authoritative InP-subset filter)",
-    "cossairt_filter": "all 220 entries from dataset_InP_raw.csv (GitHub Cossairt-Lab/Indium-Phosphide master, SHA-256 verified MIT)"
+    "cossairt_filter": "219 entries derived from upstream MIT data (Cossairt-Lab/Indium-Phosphide) with documented privacy modifications (the 'user' attribution column and the unpublished 'nayon' author-synthesis row were removed); not a byte-for-byte copy of upstream — see COSSAIRT_PROVENANCE.md"
   },
   "overlap_definition": "10 papers in DD ∩ Cossairt, derived from prior paper-level matching (matched_to_L_series == 'yes' in cossairt_reference_master_paper_level.csv).",
   "overlap_paper_ids_dd": [
@@ -65,8 +65,7 @@
     "ligand_source / ligand_amount_mmol",
     "first_sol / second_sol",
     "acid / acid_amount_mmol",
-    "total_volume_ml",
-    "cossairt_user (Hao / Florence / Nayon / ...)"
+    "total_volume_ml"
   ],
   "unit_normalization_rules": {
     "T_growth_C": "kept as °C (no conversion); Cossairt temp_c and DD T_growth_C are both °C per audit",
@@ -115,7 +114,6 @@
     "second_sol",
     "acid",
     "acid_amount_mmol",
-    "total_volume_ml",
-    "cossairt_user"
+    "total_volume_ml"
   ]
 }

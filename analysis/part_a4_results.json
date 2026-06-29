@@ -5,23 +5,24 @@
   ],
   "cossairt": {
     "n": 85,
-    "within_kfold5_mae_mean": 37.077236227824464,
-    "within_kfold5_mae_std": 5.655943785481771,
-    "within_kfold5_mae_per_fold": [
-      42.1529411764706,
-      38.85620915032681,
-      31.143137254901966,
-      29.711017740429497,
-      43.52287581699346
+    "n_papers": 40,
+    "within_groupkfold5_mae_mean": 44.60969810146281,
+    "within_groupkfold5_mae_std": 12.443612386595328,
+    "within_groupkfold5_mae_per_fold": [
+      43.93333333333334,
+      42.596638655462186,
+      67.8529411764706,
+      31.31372549019608,
+      37.35185185185185
     ],
-    "within_kfold5_r2_mean": 0.17776979588898612,
-    "within_kfold5_r2_std": 0.5597927441736915,
-    "within_kfold5_r2_per_fold": [
-      0.4360803450963766,
-      0.04702866202664935,
-      0.6810410037340225,
-      0.5802492487641959,
-      -0.8555502801763137
+    "within_groupkfold5_r2_mean": -0.09306810747269027,
+    "within_groupkfold5_r2_std": 0.2366879250032556,
+    "within_groupkfold5_r2_per_fold": [
+      -0.4368266646885477,
+      -0.2027235150331701,
+      -0.15756869231494353,
+      0.2421569500074171,
+      0.08962138466579284
     ]
   },
   "dd": {
@@ -66,9 +67,9 @@
       65.5420588235294
     ],
     "bootstrap_method": "row-level fixed-prediction bootstrap (descriptive; not paper-level)",
-    "gap_vs_within_source": 19.04645658263304
+    "gap_vs_within_source": 11.513994708994694
   },
-  "asymmetry_fwd_minus_bwd_gap": -18.292795333109055,
+  "asymmetry_fwd_minus_bwd_gap": -10.760333459470708,
   "overlap_excluded_sensitivity": {
     "description": "9 DOI-overlap publications removed from both corpora (train + test)",
     "dd_n": 93,
@@ -78,8 +79,8 @@
     "dd_within_mae_nm": 64.19512438503668,
     "forward_gap_nm": -0.016370900369210517,
     "backward_mae_nm": 55.14711538461541,
-    "cossairt_within_mae_nm": 38.409687500000004,
-    "backward_gap_nm": 16.737427884615407,
+    "cossairt_within_mae_nm": 41.852986111111115,
+    "backward_gap_nm": 13.294129273504296,
     "groupkfold_n_splits": 5
   },
   "hyperparameters": {
